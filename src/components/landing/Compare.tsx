@@ -29,7 +29,7 @@ const steps = [
     n: "Step 2",
     title: "ENRICH",
     icon: Database,
-    desc: "바이어 기업 정보를 보강하고 AI를 통해 영업 적합도를 분석합니다.",
+    desc: "영업 시작 전 바이어 기업 정보와 담당자 연락처를 확보합니다.",
   },
   {
     n: "Step 3",
@@ -133,7 +133,8 @@ export const Compare = () => (
       <div className="mt-24 max-w-2xl mx-auto text-center reveal">
         <p className="text-sm font-semibold text-primary mb-3">HOW IT WORKS</p>
         <h3 className="text-2xl md:text-4xl font-bold tracking-tight leading-tight">
-          해외영업의 시작은{" "}
+          해외영업의 시작은
+          <br />
           <span className="text-gradient-primary">정확한 바이어</span>로부터 시작합니다
         </h3>
         <p className="mt-4 text-muted-foreground">
