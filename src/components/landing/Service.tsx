@@ -1,12 +1,12 @@
 import { Check, Sparkles } from "lucide-react";
 
 const main = [
-  "바이어 발굴 및 필터링",
-  "담당자 정보 확보",
-  "이메일 발송 및 관리",
-  "응답 바이어 전달",
+  "실제 구매 이력 있는 바이어 발굴",
+  "담당자 정보 및 연락처 확보",
+  "이메일 소통 및 컨택이력 기록 및 관리",
+  "바이어 Inquiry 확보 및 전달",
 ];
-const self = ["바이어 검색", "CRM 관리", "이메일 송수신"];
+const self = ["무역데이터 기반 바이어 검색", "CRM을 통한 바이어 현황 관리", "이메일 연동 및 이메일 송수신 기능"];
 
 export const Service = () => (
   <section className="py-24 md:py-32 bg-background">
