@@ -2,7 +2,12 @@ import { useEffect } from "react";
 
 export function useReveal() {
   useEffect(() => {
-    const els = document.querySelectorAll<HTMLElement>(".reveal");
+    if (typeof IntersectionObserver === "undefined") {
+      document
+        .querySelectorAll<HTMLElement>(".reveal")
+        .forEach((el) => el.classList.add("in-view"));
+      return;
+    }
     const io = new IntersectionObserver(
       (entries) => {
         entries.forEach((e) => {
@@ -12,9 +17,25 @@ export function useReveal() {
           }
         });
       },
-      { threshold: 0.12, rootMargin: "0px 0px -40px 0px" }
+      { threshold: 0.05, rootMargin: "0px 0px 0px 0px" }
     );
-    els.forEach((el) => io.observe(el));
-    return () => io.disconnect();
+    const observe = () =>
+      document
+        .querySelectorAll<HTMLElement>(".reveal:not(.in-view)")
+        .forEach((el) => io.observe(el));
+    observe();
+    // Re-scan after layout settles (handles late-mounted nodes)
+    const t = window.setTimeout(observe, 200);
+    // Safety fallback: ensure nothing stays hidden
+    const fallback = window.setTimeout(() => {
+      document
+        .querySelectorAll<HTMLElement>(".reveal:not(.in-view)")
+        .forEach((el) => el.classList.add("in-view"));
+    }, 1500);
+    return () => {
+      io.disconnect();
+      window.clearTimeout(t);
+      window.clearTimeout(fallback);
+    };
   }, []);
 }
