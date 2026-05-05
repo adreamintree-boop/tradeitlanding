@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
+import logo from "@/assets/tradeit-logo.png";
 
 const links = [
   { href: "#service", label: "서비스 소개" },
@@ -26,8 +27,7 @@ export const Header = () => {
     >
       <div className="container flex items-center justify-between h-16 md:h-20">
         <a href="#top" className="flex items-center gap-2">
-          <div className="w-8 h-8 rounded-lg bg-gradient-primary shadow-soft" />
-          <span className="text-xl font-bold tracking-tight">TradeIt</span>
+          <img src={logo} alt="TradeIt" className="h-7 md:h-8 w-auto" />
         </a>
         <nav className="hidden md:flex items-center gap-8">
           {links.map((l) => (
