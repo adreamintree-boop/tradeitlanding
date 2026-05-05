@@ -59,8 +59,9 @@ export const Compare = () => (
     <div className="container">
       <div className="max-w-2xl mx-auto text-center reveal">
         <p className="text-sm font-semibold text-primary mb-3">WHY B/L DATA</p>
-        <h2 className="text-3xl md:text-5xl font-bold tracking-tight leading-tight">
-          B/L 데이터를 활용하면{" "}
+        <h2 className="text-3xl md:text-5xl font-bold tracking-tight leading-snug md:leading-tight">
+          B/L 데이터를 활용하면
+          <br />
           <span className="text-gradient-primary">무엇이 달라질까요?</span>
         </h2>
         <p className="mt-5 text-muted-foreground text-base md:text-lg">
