@@ -133,11 +133,11 @@ export const Compare = () => (
       {/* Process Steps */}
       <div className="mt-24 max-w-2xl mx-auto text-center reveal">
         <p className="text-sm font-semibold text-primary mb-3">HOW IT WORKS</p>
-        <h3 className="text-2xl font-bold tracking-tight leading-tight md:text-5xl">
+        <h2 className="text-2xl font-bold tracking-tight leading-tight md:text-5xl">
           해외영업의 시작은
           <br />
           <span className="text-gradient-primary">정확한 바이어</span>로부터 시작합니다
-        </h3>
+        </h2>
         <p className="mt-4 text-muted-foreground">
           B/L 검색부터 바이어 분석, 컨택까지 해외영업의 전 과정을 하나로 연결합니다.
         </p>
