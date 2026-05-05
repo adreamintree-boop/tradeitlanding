@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Linkedin, Facebook, Youtube } from "lucide-react";
+import logo from "@/assets/tradeit-logo.png";
 
 export const FinalCta = () => (
   <section id="contact" className="py-24 md:py-32 bg-gradient-soft">
@@ -31,14 +32,38 @@ export const FinalCta = () => (
 );
 
 export const Footer = () => (
-  <footer className="border-t border-border/60 py-10 bg-background">
-    <div className="container flex flex-col md:flex-row items-center justify-between gap-3 text-sm text-muted-foreground">
-      <div className="flex items-center gap-2">
-        <div className="w-6 h-6 rounded-md bg-gradient-primary" />
-        <span className="font-semibold text-foreground">TradeIt</span>
-        <span>· 해외영업을 대신해드립니다</span>
+  <footer className="w-full border-t border-border/60 bg-muted/50">
+    <div className="container py-10 md:py-12">
+      <div className="flex flex-col md:flex-row items-center md:items-center justify-between gap-6 text-sm text-muted-foreground">
+        <div className="flex flex-col md:flex-row items-center gap-3 md:gap-5">
+          <img src={logo} alt="TradeIt" className="h-6 w-auto" />
+          <span className="text-muted-foreground/80">
+            © {new Date().getFullYear()} TradeIt. All rights reserved.
+          </span>
+        </div>
+        <div className="flex flex-col md:flex-row items-center gap-5 md:gap-7">
+          <nav className="flex items-center gap-5">
+            <a href="#" className="hover:text-foreground transition-smooth">이용약관</a>
+            <a href="#" className="hover:text-foreground transition-smooth">개인정보처리방침</a>
+          </nav>
+          <div className="flex items-center gap-3">
+            {[
+              { Icon: Linkedin, label: "LinkedIn" },
+              { Icon: Facebook, label: "Facebook" },
+              { Icon: Youtube, label: "YouTube" },
+            ].map(({ Icon, label }) => (
+              <a
+                key={label}
+                href="#"
+                aria-label={label}
+                className="w-9 h-9 inline-flex items-center justify-center rounded-full text-muted-foreground hover:text-primary hover:bg-background hover:-translate-y-0.5 transition-smooth"
+              >
+                <Icon className="w-4 h-4" />
+              </a>
+            ))}
+          </div>
+        </div>
       </div>
-      <p>© {new Date().getFullYear()} TradeIt. All rights reserved.</p>
     </div>
   </footer>
 );
