@@ -5,7 +5,8 @@ const plans = [
   {
     name: "Starter Plan",
     price: "₩99,000",
-    suffix: "/월 (VAT 포함)",
+    suffix: "/월",
+    note: "VAT 포함",
     features: [
       "10,000 크레딧",
       "B/L 데이터 검색",
@@ -19,7 +20,8 @@ const plans = [
   {
     name: "Data Package",
     price: "₩99,000",
-    suffix: "/ 1회",
+    suffix: "/1회",
+    note: "VAT 포함",
     features: ["바이어 20개 제공", "실제 수입 이력 기반", "CRM에 정리 후 제공"],
     cta: "리스트 받아보기",
     badge: null,
@@ -27,9 +29,10 @@ const plans = [
   {
     name: "해외영업 대행 A",
     price: "₩990,000",
-    suffix: "/월 · 6개월 계약",
+    suffix: "/월",
+    note: "6개월 계약 · VAT 포함",
     features: [
-      "매월 바이어 30개 발굴",
+      "총 바이어 30개 발굴",
       "CRM 등록",
       "컨택 및 관리",
       "이메일 발송 및 대응",
@@ -42,8 +45,9 @@ const plans = [
   {
     name: "해외영업 대행 B",
     price: "₩1,990,000",
-    suffix: "/월 · 6개월 계약",
-    features: ["매월 바이어 50개 발굴", "CRM 등록", "컨택 및 관리"],
+    suffix: "/월",
+    note: "6개월 계약 · VAT 포함",
+    features: ["총 바이어 50개 발굴", "CRM 등록", "컨택 및 관리"],
     guarantee: "Target 바이어 5개 보장",
     cta: "상담 신청",
     badge: null,
@@ -63,7 +67,7 @@ export const Pricing = () => (
         {plans.map((p) => (
           <div
             key={p.name}
-            className={`reveal relative rounded-3xl p-8 transition-smooth hover:-translate-y-2 ${
+            className={`reveal relative rounded-3xl p-8 flex flex-col transition-smooth hover:-translate-y-2 ${
               p.highlight
                 ? "bg-gradient-cta text-primary-foreground shadow-elevated xl:scale-105 hover:shadow-glow border border-primary/20"
                 : "bg-card border border-border/70 shadow-soft hover:shadow-card"
@@ -74,11 +78,14 @@ export const Pricing = () => (
                 <Star className="w-3 h-3 fill-current" /> {p.badge}
               </div>
             )}
-            <h3 className={`text-lg font-semibold ${p.highlight ? "" : ""}`}>{p.name}</h3>
-            <div className="mt-4 flex items-end gap-1">
-              <span className="text-3xl md:text-4xl font-bold">{p.price}</span>
+            <h3 className="text-lg font-semibold min-h-[3.5rem]">{p.name}</h3>
+            <div className="mt-2 flex items-end gap-1">
+              <span className="text-3xl md:text-4xl font-bold leading-none">{p.price}</span>
               <span className={`text-sm pb-1 ${p.highlight ? "opacity-80" : "text-muted-foreground"}`}>{p.suffix}</span>
             </div>
+            <p className={`mt-2 text-xs h-4 ${p.highlight ? "opacity-80" : "text-muted-foreground"}`}>
+              {p.note ?? ""}
+            </p>
             <ul className="mt-6 space-y-3 text-sm">
               {p.features.map((f) => (
                 <li key={f} className="flex items-start gap-2">
@@ -96,7 +103,7 @@ export const Pricing = () => (
             )}
             <Button
               variant={p.highlight ? "secondary" : "default"}
-              className={`mt-7 w-full ${p.highlight ? "bg-white text-primary hover:bg-white/90" : ""}`}
+              className={`mt-auto pt-0 w-full ${p.highlight ? "bg-white text-primary hover:bg-white/90" : ""}`}
               asChild
             >
               <a href="#contact">{p.cta}</a>
