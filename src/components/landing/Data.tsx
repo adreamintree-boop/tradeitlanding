@@ -1,8 +1,8 @@
 const stats = [
   {
-    value: "200+",
-    title: "200개 이상의 국가",
-    desc: "전 세계 200개 이상 국가의 세관·선적 데이터를 기반으로 글로벌 무역 흐름을 포착합니다.",
+    value: "60M+",
+    title: "6천만개 수출입 기업",
+    desc: "전 세계 6천만 개 이상의 수출입 기업을 식별하고\n거래 맥락까지 연결하여 분석할 수 있습니다.",
   },
   {
     value: "8B+",
@@ -10,9 +10,9 @@ const stats = [
     desc: "80억 건 이상의 실제 수출입 거래 데이터를 기반으로 분석합니다.",
   },
   {
-    value: "60M+",
-    title: "6천만개 수출입 기업",
-    desc: "전 세계 6천만 개 이상의 수출입 기업을 식별하고 거래 맥락까지 연결하여 분석할 수 있습니다.",
+    value: "200+",
+    title: "200개 이상의 국가",
+    desc: "전 세계 200개 이상 국가의 세관·선적 데이터를 기반으로 글로벌 무역 흐름을 포착합니다.",
   },
 ];
 
@@ -37,7 +37,7 @@ export const Data = () => (
           <div key={s.title} className="text-center rounded-3xl bg-white/10 backdrop-blur border border-white/20 p-10">
             <p className="text-5xl md:text-6xl font-bold tracking-tight">{s.value}</p>
             <p className="mt-4 text-lg md:text-xl font-semibold">{s.title}</p>
-            <p className="mt-3 text-sm opacity-80 leading-relaxed">{s.desc}</p>
+            <p className="mt-3 text-sm opacity-80 leading-relaxed whitespace-pre-line">{s.desc}</p>
           </div>
         ))}
       </div>
