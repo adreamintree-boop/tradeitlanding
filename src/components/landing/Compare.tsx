@@ -23,7 +23,7 @@ const steps = [
     n: "Step 1",
     title: "SEARCH",
     icon: Search,
-    desc: "B/L 데이터를 기반으로 실제 수입 이력이 있는 바이어를 탐색하고 CRM에 등록합니다.",
+    desc: "무역데이터를 기반으로 실제 수입 이력이 있는 바이어를 탐색하고 CRM에 등록합니다.",
   },
   {
     n: "Step 2",
