@@ -34,7 +34,7 @@ export const Data = () => (
       </div>
       <div className="mt-14 grid md:grid-cols-3 gap-6">
         {stats.map((s) => (
-          <div key={s.title} className="reveal text-center rounded-3xl bg-white/10 backdrop-blur border border-white/20 p-10">
+          <div key={s.title} className="text-center rounded-3xl bg-white/10 backdrop-blur border border-white/20 p-10">
             <p className="text-5xl md:text-6xl font-bold tracking-tight">{s.value}</p>
             <p className="mt-4 text-lg md:text-xl font-semibold">{s.title}</p>
             <p className="mt-3 text-sm opacity-80 leading-relaxed">{s.desc}</p>
