@@ -62,7 +62,7 @@ export const CostCompare = () => (
               <p className="text-sm md:text-base font-bold text-muted-foreground">직접 수행</p>
             </div>
             <div className="col-span-4 md:col-span-5 p-5 md:p-6 text-center bg-gradient-cta text-primary-foreground">
-              <p className="text-sm md:text-base font-bold">TradeIt 이용 시</p>
+              <p className="text-sm md:text-base font-bold">트레이드잇 이용 시</p>
             </div>
           </div>
 
@@ -110,7 +110,7 @@ export const CostCompare = () => (
                 <p className="mt-1 text-xs text-muted-foreground/80 pl-6">{r.self.sub}</p>
               </div>
               <div className="p-5 bg-primary/5">
-                <p className="text-xs font-semibold text-primary mb-2">TradeIt 이용 시</p>
+                <p className="text-xs font-semibold text-primary mb-2">트레이드잇 이용 시</p>
                 <div className="flex items-start gap-2 text-primary">
                   <Check className="w-4 h-4 mt-0.5 shrink-0" />
                   <p className="text-base font-bold">{r.tradeit.head}</p>
