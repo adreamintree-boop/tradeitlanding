@@ -17,13 +17,10 @@ export const Service = () => (
   <section className="py-24 md:py-32 bg-background">
     <div className="container">
       <div className="max-w-2xl mx-auto text-center reveal">
-        <p className="text-sm font-semibold text-primary mb-3">NEED EXECUTION SUPPORT?</p>
+        <p className="text-sm font-semibold text-primary mb-3">SERVICE</p>
         <h2 className="text-3xl md:text-5xl font-bold tracking-tight">
-          필요하다면, <span className="text-gradient-primary">실행까지 도와드립니다</span>
+          툴이 아니라, <span className="text-gradient-primary">결과를 제공</span>합니다
         </h2>
-        <p className="mt-5 text-muted-foreground text-base md:text-lg">
-          플랫폼만으로 충분하지 않을 때, TradeIt 팀이 직접 바이어 발굴부터 컨택까지 실행을 지원합니다.
-        </p>
       </div>
 
       <div className="mt-14 max-w-6xl mx-auto grid lg:grid-cols-5 gap-6 items-stretch">

@@ -29,21 +29,21 @@ export const Hero = () => {
         <div className="max-w-3xl mx-auto text-center">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-accent text-accent-foreground text-xs font-semibold mb-6 reveal">
             <Sparkles className="w-3.5 h-3.5" />
-            B/L 데이터 × AI 기반 바이어 발굴 플랫폼
+            B/L 데이터 × AI 바이어 발굴 서비스
           </div>
           <h1 className="text-[2rem] sm:text-4xl md:text-6xl font-bold tracking-tight leading-[1.2] reveal">
             해외 바이어, 직접 찾지 마세요.
             <br />
-            <span className="text-gradient-primary">데이터로 연결됩니다.</span>
+            <span className="text-gradient-primary">대신 찾아드립니다.</span>
           </h1>
           <p className="mt-5 text-sm sm:text-base md:text-lg text-muted-foreground leading-relaxed reveal">
-            트레이드잇은 글로벌 B/L 데이터와 AI 분석으로
+            글로벌 수출입 무역데이터와 AI 분석을 기반으로
             <br className="hidden md:block" />
-            실제 수입 이력이 있는 바이어를 직접 찾아볼 수 있습니다.
+            실제 구매 이력이 있는 해외 바이어를 발굴하고, 담당자 컨택까지 연결해드립니다.
           </p>
           <div className="mt-8 flex flex-col sm:flex-row gap-3 justify-center reveal">
             <Button variant="hero" size="xl" className="w-full sm:w-auto" asChild>
-              <a href="#contact">무료 바이어 요청하기 <ArrowRight /></a>
+              <a href="#contact">무료 바이어 리서치 요청하기 <ArrowRight /></a>
             </Button>
             <Button variant="soft" size="xl" className="w-full sm:w-auto" asChild>
               <a href="#service">우리 제품으로 바이어 찾아보기</a>

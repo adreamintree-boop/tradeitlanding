@@ -7,7 +7,6 @@ import logo from "@/assets/tradeit-logo.png";
 import { useRequestModal } from "./RequestModalContext";
 
 const links = [
-  { href: "#top", label: "홈" },
   { href: "#service", label: "서비스 소개" },
   { href: "#process", label: "진행 방식" },
   { href: "#pricing", label: "가격" },
@@ -46,12 +45,6 @@ export const Header = () => {
               {l.label}
             </a>
           ))}
-          <Link
-            to="/voucher"
-            className="text-base font-medium text-muted-foreground hover:text-foreground transition-smooth"
-          >
-            수출바우처사업
-          </Link>
         </nav>
         <div className="hidden md:flex items-center gap-2">
           <Button asChild variant="outline" size="default" className="bg-background text-foreground/80 hover:bg-muted">
@@ -80,13 +73,6 @@ export const Header = () => {
                     {l.label}
                   </a>
                 ))}
-                <Link
-                  to="/voucher"
-                  onClick={() => setMenuOpen(false)}
-                  className="px-3 py-3 rounded-lg text-base font-medium text-foreground hover:bg-muted transition-smooth"
-                >
-                  수출바우처사업
-                </Link>
               </nav>
               <div className="flex flex-col gap-2 mt-auto pt-6 border-t border-border/60">
                 <Button asChild variant="outline" className="w-full" onClick={() => setMenuOpen(false)}>

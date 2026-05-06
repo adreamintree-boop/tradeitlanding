@@ -89,7 +89,7 @@ export const Compare = () => (
               <Lightbulb className="w-5 h-5 text-muted-foreground" />
             </div>
             <h3 className="text-lg md:text-xl font-bold text-muted-foreground">
-              감(感) 기반 해외영업
+              전통적인 해외영업 방식
             </h3>
           </div>
           <div className="flex flex-wrap gap-2.5 opacity-80">
@@ -116,7 +116,7 @@ export const Compare = () => (
                 <Sparkles className="w-5 h-5" />
               </div>
               <h3 className="text-lg md:text-xl font-bold">
-                데이터 기반 해외영업
+                데이터 기반 해외영업 방식
               </h3>
             </div>
             <div className="flex flex-wrap gap-2.5">

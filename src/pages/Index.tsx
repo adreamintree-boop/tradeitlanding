@@ -26,13 +26,13 @@ const Index = () => {
         <Problem />
         <Solution />
         <Compare />
+        <Service />
         <Results />
         <Process />
         <Data />
         <CostCompare />
         <SuccessCases />
         <Together />
-        <Service />
         <Pricing />
         <FinalCta />
       </main>
