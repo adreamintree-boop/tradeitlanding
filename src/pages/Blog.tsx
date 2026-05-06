@@ -133,20 +133,21 @@ const Blog = () => {
                     loading="lazy"
                     className="absolute inset-0 w-full h-full object-cover transition-smooth group-hover:scale-[1.04]"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent" />
-                  <div className="absolute inset-x-0 bottom-0 p-6 md:p-7 text-white">
-                    <div className="flex items-center gap-2 text-[11px] font-semibold tracking-wider uppercase opacity-90">
+                  <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/25 to-black/75" />
+                  <div className="absolute inset-x-0 bottom-0 px-6 pb-6 pt-10 text-white">
+                    <div className="flex items-center gap-2 text-[11px] font-semibold tracking-[0.12em] uppercase opacity-90">
                       <span className="w-1.5 h-1.5 rounded-full bg-primary-glow" />
                       {p.category}
                     </div>
-                    <h3 className="mt-3 text-lg md:text-xl font-bold leading-snug tracking-tight">
+                    <h3 className="mt-2.5 text-[18px] md:text-[19px] font-bold leading-[1.35] tracking-tight">
                       {p.title.map((line, idx) => (
                         <span key={idx} className="block">
                           {line}
                         </span>
                       ))}
                     </h3>
-                    <div className="mt-4 pt-4 border-t border-white/20 flex items-center gap-2 text-xs font-medium opacity-85">
+                    <div className="mt-[18px] mb-3 h-px w-full bg-white/35" />
+                    <div className="flex items-center gap-2 text-[12px] font-medium opacity-85">
                       <CalendarDays className="w-3.5 h-3.5" />
                       {p.date}
                     </div>
