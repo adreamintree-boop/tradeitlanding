@@ -3,7 +3,22 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { useRequestModal } from "./RequestModalContext";
 
-const plans = [
+type Plan = {
+  name: string;
+  price: string;
+  suffix: string;
+  note?: string;
+  credits?: string;
+  features: string[];
+  guarantee?: string;
+  cta: string;
+  badge?: string | null;
+  recommended?: boolean;
+  highlight?: boolean;
+  kind: "saas" | "agency";
+};
+
+const plans: Plan[] = [
   {
     name: "플러스(Plus)",
     price: "49,000원",
