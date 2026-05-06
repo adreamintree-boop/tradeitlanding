@@ -1,9 +1,10 @@
-import { Layers, MessageSquare, MapPin, UserSearch, ClipboardList, BarChart3 } from "lucide-react";
+import { MapPin, UserSearch, ClipboardList, BarChart3 } from "lucide-react";
 import blTrackingMain from "@/assets/bl-tracking-main.png";
 import buyerStreetView from "@/assets/buyer-streetview.png";
 import buyerProfileSalesnote from "@/assets/buyer-profile-salesnote.png";
 import featureActivityLog from "@/assets/feature-activity-log.jpg";
 import featureSalesAnalytics from "@/assets/feature-sales-analytics.jpg";
+import salesNoteShowcase from "@/assets/sales-note-showcase.png";
 
 const features = [
   {
@@ -33,36 +34,6 @@ const features = [
     desc: "국가·산업·단계별 해외영업 진행 흐름 분석",
     image: featureSalesAnalytics,
     objectPosition: "center",
-  },
-];
-
-const pipeline = [
-  {
-    stage: "Lead",
-    count: 12,
-    accent: "bg-[hsl(40_95%_55%)]",
-    cards: [
-      { name: "Zovell Medical", country: "🇺🇸 USA", tag: "Health" },
-      { name: "ICS Pharma", country: "🇩🇪 GER", tag: "Pharma" },
-    ],
-  },
-  {
-    stage: "Target",
-    count: 8,
-    accent: "bg-[hsl(0_84%_62%)]",
-    cards: [
-      { name: "Globally Pharma", country: "🇫🇷 FRA", tag: "Pharma" },
-      { name: "Dabro Pharma", country: "🇪🇸 ESP", tag: "Health" },
-    ],
-  },
-  {
-    stage: "Client",
-    count: 5,
-    accent: "bg-primary",
-    cards: [
-      { name: "3 in 1 Vietnam", country: "🇻🇳 VNM", tag: "Food" },
-      { name: "Healthy Opt Ltd", country: "🇮🇳 IND", tag: "Health" },
-    ],
   },
 ];
 
@@ -154,103 +125,27 @@ export const DataDrivenSalesFlow = () => (
       <div className="container">
         <div className="max-w-3xl mx-auto text-center reveal">
           <span className="inline-flex items-center px-3.5 py-1.5 rounded-full bg-accent text-accent-foreground text-xs font-bold tracking-wider">
-            SALES NOTE CRM
+            CRM
           </span>
           <p className="mt-5 text-sm md:text-base font-medium text-muted-foreground">
             바이어별 영업현황, 투명하게 보여드립니다.
           </p>
-          <h2 className="mt-3 text-3xl md:text-5xl font-bold tracking-tight leading-snug md:leading-tight text-foreground">
-            <span className="text-gradient-primary">Sales Note CRM</span>으로
-            <br />
-            모든 바이어 정보를 체계적으로 관리해드립니다
+          <h2 className="mt-3 text-3xl md:text-5xl font-bold tracking-tight leading-[1.2] md:leading-[1.15] text-foreground">
+            <span className="block"><span className="text-gradient-primary">Sales Note CRM</span>으로</span>
+            <span className="block">모든 바이어 정보를 체계적으로</span>
+            <span className="block">관리해드립니다</span>
           </h2>
         </div>
 
-        {/* CRM mockup */}
+        {/* CRM showcase image */}
         <div className="mt-14 md:mt-20 max-w-6xl mx-auto reveal">
           <div className="rounded-3xl bg-card border border-[hsl(220_60%_94%)] shadow-elevated overflow-hidden">
-            {/* Top bar */}
-            <div className="flex items-center justify-between px-5 py-3.5 border-b border-border/60 bg-background">
-              <div className="flex items-center gap-2.5">
-                <Layers className="w-4 h-4 text-primary" />
-                <span className="text-sm font-bold text-foreground">Buyer Pipeline</span>
-                <span className="text-xs text-muted-foreground hidden sm:inline">· 25 active deals</span>
-              </div>
-              <div className="hidden md:flex items-center gap-1.5">
-                {["All", "USA", "EU", "APAC"].map((t, i) => (
-                  <span
-                    key={t}
-                    className={`px-2.5 py-1 rounded-md text-[11px] font-semibold ${
-                      i === 0 ? "bg-primary text-primary-foreground" : "text-muted-foreground hover:bg-muted"
-                    }`}
-                  >
-                    {t}
-                  </span>
-                ))}
-              </div>
-            </div>
-
-            <div className="p-5 md:p-7 grid md:grid-cols-3 gap-4 md:gap-5 bg-[hsl(220_40%_98.5%)]">
-              {pipeline.map((col) => (
-                <div key={col.stage} className="rounded-2xl bg-background border border-border/60 p-4">
-                  <div className="flex items-center justify-between mb-3.5">
-                    <div className="flex items-center gap-2">
-                      <span className={`w-2 h-2 rounded-full ${col.accent}`} />
-                      <span className="text-sm font-bold text-foreground">{col.stage}</span>
-                    </div>
-                    <span className="text-[11px] font-semibold text-muted-foreground bg-muted px-2 py-0.5 rounded-md">{col.count}</span>
-                  </div>
-                  <div className="space-y-2.5">
-                    {col.cards.map((c) => (
-                      <div key={c.name} className="rounded-xl border border-border/70 bg-card p-3.5 hover:border-primary/40 transition-smooth">
-                        <div className="flex items-center justify-between">
-                          <span className="text-[13px] font-bold text-foreground">{c.name}</span>
-                          <span className="text-[10px] font-semibold text-primary bg-accent px-1.5 py-0.5 rounded">{c.tag}</span>
-                        </div>
-                        <div className="mt-1.5 text-[11px] text-muted-foreground">{c.country}</div>
-                        <div className="mt-3 flex items-center gap-1">
-                          {[1, 2, 3, 4, 5].map((s) => (
-                            <span
-                              key={s}
-                              className={`h-1 flex-1 rounded-full ${
-                                s <= (col.stage === "Client" ? 4 : col.stage === "Target" ? 3 : 2) ? "bg-primary" : "bg-muted"
-                              }`}
-                            />
-                          ))}
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            {/* Activity log strip */}
-            <div className="border-t border-border/60 px-5 md:px-7 py-5 bg-background">
-              <div className="flex items-center justify-between mb-3">
-                <h4 className="text-sm font-bold text-foreground flex items-center gap-2">
-                  <MessageSquare className="w-4 h-4 text-primary" />
-                  Recent Activity
-                </h4>
-                <span className="text-[11px] text-muted-foreground">Updated · 2m ago</span>
-              </div>
-              <div className="grid md:grid-cols-3 gap-3">
-                {[
-                  { who: "Globally Pharma", what: "샘플 요청 회신 수신", when: "방금" },
-                  { who: "3 in 1 Vietnam", what: "MOU 초안 발송", when: "1시간 전" },
-                  { who: "Healthy Opt Ltd", what: "단가 협상 미팅 예정", when: "오늘 16:00" },
-                ].map((a) => (
-                  <div key={a.who} className="rounded-xl bg-[hsl(220_40%_98.5%)] border border-border/60 p-3.5">
-                    <div className="flex items-center gap-2 text-[12px] font-bold text-foreground">
-                      <span className="w-1.5 h-1.5 rounded-full bg-primary" />
-                      {a.who}
-                    </div>
-                    <div className="mt-1 text-[12px] text-muted-foreground">{a.what}</div>
-                    <div className="mt-1.5 text-[10px] text-primary font-semibold">{a.when}</div>
-                  </div>
-                ))}
-              </div>
-            </div>
+            <img
+              src={salesNoteShowcase}
+              alt="TradeIt Sales Note CRM — 지도와 바이어 파이프라인 관리 화면"
+              loading="lazy"
+              className="w-full h-auto block object-cover"
+            />
           </div>
         </div>
       </div>
