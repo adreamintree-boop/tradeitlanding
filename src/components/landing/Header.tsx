@@ -41,7 +41,7 @@ export const Header = () => {
           ))}
         </nav>
         <Button variant="hero" size="default" asChild>
-          <a href="#contact">무료 리서치 요청</a>
+          <a href="#contact">무료 바이어 요청</a>
         </Button>
       </div>
     </header>
