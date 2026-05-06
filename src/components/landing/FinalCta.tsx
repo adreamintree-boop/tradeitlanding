@@ -19,7 +19,7 @@ export const FinalCta = () => (
           </p>
           <div className="mt-9 flex flex-col sm:flex-row gap-3 justify-center">
             <Button variant="hero" size="xl" asChild>
-              <a href="mailto:hello@tradeit.kr">무료 리서치 요청 <ArrowRight /></a>
+              <a href="mailto:hello@tradeit.kr">무료 바이어 요청 <ArrowRight /></a>
             </Button>
             <Button variant="soft" size="xl" asChild>
               <a href="mailto:hello@tradeit.kr">상담 신청</a>
