@@ -7,6 +7,7 @@ import Index from "./pages/Index.tsx";
 import NotFound from "./pages/NotFound.tsx";
 import Login from "./pages/Login.tsx";
 import ExportAgency from "./pages/ExportAgency.tsx";
+import Blog from "./pages/Blog.tsx";
 import { RequestModalProvider } from "./components/landing/RequestModalContext";
 
 const queryClient = new QueryClient();
@@ -21,6 +22,7 @@ const App = () => (
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/export-agency" element={<ExportAgency />} />
+            <Route path="/blog" element={<Blog />} />
             <Route path="/login" element={<Login />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
