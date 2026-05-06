@@ -134,22 +134,31 @@ export const Pricing = ({ variant = "all" }: PricingProps) => {
             className={`reveal relative rounded-3xl p-8 flex flex-col h-full transition-smooth hover:-translate-y-2 ${
               p.highlight
                 ? "bg-gradient-cta text-primary-foreground shadow-elevated xl:scale-105 hover:shadow-glow border border-primary/20"
-                : "bg-card border border-border/70 shadow-soft hover:shadow-card"
+                : p.recommended
+                  ? "bg-card border-2 border-primary shadow-elevated lg:scale-[1.02] hover:shadow-glow"
+                  : "bg-card border border-border/70 shadow-soft hover:shadow-card"
             }`}
           >
             {p.badge && (
-              <div className="absolute -top-3 left-1/2 -translate-x-1/2 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-foreground text-background text-[11px] font-semibold tracking-wide shadow-soft">
+              <div className={`absolute -top-3 left-1/2 -translate-x-1/2 inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-semibold tracking-wide shadow-soft ${
+                p.recommended ? "bg-primary text-primary-foreground" : "bg-foreground text-background"
+              }`}>
                 <Star className="w-3 h-3 fill-current" /> {p.badge}
               </div>
             )}
-            <h3 className="text-lg font-semibold min-h-[3.5rem]">{p.name}</h3>
-            <div className="mt-2 flex items-end gap-1">
-              <span className="text-3xl md:text-4xl font-bold leading-none">{p.price}</span>
-              <span className={`text-sm pb-1 ${p.highlight ? "opacity-80" : "text-muted-foreground"}`}>{p.suffix}</span>
+            <h3 className="text-base font-semibold">{p.name}</h3>
+            <div className="mt-3 flex items-end gap-1.5 flex-wrap">
+              <span className="text-3xl md:text-4xl font-bold leading-none tracking-tight">{p.price}</span>
+              <span className={`text-xs pb-1 ${p.highlight ? "opacity-80" : "text-muted-foreground"}`}>{p.suffix}</span>
             </div>
-            <p className={`mt-2 text-xs h-4 ${p.highlight ? "opacity-80" : "text-muted-foreground"}`}>
+            <p className={`mt-3 text-sm min-h-[2.5rem] ${p.highlight ? "opacity-80" : "text-muted-foreground"}`}>
               {p.note ?? ""}
             </p>
+            {p.credits && (
+              <p className={`mt-2 text-sm font-semibold ${p.highlight ? "" : "text-foreground"}`}>
+                {p.credits}
+              </p>
+            )}
             <ul className="mt-6 space-y-3 text-sm flex-1">
               {p.features.map((f) => (
                 <li key={f} className="flex items-start gap-2">
