@@ -61,19 +61,36 @@ const plans = [
   },
 ];
 
-export const Pricing = () => {
+interface PricingProps {
+  variant?: "saas" | "agency" | "all";
+}
+
+export const Pricing = ({ variant = "all" }: PricingProps) => {
   const { open } = useRequestModal();
+  const filtered = plans.filter((p) => {
+    if (variant === "saas") return p.cta !== "상담 신청";
+    if (variant === "agency") return p.cta === "상담 신청";
+    return true;
+  });
+  const heading =
+    variant === "saas"
+      ? "합리적인 요금으로 시작하세요"
+      : variant === "agency"
+        ? "해외영업 대행 상품"
+        : "우리 상황에 맞게 선택하세요";
+  const gridCols =
+    filtered.length <= 2 ? "md:grid-cols-2 max-w-3xl mx-auto" : "md:grid-cols-2 xl:grid-cols-4";
   return (
   <section id="pricing" className="py-24 md:py-32 bg-background">
     <div className="container">
       <div className="max-w-2xl mx-auto text-center reveal">
         <p className="text-sm font-semibold text-primary mb-3">PRICING</p>
         <h2 className="text-3xl md:text-5xl font-bold tracking-tight">
-          우리 상황에 맞게 선택하세요
+          {heading}
         </h2>
       </div>
-      <div className="mt-14 grid md:grid-cols-2 xl:grid-cols-4 gap-6 items-stretch">
-        {plans.map((p) => (
+      <div className={`mt-14 grid ${gridCols} gap-6 items-stretch`}>
+        {filtered.map((p) => (
           <div
             key={p.name}
             className={`reveal relative rounded-3xl p-8 flex flex-col h-full transition-smooth hover:-translate-y-2 ${
