@@ -5,6 +5,7 @@ import { Process } from "@/components/landing/Process";
 import { CostCompare } from "@/components/landing/CostCompare";
 import { Together } from "@/components/landing/Together";
 import { AgencyProblem } from "@/components/landing/AgencyProblem";
+import { DataDrivenSalesFlow } from "@/components/landing/DataDrivenSalesFlow";
 import { Pricing } from "@/components/landing/Pricing";
 import { FinalCta, Footer } from "@/components/landing/FinalCta";
 import { Button } from "@/components/ui/button";
@@ -52,6 +53,7 @@ const ExportAgency = () => {
         <AgencyProblem />
         <SuccessCases />
         <Process />
+        <DataDrivenSalesFlow />
         <CostCompare />
         <Pricing variant="agency" />
         <FinalCta />
