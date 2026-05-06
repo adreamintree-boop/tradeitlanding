@@ -21,10 +21,10 @@ export const FinalCta = () => {
             무료로 바이어 리스트를 확인하고, 가능성을 먼저 검증해보세요.
           </p>
           <div className="mt-9 flex flex-col sm:flex-row gap-3 justify-center">
-            <Button variant="hero" size="xl" onClick={() => open("무료 바이어 요청")}>
+            <Button variant="hero" size="xl" className="w-full sm:w-auto" onClick={() => open("무료 바이어 요청")}>
               무료 바이어 요청 <ArrowRight />
             </Button>
-            <Button variant="soft" size="xl" onClick={() => open("상담 신청")}>
+            <Button variant="soft" size="xl" className="w-full sm:w-auto" onClick={() => open("상담 신청")}>
               상담 신청
             </Button>
           </div>
@@ -38,15 +38,15 @@ export const FinalCta = () => {
 export const Footer = () => (
   <footer className="w-full border-t border-border/60 bg-muted/50">
     <div className="container py-10 md:py-12">
-      <div className="flex flex-col md:flex-row items-center md:items-center justify-between gap-6 text-sm text-muted-foreground">
+      <div className="flex flex-col md:flex-row items-center md:items-center justify-between gap-6 text-sm text-muted-foreground text-center md:text-left">
         <div className="flex flex-col md:flex-row items-center gap-3 md:gap-5">
           <img src={logo} alt="TradeIt" className="h-6 w-auto" />
           <span className="text-muted-foreground/80">
             © {new Date().getFullYear()} TradeIt. All rights reserved.
           </span>
         </div>
-        <div className="flex flex-col md:flex-row items-center gap-5 md:gap-7">
-          <nav className="flex items-center gap-5">
+        <div className="flex flex-col md:flex-row items-center gap-4 md:gap-7">
+          <nav className="flex flex-wrap justify-center items-center gap-x-5 gap-y-2">
             <a href="#" className="hover:text-foreground transition-smooth">이용약관</a>
             <a href="#" className="hover:text-foreground transition-smooth">개인정보처리방침</a>
           </nav>
