@@ -1,4 +1,4 @@
-import { ArrowRight, Database, ShieldCheck, Users } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Header } from "@/components/landing/Header";
 import { SuccessCases } from "@/components/landing/SuccessCases";
 import { Process } from "@/components/landing/Process";
@@ -10,24 +10,6 @@ import { FinalCta, Footer } from "@/components/landing/FinalCta";
 import { Button } from "@/components/ui/button";
 import { useRequestModal } from "@/components/landing/RequestModalContext";
 import { useReveal } from "@/hooks/use-reveal";
-
-const reasons = [
-  {
-    icon: Database,
-    title: "B/L 데이터 기반 발굴",
-    desc: "실제 수출입 거래 이력으로 검증된 바이어만 컨택합니다.",
-  },
-  {
-    icon: Users,
-    title: "전담 영업 인력 운영",
-    desc: "해외영업 경험을 갖춘 전문 인력이 직접 컨택과 협상을 수행합니다.",
-  },
-  {
-    icon: ShieldCheck,
-    title: "단순 DB 제공이 아닙니다",
-    desc: "발굴부터 컨택, 응답 관리까지 실제 결과를 책임집니다.",
-  },
-];
 
 const ExportAgency = () => {
   useReveal();
@@ -70,33 +52,6 @@ const ExportAgency = () => {
         <AgencyProblem />
         <SuccessCases />
         <Process />
-
-        {/* Why TradeIt */}
-        <section className="py-24 md:py-32 bg-gradient-soft">
-          <div className="container">
-            <div className="max-w-2xl mx-auto text-center reveal">
-              <p className="text-sm font-semibold text-primary mb-3">WHY TRADEIT</p>
-              <h2 className="text-3xl md:text-5xl font-bold tracking-tight">
-                왜 <span className="text-gradient-primary">TradeIt</span> 인가요?
-              </h2>
-            </div>
-            <div className="mt-14 grid md:grid-cols-3 gap-6">
-              {reasons.map((r) => (
-                <div
-                  key={r.title}
-                  className="reveal rounded-3xl bg-card border border-border/70 p-8 shadow-soft hover:-translate-y-1 hover:shadow-elevated transition-smooth"
-                >
-                  <div className="w-12 h-12 rounded-2xl bg-accent flex items-center justify-center mb-5">
-                    <r.icon className="w-6 h-6 text-primary" />
-                  </div>
-                  <h3 className="text-lg font-semibold mb-2">{r.title}</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{r.desc}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
         <CostCompare />
         <Pricing variant="agency" />
         <FinalCta />
