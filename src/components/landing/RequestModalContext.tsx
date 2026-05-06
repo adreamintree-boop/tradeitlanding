@@ -26,6 +26,8 @@ export const RequestModalProvider = ({ children }: { children: ReactNode }) => {
 
 export const useRequestModal = () => {
   const ctx = useContext(RequestModalContext);
-  if (!ctx) throw new Error("useRequestModal must be used within RequestModalProvider");
+  if (!ctx) {
+    return { open: () => {} };
+  }
   return ctx;
 };
