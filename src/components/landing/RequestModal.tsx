@@ -25,48 +25,48 @@ export const RequestModal = ({ open, onOpenChange }: RequestModalProps) => {
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="max-w-lg rounded-3xl bg-accent/40 border-2 border-primary/30 shadow-glow p-8 md:p-10">
+      <DialogContent className="max-w-lg rounded-3xl bg-white border border-primary/20 shadow-glow p-8 md:p-10 backdrop-blur-none">
         <DialogHeader>
-          <DialogTitle className="text-2xl font-bold text-center">무료 바이어 요청</DialogTitle>
+          <DialogTitle className="text-2xl md:text-3xl font-extrabold text-center text-foreground tracking-tight">무료 바이어 요청</DialogTitle>
         </DialogHeader>
         <form onSubmit={handleSubmit} className="space-y-5 mt-2">
           <div className="space-y-2">
-            <Label htmlFor="company" className="text-sm font-semibold">
+            <Label htmlFor="company" className="text-sm font-semibold text-foreground">
               업체명 <span className="text-destructive">*</span>
             </Label>
-            <Input id="company" required value={form.company} onChange={update("company")} placeholder="예: (주)아몬드글로벌" className="h-11 bg-background" />
+            <Input id="company" required value={form.company} onChange={update("company")} placeholder="예: (주)트레이드잇" className="h-11 bg-white border-border/80 focus-visible:ring-primary" />
           </div>
           <div className="space-y-2">
-            <Label htmlFor="name" className="text-sm font-semibold">
+            <Label htmlFor="name" className="text-sm font-semibold text-foreground">
               담당자명/직책 <span className="text-destructive">*</span>
             </Label>
-            <Input id="name" required value={form.name} onChange={update("name")} placeholder="예: 홍길동 / 대리" className="h-11 bg-background" />
+            <Input id="name" required value={form.name} onChange={update("name")} placeholder="예: 홍길동 / 대리" className="h-11 bg-white border-border/80 focus-visible:ring-primary" />
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div className="space-y-2">
-              <Label htmlFor="phone" className="text-sm font-semibold">
+              <Label htmlFor="phone" className="text-sm font-semibold text-foreground">
                 전화번호 <span className="text-destructive">*</span>
               </Label>
-              <Input id="phone" required value={form.phone} onChange={update("phone")} placeholder="02-1234-5678" className="h-11 bg-background" />
+              <Input id="phone" required value={form.phone} onChange={update("phone")} placeholder="02-1234-5678" className="h-11 bg-white border-border/80 focus-visible:ring-primary" />
             </div>
             <div className="space-y-2">
-              <Label htmlFor="mobile" className="text-sm font-semibold">
+              <Label htmlFor="mobile" className="text-sm font-semibold text-foreground">
                 핸드폰 번호 <span className="text-destructive">*</span>
               </Label>
-              <Input id="mobile" required value={form.mobile} onChange={update("mobile")} placeholder="010-1234-5678" className="h-11 bg-background" />
+              <Input id="mobile" required value={form.mobile} onChange={update("mobile")} placeholder="010-1234-5678" className="h-11 bg-white border-border/80 focus-visible:ring-primary" />
             </div>
           </div>
           <div className="space-y-2">
-            <Label htmlFor="email" className="text-sm font-semibold">
+            <Label htmlFor="email" className="text-sm font-semibold text-foreground">
               이메일 <span className="text-destructive">*</span>
             </Label>
-            <Input id="email" type="email" required value={form.email} onChange={update("email")} placeholder="name@company.com" className="h-11 bg-background" />
+            <Input id="email" type="email" required value={form.email} onChange={update("email")} placeholder="name@company.com" className="h-11 bg-white border-border/80 focus-visible:ring-primary" />
           </div>
           <button
             type="submit"
-            className="w-full h-14 rounded-full bg-gradient-cta text-primary-foreground font-semibold shadow-elevated hover:shadow-glow hover:brightness-110 transition-smooth inline-flex items-center justify-center gap-2"
+            className="w-full h-14 rounded-full bg-gradient-cta text-primary-foreground font-bold text-base shadow-elevated hover:shadow-glow hover:brightness-110 transition-smooth inline-flex items-center justify-center gap-2"
           >
-            서비스 신청하기 <ArrowRight className="w-4 h-4" />
+            신청하기 <ArrowRight className="w-4 h-4" />
           </button>
           <p className="text-xs text-muted-foreground text-center pt-1">
             *남겨주신 정보는 영업 상담 목적 외에는 사용되지 않습니다.
