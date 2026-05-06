@@ -2,31 +2,86 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, Linkedin, Facebook, Youtube } from "lucide-react";
 import logo from "@/assets/tradeit-logo.png";
 import { useRequestModal } from "./RequestModalContext";
+import buyerNetwork from "@/assets/cta-buyer-network.png";
+import aiBuyerFit from "@/assets/cta-ai-buyer-fit.png";
+import aiCore from "@/assets/cta-ai-core.png";
+import companyInfo from "@/assets/cta-company-info.png";
 
 export const FinalCta = () => {
   const { open } = useRequestModal();
   return (
-  <section id="contact" className="py-24 md:py-32 bg-gradient-soft">
+  <section id="contact" className="py-20 md:py-28">
     <div className="container">
-      <div className="reveal max-w-4xl mx-auto rounded-[2rem] bg-card border border-border/70 shadow-elevated p-10 md:p-16 text-center relative overflow-hidden">
-        <div className="absolute -top-24 -right-24 w-72 h-72 rounded-full bg-primary/10 blur-3xl" />
-        <div className="absolute -bottom-24 -left-24 w-72 h-72 rounded-full bg-primary-glow/20 blur-3xl" />
-        <div className="relative">
-          <h2 className="text-3xl md:text-5xl font-bold tracking-tight leading-tight">
-            지금 우리 제품을 구매하고 있는
-            <br />
-            <span className="text-gradient-primary">실제 바이어를 확인</span>해보세요
-          </h2>
-          <p className="mt-6 text-muted-foreground text-base md:text-lg">
-            무료로 바이어 리스트를 확인하고, 가능성을 먼저 검증해보세요.
-          </p>
-          <div className="mt-9 flex flex-col sm:flex-row gap-3 justify-center">
-            <Button variant="hero" size="xl" className="w-full sm:w-auto" onClick={() => open("무료 바이어 요청")}>
-              무료 바이어 요청 <ArrowRight />
-            </Button>
-            <Button variant="soft" size="xl" className="w-full sm:w-auto" onClick={() => open("상담 신청")}>
-              상담 신청
-            </Button>
+      <div
+        className="reveal relative overflow-hidden rounded-[2rem] md:rounded-[2.5rem] border border-border/60 shadow-card px-6 sm:px-10 md:px-14 py-12 md:py-20"
+        style={{
+          background:
+            "linear-gradient(115deg, hsl(36 100% 96%) 0%, hsl(0 0% 100%) 45%, hsl(214 100% 97%) 100%)",
+        }}
+      >
+        <div className="absolute -top-32 -left-24 w-80 h-80 rounded-full bg-[hsl(36_100%_88%)]/40 blur-3xl pointer-events-none" />
+        <div className="absolute -bottom-32 -right-24 w-96 h-96 rounded-full bg-primary/10 blur-3xl pointer-events-none" />
+
+        <div className="relative grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+          {/* Left text */}
+          <div className="lg:col-span-5">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight leading-[1.2]">
+              <span className="text-gradient-primary">검증된 바이어</span>를
+              <br />
+              찾아보세요
+            </h2>
+            <p className="mt-6 text-muted-foreground text-base md:text-lg leading-relaxed">
+              지금 무료로 B/L 검색과 AI 바이어 분석을
+              <br className="hidden sm:block" />
+              시작할 수 있습니다.
+            </p>
+            <div className="mt-8 flex flex-col sm:flex-row gap-3">
+              <Button
+                variant="hero"
+                size="xl"
+                className="w-full sm:w-auto rounded-2xl"
+                onClick={() => open("무료 바이어 요청")}
+              >
+                무료 바이어 요청 <ArrowRight />
+              </Button>
+            </div>
+          </div>
+
+          {/* Right product preview collage */}
+          <div className="lg:col-span-7 relative h-[360px] sm:h-[440px] md:h-[500px]">
+            {/* Main: buyer network */}
+            <div className="absolute top-0 left-0 right-4 sm:right-12 rounded-2xl overflow-hidden bg-white border border-border/70 shadow-elevated animate-float-slow">
+              <img
+                src={buyerNetwork}
+                alt="Top 5 Trading Companies and Shipping Activity"
+                className="w-full h-auto block"
+                loading="lazy"
+              />
+            </div>
+
+            {/* Floating: AI Buyer Fit (right) */}
+            <div
+              className="hidden sm:block absolute -right-2 sm:right-0 top-24 sm:top-32 w-[44%] sm:w-[40%] rounded-2xl overflow-hidden bg-white border border-border/70 shadow-elevated"
+              style={{ animation: "float-slow 7s ease-in-out infinite", animationDelay: "0.6s" }}
+            >
+              <img src={aiBuyerFit} alt="AI Buyer Fit panel" className="w-full h-auto block" loading="lazy" />
+            </div>
+
+            {/* Floating: AI Core (bottom-left) */}
+            <div
+              className="absolute bottom-0 left-0 sm:left-6 w-[78%] sm:w-[58%] rounded-2xl overflow-hidden bg-white border border-border/70 shadow-elevated"
+              style={{ animation: "float-slow 8s ease-in-out infinite", animationDelay: "1.2s" }}
+            >
+              <img src={aiCore} alt="AI Core analysis" className="w-full h-auto block" loading="lazy" />
+            </div>
+
+            {/* Floating: Company info (bottom-right) */}
+            <div
+              className="hidden md:block absolute bottom-6 right-0 w-[42%] rounded-2xl overflow-hidden bg-white border border-border/70 shadow-elevated"
+              style={{ animation: "float-slow 9s ease-in-out infinite", animationDelay: "1.8s" }}
+            >
+              <img src={companyInfo} alt="CRM Company Info" className="w-full h-auto block" loading="lazy" />
+            </div>
           </div>
         </div>
       </div>
