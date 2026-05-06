@@ -2,8 +2,8 @@ import { MapPin, UserSearch, ClipboardList, BarChart3 } from "lucide-react";
 import blTrackingMain from "@/assets/bl-tracking-main.png";
 import buyerStreetView from "@/assets/buyer-streetview.png";
 import buyerProfileSalesnote from "@/assets/buyer-profile-salesnote.png";
-import featureActivityLog from "@/assets/feature-activity-log.jpg";
-import featureSalesAnalytics from "@/assets/feature-sales-analytics.jpg";
+import featureActivityLog from "@/assets/feature-activity-log.png";
+import featureSalesAnalytics from "@/assets/feature-sales-analytics.png";
 import salesNoteShowcase from "@/assets/sales-note-showcase.png";
 
 const outboundFeatures = [
@@ -29,14 +29,14 @@ const crmFeatures = [
     title: "영업활동 기록",
     desc: "바이어별 이메일·미팅·문의 내역을 체계적으로 기록 및 관리",
     image: featureActivityLog,
-    objectPosition: "center",
+    objectPosition: "top left",
   },
   {
     icon: BarChart3,
     title: "영업흐름 분석",
     desc: "국가·산업·단계별 해외영업 진행 흐름 분석",
     image: featureSalesAnalytics,
-    objectPosition: "center",
+    objectPosition: "top left",
   },
 ];
 
