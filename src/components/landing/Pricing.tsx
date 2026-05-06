@@ -3,7 +3,22 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { useRequestModal } from "./RequestModalContext";
 
-const plans = [
+type Plan = {
+  name: string;
+  price: string;
+  suffix: string;
+  note?: string;
+  credits?: string;
+  features: string[];
+  guarantee?: string;
+  cta: string;
+  badge?: string | null;
+  recommended?: boolean;
+  highlight?: boolean;
+  kind: "saas" | "agency";
+};
+
+const plans: Plan[] = [
   {
     name: "플러스(Plus)",
     price: "49,000원",
@@ -61,32 +76,15 @@ const plans = [
     kind: "saas" as const,
   },
   {
-    name: "해외영업 대행 A",
-    price: "₩990,000",
-    suffix: "/월",
-    note: "6개월 계약 · VAT 포함",
-    features: [
-      "총 바이어 30개 발굴",
-      "CRM 등록",
-      "컨택 및 관리",
-      "이메일 발송 및 대응",
-    ],
-    guarantee: "Target 바이어 2개 보장",
-    cta: "상담 신청",
-    badge: "Popular",
-    highlight: true,
-    kind: "agency" as const,
-  },
-  {
-    name: "해외영업 대행 B",
+    name: "하이브리드(Hybrid)",
     price: "₩1,990,000",
-    suffix: "/월",
+    suffix: "/ 월",
     note: "6개월 계약 · VAT 포함",
     features: [
       "총 바이어 50개 발굴",
-      "CRM 등록",
-      "컨택 및 관리",
-      "이메일 발송 및 대응",
+      "발굴된 바이어 CRM 등록 및 관리",
+      "이메일 소통 및 컨택이력 기록",
+      "바이어 Inquiry 전달",
     ],
     guarantee: "Target 바이어 5개 보장",
     cta: "상담 신청",
@@ -113,11 +111,13 @@ export const Pricing = ({ variant = "all" }: PricingProps) => {
         ? "해외영업 대행 상품"
         : "우리 상황에 맞게 선택하세요";
   const gridCols =
-    filtered.length <= 2
-      ? "md:grid-cols-2 max-w-3xl mx-auto"
-      : filtered.length === 3
-        ? "md:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto"
-        : "md:grid-cols-2 xl:grid-cols-4";
+    filtered.length === 1
+      ? "max-w-md mx-auto"
+      : filtered.length <= 2
+        ? "md:grid-cols-2 max-w-3xl mx-auto"
+        : filtered.length === 3
+          ? "md:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto"
+          : "md:grid-cols-2 xl:grid-cols-4";
   return (
   <section id="pricing" className="py-24 md:py-32 bg-background">
     <div className="container">
