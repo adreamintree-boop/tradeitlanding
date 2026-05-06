@@ -34,7 +34,7 @@ export const Header = () => {
             <a
               key={l.href}
               href={l.href}
-              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-smooth"
+              className="text-base font-medium text-muted-foreground hover:text-foreground transition-smooth"
             >
               {l.label}
             </a>
