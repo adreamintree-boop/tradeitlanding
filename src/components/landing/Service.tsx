@@ -43,7 +43,7 @@ export const Service = () => (
                 </li>
               ))}
             </ul>
-            <p className="mt-auto pt-5 mt-8 text-sm md:text-base opacity-90 border-t border-white/20">
+            <p className="mt-auto pt-6 text-sm md:text-base opacity-90 border-t border-white/20">
               해외영업 인력이 없어도 가능합니다
             </p>
           </div>
@@ -64,7 +64,7 @@ export const Service = () => (
               </li>
             ))}
           </ul>
-          <p className="mt-auto pt-5 mt-8 text-sm md:text-base text-muted-foreground border-t border-border/70">
+          <p className="mt-auto pt-6 text-sm md:text-base text-muted-foreground border-t border-border/70">
             해외영업부서가 있는 조직에서 활용 가능합니다.
           </p>
         </div>
