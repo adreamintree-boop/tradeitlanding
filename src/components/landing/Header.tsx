@@ -6,11 +6,11 @@ import { Menu } from "lucide-react";
 import logo from "@/assets/tradeit-logo.png";
 import { useRequestModal } from "./RequestModalContext";
 
-const links = [
-  { href: "#service", label: "서비스 소개" },
-  { href: "#process", label: "진행 방식" },
-  { href: "#pricing", label: "가격" },
-  { href: "#contact", label: "문의하기" },
+const links: { to: string; label: string; type: "anchor" | "route" }[] = [
+  { to: "/", label: "홈", type: "route" },
+  { to: "/export-agency", label: "해외영업대행", type: "route" },
+  { to: "#pricing", label: "가격", type: "anchor" },
+  { to: "#contact", label: "문의하기", type: "anchor" },
 ];
 
 export const Header = () => {
@@ -32,18 +32,28 @@ export const Header = () => {
       }`}
     >
       <div className="container flex items-center justify-between h-16 md:h-20">
-        <a href="#top" className="flex items-center gap-2">
+        <Link to="/" className="flex items-center gap-2">
           <img src={logo} alt="TradeIt" className="h-7 md:h-8 w-auto" />
-        </a>
+        </Link>
         <nav className="hidden md:flex items-center gap-8">
           {links.map((l) => (
-            <a
-              key={l.href}
-              href={l.href}
-              className="text-base font-medium text-muted-foreground hover:text-foreground transition-smooth"
-            >
-              {l.label}
-            </a>
+            l.type === "route" ? (
+              <Link
+                key={l.to}
+                to={l.to}
+                className="text-base font-medium text-muted-foreground hover:text-foreground transition-smooth"
+              >
+                {l.label}
+              </Link>
+            ) : (
+              <a
+                key={l.to}
+                href={l.to}
+                className="text-base font-medium text-muted-foreground hover:text-foreground transition-smooth"
+              >
+                {l.label}
+              </a>
+            )
           ))}
         </nav>
         <div className="hidden md:flex items-center gap-2">
@@ -64,14 +74,25 @@ export const Header = () => {
             <SheetContent side="right" className="w-[85vw] max-w-sm flex flex-col gap-6 pt-12">
               <nav className="flex flex-col gap-1">
                 {links.map((l) => (
-                  <a
-                    key={l.href}
-                    href={l.href}
-                    onClick={() => setMenuOpen(false)}
-                    className="px-3 py-3 rounded-lg text-base font-medium text-foreground hover:bg-muted transition-smooth"
-                  >
-                    {l.label}
-                  </a>
+                  l.type === "route" ? (
+                    <Link
+                      key={l.to}
+                      to={l.to}
+                      onClick={() => setMenuOpen(false)}
+                      className="px-3 py-3 rounded-lg text-base font-medium text-foreground hover:bg-muted transition-smooth"
+                    >
+                      {l.label}
+                    </Link>
+                  ) : (
+                    <a
+                      key={l.to}
+                      href={l.to}
+                      onClick={() => setMenuOpen(false)}
+                      className="px-3 py-3 rounded-lg text-base font-medium text-foreground hover:bg-muted transition-smooth"
+                    >
+                      {l.label}
+                    </a>
+                  )
                 ))}
               </nav>
               <div className="flex flex-col gap-2 mt-auto pt-6 border-t border-border/60">
