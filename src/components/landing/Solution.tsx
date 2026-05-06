@@ -4,7 +4,7 @@ const items = [
   {
     icon: Target,
     title: "실제 구매하는 바이어만 찾습니다",
-    desc: "B/L 데이터 기반으로 실제 수입 이력이 있는\n기업만 선별합니다.",
+    desc: "글로벌 무역데이터 기반으로 실제 수입 이력이 있는\n기업만 선별합니다.",
   },
   {
     icon: Contact,
