@@ -16,17 +16,32 @@ type BlogPost = {
   title: string[];
   date: string;
   image: string;
-  height: "tall" | "short";
 };
 
 const posts: BlogPost[] = [
   {
-    category: "Interview",
-    brand: "트레이드잇 | Tradeit",
-    title: ["해외영업의 최종병기, 트레이드잇!", "[문성용 대표 인터뷰]"],
-    date: "Posting 2025.01.07",
-    image: ceoInterview,
-    height: "tall",
+    category: "수출 성공 사례",
+    title: ["건강기능식품,", "몽골 수출 협약 체결"],
+    date: "Posting 2025.01.31",
+    image: mongoliaHealth,
+  },
+  {
+    category: "수출 성공 사례",
+    title: ["매트리스, 수출 계약 성사"],
+    date: "Posting 2025.01.21",
+    image: vietnamMat,
+  },
+  {
+    category: "Global Expo",
+    title: ["트레이드잇, Manufacturing Indonesia 2024에서", "국내 기업의 글로벌 진출 지원"],
+    date: "Posting 2025.01.20",
+    image: indonesiaExpo,
+  },
+  {
+    category: "수출 성공 사례",
+    title: ["알루미늄 스크랩,", "글로벌 시장 진출"],
+    date: "Posting 2025.01.10",
+    image: aluminumExport,
   },
   {
     category: "Culture",
@@ -34,35 +49,13 @@ const posts: BlogPost[] = [
     title: ["국내판 구글 트레이드잇,", "특별한 회사 송년회 파티 진행!"],
     date: "Posting 2025.01.08",
     image: teamParty,
-    height: "short",
   },
   {
-    category: "수출 성공 사례",
-    title: ["알루미늄 스크랩,", "글로벌 시장 진출"],
-    date: "Posting 2025.01.10",
-    image: aluminumExport,
-    height: "short",
-  },
-  {
-    category: "Global Expo",
-    title: ["트레이드잇, Manufacturing Indonesia 2024에서", "국내 기업의 글로벌 진출 지원"],
-    date: "Posting 2025.01.20",
-    image: indonesiaExpo,
-    height: "tall",
-  },
-  {
-    category: "수출 성공 사례",
-    title: ["매트리스, 수출 계약 성사"],
-    date: "Posting 2025.01.21",
-    image: vietnamMat,
-    height: "tall",
-  },
-  {
-    category: "수출 성공 사례",
-    title: ["건강기능식품,", "몽골 수출 협약 체결"],
-    date: "Posting 2025.01.31",
-    image: mongoliaHealth,
-    height: "short",
+    category: "Interview",
+    brand: "트레이드잇 | Tradeit",
+    title: ["해외영업의 최종병기, 트레이드잇!", "[문성용 대표 인터뷰]"],
+    date: "Posting 2025.01.07",
+    image: ceoInterview,
   },
 ];
 
@@ -132,9 +125,7 @@ const Blog = () => {
               {visible.map((p, i) => (
                 <article
                   key={i}
-                  className={`reveal group relative rounded-[28px] overflow-hidden border border-border/60 shadow-soft hover:shadow-elevated transition-smooth cursor-pointer ${
-                    p.height === "tall" ? "lg:row-span-2 aspect-[3/5]" : "aspect-[3/4]"
-                  }`}
+                  className="reveal group relative rounded-[28px] overflow-hidden border border-border/60 shadow-soft hover:shadow-elevated transition-smooth cursor-pointer aspect-[3/4]"
                 >
                   <img
                     src={p.image}
