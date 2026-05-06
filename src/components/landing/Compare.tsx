@@ -1,4 +1,9 @@
 import { Lightbulb, Sparkles, Search, Database, Send, KanbanSquare, Mail, ArrowRight } from "lucide-react";
+import searchImg from "@/assets/howitworks-search.png";
+import enrichImg from "@/assets/howitworks-enrich.png";
+import contactImg from "@/assets/howitworks-contact.png";
+import crmImg from "@/assets/howitworks-crm.png";
+import emailImg from "@/assets/howitworks-email.png";
 
 const oldWays = [
   "바이어는 어디에 있을까?",
@@ -24,18 +29,21 @@ const steps = [
     title: "SEARCH",
     icon: Search,
     desc: "무역데이터를 기반으로 실제 수입 이력이 있는 바이어를 탐색하고 CRM에 등록합니다.",
+    image: searchImg,
   },
   {
     n: "Step 2",
     title: "ENRICH",
     icon: Database,
     desc: "영업 시작 전 바이어 기업 정보와 담당자 연락처를 확보합니다.",
+    image: enrichImg,
   },
   {
     n: "Step 3",
     title: "CONTACT",
     icon: Send,
     desc: "검증된 바이어를 대상으로 이메일을 발송하고 응답을 관리합니다.",
+    image: contactImg,
   },
 ];
 
@@ -45,12 +53,14 @@ const extras = [
     tag: "CRM",
     title: "영업 파이프라인 관리",
     desc: "발굴된 바이어를 단계별로 등록하고, 각 바이어의 진행 상황을 한눈에 확인합니다.",
+    image: crmImg,
   },
   {
     icon: Mail,
     tag: "EMAIL",
     title: "이메일 송수신 자동 기록",
     desc: "회사 이메일을 연동해 바이어와 주고받은 모든 기록을 자동으로 저장합니다.",
+    image: emailImg,
   },
 ];
 
@@ -148,7 +158,7 @@ export const Compare = () => (
         {steps.map((s) => (
           <div
             key={s.n}
-            className="reveal relative rounded-3xl bg-card border border-border/70 p-7 shadow-soft hover:-translate-y-1 hover:shadow-elevated transition-smooth"
+            className="reveal relative rounded-3xl bg-card border border-border/70 p-7 pb-0 shadow-soft hover:-translate-y-1 hover:shadow-elevated transition-smooth flex flex-col overflow-hidden"
           >
             <div className="absolute -top-4 left-7 px-3 py-1 rounded-full bg-gradient-cta text-primary-foreground text-xs font-semibold shadow-soft">
               {s.n}
@@ -158,6 +168,14 @@ export const Compare = () => (
             </div>
             <h4 className="text-lg font-bold tracking-tight">{s.title}</h4>
             <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{s.desc}</p>
+            <div className="mt-6 -mx-1 rounded-t-xl border-t border-x border-border/60 bg-muted/30 shadow-inner overflow-hidden">
+              <img
+                src={s.image}
+                alt={`${s.title} 화면 미리보기`}
+                loading="lazy"
+                className="w-full h-44 object-cover object-top"
+              />
+            </div>
           </div>
         ))}
       </div>
@@ -166,18 +184,28 @@ export const Compare = () => (
         {extras.map((e) => (
           <div
             key={e.tag}
-            className="reveal rounded-3xl bg-card border border-border/70 p-7 shadow-soft hover:-translate-y-1 hover:shadow-elevated transition-smooth flex items-start gap-5"
+            className="reveal rounded-3xl bg-card border border-border/70 p-8 shadow-soft hover:-translate-y-1 hover:shadow-elevated transition-smooth flex flex-col overflow-hidden"
           >
-            <div className="w-12 h-12 rounded-2xl bg-gradient-primary text-primary-foreground flex items-center justify-center shrink-0">
-              <e.icon className="w-6 h-6" />
-            </div>
-            <div>
-              <div className="flex items-center gap-2">
-                <span className="text-xs font-bold text-primary tracking-wider">{e.tag}</span>
-                <ArrowRight className="w-3 h-3 text-primary/60" />
-                <h4 className="text-base font-semibold">{e.title}</h4>
+            <div className="flex items-start gap-5">
+              <div className="w-12 h-12 rounded-2xl bg-gradient-primary text-primary-foreground flex items-center justify-center shrink-0">
+                <e.icon className="w-6 h-6" />
               </div>
-              <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{e.desc}</p>
+              <div>
+                <div className="flex items-center gap-2">
+                  <span className="text-xs font-bold text-primary tracking-wider">{e.tag}</span>
+                  <ArrowRight className="w-3 h-3 text-primary/60" />
+                  <h4 className="text-base font-semibold">{e.title}</h4>
+                </div>
+                <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{e.desc}</p>
+              </div>
+            </div>
+            <div className="mt-6 rounded-xl border border-border/60 bg-muted/30 shadow-inner overflow-hidden">
+              <img
+                src={e.image}
+                alt={`${e.tag} 화면 미리보기`}
+                loading="lazy"
+                className="w-full h-72 md:h-80 object-cover object-top"
+              />
             </div>
           </div>
         ))}
