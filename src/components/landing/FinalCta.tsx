@@ -40,9 +40,9 @@ export const FinalCta = () => {
                 variant="hero"
                 size="xl"
                 className="w-full sm:w-auto rounded-2xl"
-                onClick={() => open("무료 바이어 요청")}
+                onClick={() => open("무료로 시작하기")}
               >
-                무료 바이어 요청 <ArrowRight />
+                무료로 시작하기 <ArrowRight />
               </Button>
             </div>
           </div>
