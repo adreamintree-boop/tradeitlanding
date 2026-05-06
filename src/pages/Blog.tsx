@@ -53,7 +53,7 @@ const posts: BlogPost[] = [
   {
     category: "Interview",
     brand: "트레이드잇 | Tradeit",
-    title: ["해외영업의 최종병기, 트레이드잇!", "[문성용 대표 인터뷰]"],
+    title: ["해외영업의 최종병기,", "트레이드잇!", "[문성용 대표 인터뷰]"],
     date: "Posting 2025.01.07",
     image: ceoInterview,
   },
