@@ -153,14 +153,14 @@ export const Compare = () => (
         </p>
       </div>
 
-      <div className="mt-12 grid md:grid-cols-3 gap-6 relative">
-        <div className="hidden md:block absolute top-8 left-[16%] right-[16%] h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
+      <div className="mt-16 grid md:grid-cols-3 gap-6 relative pt-4">
+        <div className="hidden md:block absolute top-12 left-[16%] right-[16%] h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
         {steps.map((s) => (
           <div
             key={s.n}
             className="reveal relative rounded-3xl bg-card border border-border/70 p-7 pb-0 shadow-soft hover:-translate-y-1 hover:shadow-elevated transition-smooth flex flex-col overflow-hidden"
           >
-            <div className="absolute -top-4 left-7 px-3 py-1 rounded-full bg-gradient-cta text-primary-foreground text-xs font-semibold shadow-soft">
+            <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1.5 rounded-full bg-gradient-cta text-primary-foreground text-xs font-semibold shadow-elevated whitespace-nowrap z-10">
               {s.n}
             </div>
             <div className="w-12 h-12 rounded-2xl bg-accent flex items-center justify-center mb-5">
