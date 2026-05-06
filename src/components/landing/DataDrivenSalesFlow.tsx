@@ -1,6 +1,7 @@
 import { Layers, MessageSquare, MapPin, UserSearch, ClipboardList, BarChart3 } from "lucide-react";
 import blTrackingMain from "@/assets/bl-tracking-main.png";
-import buyerMappingProfile from "@/assets/buyer-mapping-profile.png";
+import buyerStreetView from "@/assets/buyer-streetview.png";
+import buyerProfileSalesnote from "@/assets/buyer-profile-salesnote.png";
 import featureActivityLog from "@/assets/feature-activity-log.jpg";
 import featureSalesAnalytics from "@/assets/feature-sales-analytics.jpg";
 
@@ -9,15 +10,15 @@ const features = [
     icon: MapPin,
     title: "글로벌 바이어 맵핑",
     desc: "B/L 데이터를 활용해 추출된 글로벌 바이어의 위치를 한눈에 파악",
-    image: buyerMappingProfile,
-    objectPosition: "top right",
+    image: buyerStreetView,
+    objectPosition: "center",
   },
   {
     icon: UserSearch,
     title: "바이어 프로필 분석",
     desc: "정확한 바이어 프로파일링으로 구매 트렌드를 파악",
-    image: buyerMappingProfile,
-    objectPosition: "bottom left",
+    image: buyerProfileSalesnote,
+    objectPosition: "top left",
   },
   {
     icon: ClipboardList,
