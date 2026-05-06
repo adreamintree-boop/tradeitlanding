@@ -231,15 +231,12 @@ export const Pricing = ({ variant = "all" }: PricingProps) => {
 
   const filtered = plans.filter((p) => {
     if (variant === "saas") return p.kind === "saas";
-    if (variant === "agency") return p.kind === "agency";
     return true;
   });
   const heading =
     variant === "saas"
       ? "합리적인 요금으로 시작하세요"
-      : variant === "agency"
-        ? "해외영업 대행 상품"
-        : "우리 상황에 맞게 선택하세요";
+      : "우리 상황에 맞게 선택하세요";
   const gridCols =
     filtered.length === 1
       ? "max-w-md mx-auto"
