@@ -21,10 +21,10 @@ export const FinalCta = () => {
             무료로 바이어 리스트를 확인하고, 가능성을 먼저 검증해보세요.
           </p>
           <div className="mt-9 flex flex-col sm:flex-row gap-3 justify-center">
-            <Button variant="hero" size="xl" onClick={open}>
+            <Button variant="hero" size="xl" onClick={() => open("무료 바이어 요청")}>
               무료 바이어 요청 <ArrowRight />
             </Button>
-            <Button variant="soft" size="xl" onClick={open}>
+            <Button variant="soft" size="xl" onClick={() => open("상담 신청")}>
               상담 신청
             </Button>
           </div>
