@@ -1,4 +1,4 @@
-import { Layers, MessageSquare } from "lucide-react";
+import { Layers, MessageSquare, MapPin, UserSearch, ClipboardList, BarChart3 } from "lucide-react";
 import blTrackingMain from "@/assets/bl-tracking-main.png";
 import buyerMappingProfile from "@/assets/buyer-mapping-profile.png";
 import featureActivityLog from "@/assets/feature-activity-log.jpg";
@@ -6,32 +6,32 @@ import featureSalesAnalytics from "@/assets/feature-sales-analytics.jpg";
 
 const features = [
   {
+    icon: MapPin,
     title: "글로벌 바이어 맵핑",
     desc: "B/L 데이터를 활용해 추출된 글로벌 바이어의 위치를 한눈에 파악",
     image: buyerMappingProfile,
     objectPosition: "top right",
-    spanClass: "lg:col-span-7 lg:mt-0",
   },
   {
+    icon: UserSearch,
     title: "바이어 프로필 분석",
     desc: "정확한 바이어 프로파일링으로 구매 트렌드를 파악",
     image: buyerMappingProfile,
     objectPosition: "bottom left",
-    spanClass: "lg:col-span-5 lg:mt-12",
   },
   {
+    icon: ClipboardList,
     title: "영업활동 기록",
     desc: "바이어별 이메일·미팅·문의 내역을 체계적으로 기록 및 관리",
     image: featureActivityLog,
     objectPosition: "center",
-    spanClass: "lg:col-span-5 lg:-mt-8",
   },
   {
+    icon: BarChart3,
     title: "영업흐름 분석",
     desc: "국가·산업·단계별 해외영업 진행 흐름 분석",
     image: featureSalesAnalytics,
     objectPosition: "center",
-    spanClass: "lg:col-span-7 lg:mt-4",
   },
 ];
 
@@ -105,31 +105,45 @@ export const DataDrivenSalesFlow = () => (
           </div>
         </div>
 
-        {/* Feature image-dominant staggered grid */}
-        <div className="mt-16 md:mt-24 max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-5 md:gap-6">
-          {features.map((f, i) => (
-            <article
-              key={f.title + i}
-              className={`reveal group rounded-2xl md:rounded-[28px] bg-card border border-[hsl(220_60%_94%)] shadow-soft hover:-translate-y-1 hover:shadow-elevated transition-smooth overflow-hidden flex flex-col ${f.spanClass}`}
-              style={{ transitionDelay: `${i * 70}ms` }}
-            >
-              <div className="relative aspect-[16/10] overflow-hidden bg-[hsl(220_40%_98.5%)]">
-                <img
-                  src={f.image}
-                  alt={f.title}
-                  loading="lazy"
-                  className="absolute inset-0 w-full h-full object-cover transition-smooth group-hover:scale-[1.03]"
-                  style={{ objectPosition: f.objectPosition }}
-                />
+        {/* Editorial alternating split layout */}
+        <div className="mt-20 md:mt-28 max-w-6xl mx-auto space-y-16 md:space-y-24">
+          {features.map((f, i) => {
+            const imageRight = i % 2 === 0;
+            return (
+              <div
+                key={f.title}
+                className="reveal grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-10 items-stretch"
+              >
+                {/* Text panel */}
+                <div
+                  className={`order-1 ${imageRight ? "lg:order-1" : "lg:order-2"} rounded-2xl md:rounded-[28px] bg-card border border-[hsl(220_60%_94%)] shadow-soft p-8 md:p-12 flex flex-col justify-center`}
+                >
+                  <div className="w-12 h-12 rounded-2xl bg-accent text-primary flex items-center justify-center">
+                    <f.icon className="w-5 h-5" />
+                  </div>
+                  <h3 className="mt-6 text-2xl md:text-3xl font-bold text-foreground tracking-tight">
+                    {f.title}
+                  </h3>
+                  <p className="mt-4 text-base md:text-lg text-muted-foreground leading-relaxed">
+                    {f.desc}
+                  </p>
+                </div>
+
+                {/* Image panel */}
+                <div
+                  className={`order-2 ${imageRight ? "lg:order-2" : "lg:order-1"} group relative rounded-2xl md:rounded-[28px] overflow-hidden shadow-soft border border-[hsl(220_60%_94%)] bg-[hsl(220_40%_98.5%)] min-h-[280px] md:min-h-[360px]`}
+                >
+                  <img
+                    src={f.image}
+                    alt={f.title}
+                    loading="lazy"
+                    className="absolute inset-0 w-full h-full object-cover transition-smooth group-hover:scale-[1.03]"
+                    style={{ objectPosition: f.objectPosition }}
+                  />
+                </div>
               </div>
-              <div className="p-6 md:p-8">
-                <h3 className="text-lg md:text-xl font-bold text-foreground">{f.title}</h3>
-                <p className="mt-2 text-sm md:text-[15px] text-muted-foreground leading-relaxed">
-                  {f.desc}
-                </p>
-              </div>
-            </article>
-          ))}
+            );
+          })}
         </div>
       </div>
     </div>
