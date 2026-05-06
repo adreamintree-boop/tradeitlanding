@@ -8,13 +8,16 @@ import { toast } from "sonner";
 interface RequestModalProps {
   open: boolean;
   onOpenChange: (open: boolean) => void;
+  title?: string;
+  selectedPlan?: string;
 }
 
-export const RequestModal = ({ open, onOpenChange }: RequestModalProps) => {
+export const RequestModal = ({ open, onOpenChange, title = "무료 바이어 요청", selectedPlan }: RequestModalProps) => {
   const [form, setForm] = useState({ company: "", name: "", phone: "", mobile: "", email: "" });
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    void selectedPlan;
     onOpenChange(false);
     toast.success("신청이 접수되었습니다. 담당자가 빠르게 연락드리겠습니다.");
     setForm({ company: "", name: "", phone: "", mobile: "", email: "" });
@@ -27,7 +30,7 @@ export const RequestModal = ({ open, onOpenChange }: RequestModalProps) => {
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="max-w-lg rounded-3xl bg-white border border-primary/20 shadow-glow p-8 md:p-10 backdrop-blur-none">
         <DialogHeader>
-          <DialogTitle className="text-2xl md:text-3xl font-extrabold text-center text-foreground tracking-tight">무료 바이어 요청</DialogTitle>
+          <DialogTitle className="text-2xl md:text-3xl font-extrabold text-center text-foreground tracking-tight">{title}</DialogTitle>
         </DialogHeader>
         <form onSubmit={handleSubmit} className="space-y-5 mt-2">
           <div className="space-y-2">

@@ -114,7 +114,7 @@ export const Pricing = () => {
               <Button
                 variant={p.highlight ? "secondary" : "default"}
                 className={`mt-8 w-full inline-flex items-center justify-center text-center leading-none ${p.highlight ? "bg-white text-primary hover:bg-white/90" : ""}`}
-                onClick={open}
+                onClick={() => open(`${p.name} 상담 신청`, p.name)}
               >
                 {p.cta}
               </Button>
