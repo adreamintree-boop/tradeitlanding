@@ -1,8 +1,11 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Linkedin, Facebook, Youtube } from "lucide-react";
 import logo from "@/assets/tradeit-logo.png";
+import { useRequestModal } from "./RequestModalContext";
 
-export const FinalCta = () => (
+export const FinalCta = () => {
+  const { open } = useRequestModal();
+  return (
   <section id="contact" className="py-24 md:py-32 bg-gradient-soft">
     <div className="container">
       <div className="reveal max-w-4xl mx-auto rounded-[2rem] bg-card border border-border/70 shadow-elevated p-10 md:p-16 text-center relative overflow-hidden">
@@ -18,18 +21,19 @@ export const FinalCta = () => (
             무료로 바이어 리스트를 확인하고, 가능성을 먼저 검증해보세요.
           </p>
           <div className="mt-9 flex flex-col sm:flex-row gap-3 justify-center">
-            <Button variant="hero" size="xl" asChild>
-              <a href="mailto:hello@tradeit.kr">무료 바이어 요청 <ArrowRight /></a>
+            <Button variant="hero" size="xl" onClick={open}>
+              무료 바이어 요청 <ArrowRight />
             </Button>
-            <Button variant="soft" size="xl" asChild>
-              <a href="mailto:hello@tradeit.kr">상담 신청</a>
+            <Button variant="soft" size="xl" onClick={open}>
+              상담 신청
             </Button>
           </div>
         </div>
       </div>
     </div>
   </section>
-);
+  );
+};
 
 export const Footer = () => (
   <footer className="w-full border-t border-border/60 bg-muted/50">

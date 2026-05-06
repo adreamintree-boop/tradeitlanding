@@ -12,11 +12,13 @@ import { Data } from "@/components/landing/Data";
 import { CostCompare } from "@/components/landing/CostCompare";
 import { Pricing } from "@/components/landing/Pricing";
 import { FinalCta, Footer } from "@/components/landing/FinalCta";
+import { RequestModalProvider } from "@/components/landing/RequestModalContext";
 import { useReveal } from "@/hooks/use-reveal";
 
 const Index = () => {
   useReveal();
   return (
+    <RequestModalProvider>
     <div className="min-h-screen bg-background">
       <Header />
       <main>
@@ -36,6 +38,7 @@ const Index = () => {
       </main>
       <Footer />
     </div>
+    </RequestModalProvider>
   );
 };
 
