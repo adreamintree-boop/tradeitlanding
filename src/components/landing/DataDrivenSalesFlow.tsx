@@ -1,4 +1,4 @@
-import { Layers, MessageSquare, MapPin, UserSearch, ClipboardList, BarChart3 } from "lucide-react";
+import { MapPin, UserSearch, ClipboardList, BarChart3 } from "lucide-react";
 import blTrackingMain from "@/assets/bl-tracking-main.png";
 import buyerStreetView from "@/assets/buyer-streetview.png";
 import buyerProfileSalesnote from "@/assets/buyer-profile-salesnote.png";
@@ -34,36 +34,6 @@ const features = [
     desc: "국가·산업·단계별 해외영업 진행 흐름 분석",
     image: featureSalesAnalytics,
     objectPosition: "center",
-  },
-];
-
-const pipeline = [
-  {
-    stage: "Lead",
-    count: 12,
-    accent: "bg-[hsl(40_95%_55%)]",
-    cards: [
-      { name: "Zovell Medical", country: "🇺🇸 USA", tag: "Health" },
-      { name: "ICS Pharma", country: "🇩🇪 GER", tag: "Pharma" },
-    ],
-  },
-  {
-    stage: "Target",
-    count: 8,
-    accent: "bg-[hsl(0_84%_62%)]",
-    cards: [
-      { name: "Globally Pharma", country: "🇫🇷 FRA", tag: "Pharma" },
-      { name: "Dabro Pharma", country: "🇪🇸 ESP", tag: "Health" },
-    ],
-  },
-  {
-    stage: "Client",
-    count: 5,
-    accent: "bg-primary",
-    cards: [
-      { name: "3 in 1 Vietnam", country: "🇻🇳 VNM", tag: "Food" },
-      { name: "Healthy Opt Ltd", country: "🇮🇳 IND", tag: "Health" },
-    ],
   },
 ];
 
