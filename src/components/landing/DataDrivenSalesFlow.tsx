@@ -72,12 +72,10 @@ export const DataDrivenSalesFlow = () => (
           <p className="mt-5 text-sm md:text-base font-medium text-muted-foreground">
             바이어 발굴, 아직도 전시회에 의존하고 계신가요?
           </p>
-          <h2 className="mt-3 text-3xl md:text-5xl font-bold tracking-tight leading-snug md:leading-tight text-foreground">
-            글로벌 무역데이터를 통해
-            <br />
+          <h2 className="mt-3 text-3xl md:text-5xl font-bold tracking-tight leading-snug md:leading-tight text-foreground whitespace-pre-line">
+            {"글로벌 무역데이터를 통해\n"}
             <span className="text-gradient-primary">구매 가능성이 높은 바이어</span>를
-            <br className="md:hidden" />
-            우선적으로 찾아드립니다
+            {"\n우선적으로 찾아드립니다"}
           </h2>
         </div>
 
