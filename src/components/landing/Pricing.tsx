@@ -5,28 +5,60 @@ import { useRequestModal } from "./RequestModalContext";
 
 const plans = [
   {
-    name: "Starter Plan",
-    price: "₩99,000",
-    suffix: "/월",
-    note: "VAT 포함",
+    name: "플러스(Plus)",
+    price: "49,000원",
+    suffix: "/ 월(VAT 포함)",
+    note: "활동량이 늘어나는 실무자를 위한 성장형 플랜",
+    credits: "매월 5,000 크레딧 제공",
     features: [
-      "10,000 크레딧",
-      "B/L 데이터 검색",
-      "담당자 연락처 Enrichment",
-      "CRM (Sales Note)",
-      "이메일 연동",
+      "이메일 계정 1개 연동",
+      "바이어 검색 'B/L 데이터'",
+      "해외시장 분석 'AI Core'",
+      "바이어 정보 보강 'Enrichment'",
+      "바이어 적합도 분석 'Buyer Fit'",
+      "영업활동일지 'Sales Note'",
     ],
     cta: "시작하기",
     badge: null,
+    kind: "saas" as const,
   },
   {
-    name: "Data Package",
-    price: "₩99,000",
-    suffix: "/1회",
-    note: "VAT 포함",
-    features: ["바이어 20개 제공", "실제 수입 이력 기반", "CRM에 정리 후 제공"],
-    cta: "리스트 받아보기",
+    name: "프로(Pro)",
+    price: "99,000원",
+    suffix: "/ 월(VAT 포함)",
+    note: "고빈도 수출 담당자를 위한 고급 플랜",
+    credits: "매월 10,000 크레딧 제공",
+    features: [
+      "이메일 계정 1개 연동",
+      "바이어 검색 'B/L 데이터'",
+      "해외시장 분석 'AI Core'",
+      "바이어 정보 보강 'Enrichment'",
+      "바이어 적합도 분석 'Buyer Fit'",
+      "영업활동일지 'Sales Note'",
+    ],
+    cta: "시작하기",
+    badge: "Recommended",
+    recommended: true,
+    kind: "saas" as const,
+  },
+  {
+    name: "엔터프라이즈(Enterprise)",
+    price: "490,000원",
+    suffix: "/ 월(VAT 포함)",
+    note: "팀 단위 운영 및 대량 활용을 위한 기업형 플랜",
+    credits: "매월 50,000 크레딧 제공",
+    features: [
+      "이메일 계정 다중 연동",
+      "바이어 검색 'B/L 데이터'",
+      "해외시장 분석 'AI Core'",
+      "바이어 정보 보강 'Enrichment'",
+      "바이어 적합도 분석 'Buyer Fit'",
+      "영업활동일지 'Sales Note'",
+      "팀 단위 운영 지원",
+    ],
+    cta: "시작하기",
     badge: null,
+    kind: "saas" as const,
   },
   {
     name: "해외영업 대행 A",
@@ -43,6 +75,7 @@ const plans = [
     cta: "상담 신청",
     badge: "Popular",
     highlight: true,
+    kind: "agency" as const,
   },
   {
     name: "해외영업 대행 B",
@@ -58,6 +91,7 @@ const plans = [
     guarantee: "Target 바이어 5개 보장",
     cta: "상담 신청",
     badge: null,
+    kind: "agency" as const,
   },
 ];
 
@@ -68,8 +102,8 @@ interface PricingProps {
 export const Pricing = ({ variant = "all" }: PricingProps) => {
   const { open } = useRequestModal();
   const filtered = plans.filter((p) => {
-    if (variant === "saas") return p.cta !== "상담 신청";
-    if (variant === "agency") return p.cta === "상담 신청";
+    if (variant === "saas") return p.kind === "saas";
+    if (variant === "agency") return p.kind === "agency";
     return true;
   });
   const heading =
@@ -79,7 +113,11 @@ export const Pricing = ({ variant = "all" }: PricingProps) => {
         ? "해외영업 대행 상품"
         : "우리 상황에 맞게 선택하세요";
   const gridCols =
-    filtered.length <= 2 ? "md:grid-cols-2 max-w-3xl mx-auto" : "md:grid-cols-2 xl:grid-cols-4";
+    filtered.length <= 2
+      ? "md:grid-cols-2 max-w-3xl mx-auto"
+      : filtered.length === 3
+        ? "md:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto"
+        : "md:grid-cols-2 xl:grid-cols-4";
   return (
   <section id="pricing" className="py-24 md:py-32 bg-background">
     <div className="container">
