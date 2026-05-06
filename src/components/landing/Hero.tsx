@@ -32,21 +32,18 @@ export const Hero = () => {
             B/L 데이터 × AI 바이어 발굴 서비스
           </div>
           <h1 className="text-[2rem] sm:text-4xl md:text-6xl font-bold tracking-tight leading-[1.2] reveal">
-            해외 바이어, 직접 찾지 마세요.
+            해외 바이어, 전시회에서 찾지 마세요.
             <br />
-            <span className="text-gradient-primary">대신 찾아드립니다.</span>
+            <span className="text-gradient-primary">무역데이터로 찾아보세요.</span>
           </h1>
           <p className="mt-5 text-sm sm:text-base md:text-lg text-muted-foreground leading-relaxed reveal">
             글로벌 수출입 무역데이터와 AI 분석을 기반으로
             <br className="hidden md:block" />
             실제 구매 이력이 있는 해외 바이어를 발굴하고, 담당자 컨택까지 연결해드립니다.
           </p>
-          <div className="mt-8 flex flex-col sm:flex-row gap-3 justify-center reveal">
+          <div className="mt-8 flex justify-center reveal">
             <Button variant="hero" size="xl" className="w-full sm:w-auto" asChild>
-              <a href="#contact">무료 바이어 리서치 요청하기 <ArrowRight /></a>
-            </Button>
-            <Button variant="soft" size="xl" className="w-full sm:w-auto" asChild>
-              <a href="#service">우리 제품으로 바이어 찾아보기</a>
+              <a href="#contact">무료로 시작하기 <ArrowRight /></a>
             </Button>
           </div>
         </div>
