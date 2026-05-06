@@ -192,9 +192,9 @@ export const Compare = () => (
               </div>
               <div>
                 <div className="flex items-center gap-2">
-                  <span className="text-xs font-bold text-primary tracking-wider">{e.tag}</span>
+                  <span className="font-bold text-primary tracking-wider text-lg">{e.tag}</span>
                   <ArrowRight className="w-3 h-3 text-primary/60" />
-                  <h4 className="text-base font-semibold">{e.title}</h4>
+                  <h4 className="font-semibold text-lg">{e.title}</h4>
                 </div>
                 <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{e.desc}</p>
               </div>
