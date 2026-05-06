@@ -39,7 +39,7 @@ const plans = [
     ],
     guarantee: "Target 바이어 2개 보장",
     cta: "상담 신청",
-    badge: "가장 인기",
+    badge: "Popular",
     highlight: true,
   },
   {
@@ -47,7 +47,12 @@ const plans = [
     price: "₩1,990,000",
     suffix: "/월",
     note: "6개월 계약 · VAT 포함",
-    features: ["총 바이어 50개 발굴", "CRM 등록", "컨택 및 관리"],
+    features: [
+      "총 바이어 50개 발굴",
+      "CRM 등록",
+      "컨택 및 관리",
+      "이메일 발송 및 대응",
+    ],
     guarantee: "Target 바이어 5개 보장",
     cta: "상담 신청",
     badge: null,
@@ -63,18 +68,18 @@ export const Pricing = () => (
           우리 상황에 맞게 선택하세요
         </h2>
       </div>
-      <div className="mt-14 grid md:grid-cols-2 xl:grid-cols-4 gap-6">
+      <div className="mt-14 grid md:grid-cols-2 xl:grid-cols-4 gap-6 items-stretch">
         {plans.map((p) => (
           <div
             key={p.name}
-            className={`reveal relative rounded-3xl p-8 flex flex-col transition-smooth hover:-translate-y-2 ${
+            className={`reveal relative rounded-3xl p-8 flex flex-col h-full transition-smooth hover:-translate-y-2 ${
               p.highlight
                 ? "bg-gradient-cta text-primary-foreground shadow-elevated xl:scale-105 hover:shadow-glow border border-primary/20"
                 : "bg-card border border-border/70 shadow-soft hover:shadow-card"
             }`}
           >
             {p.badge && (
-              <div className="absolute -top-3 left-1/2 -translate-x-1/2 inline-flex items-center gap-1 px-3 py-1 rounded-full bg-foreground text-background text-xs font-semibold shadow-soft">
+              <div className="absolute -top-3 left-1/2 -translate-x-1/2 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-foreground text-background text-[11px] font-semibold tracking-wide shadow-soft">
                 <Star className="w-3 h-3 fill-current" /> {p.badge}
               </div>
             )}
@@ -86,7 +91,7 @@ export const Pricing = () => (
             <p className={`mt-2 text-xs h-4 ${p.highlight ? "opacity-80" : "text-muted-foreground"}`}>
               {p.note ?? ""}
             </p>
-            <ul className="mt-6 space-y-3 text-sm">
+            <ul className="mt-6 space-y-3 text-sm flex-1">
               {p.features.map((f) => (
                 <li key={f} className="flex items-start gap-2">
                   <Check className={`w-4 h-4 mt-0.5 ${p.highlight ? "" : "text-primary"}`} />
@@ -95,7 +100,7 @@ export const Pricing = () => (
               ))}
             </ul>
             {p.guarantee && (
-              <div className={`mt-5 px-3 py-2 rounded-xl text-xs font-semibold ${
+              <div className={`mt-6 px-3 py-2.5 rounded-xl text-xs font-semibold text-center ${
                 p.highlight ? "bg-white/15" : "bg-accent text-accent-foreground"
               }`}>
                 ✓ {p.guarantee}
@@ -103,7 +108,7 @@ export const Pricing = () => (
             )}
             <Button
               variant={p.highlight ? "secondary" : "default"}
-              className={`mt-auto pt-0 w-full ${p.highlight ? "bg-white text-primary hover:bg-white/90" : ""}`}
+              className={`mt-8 w-full inline-flex items-center justify-center text-center leading-none ${p.highlight ? "bg-white text-primary hover:bg-white/90" : ""}`}
               asChild
             >
               <a href="#contact">{p.cta}</a>
