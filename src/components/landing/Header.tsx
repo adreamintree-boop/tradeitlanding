@@ -9,6 +9,7 @@ import { useRequestModal } from "./RequestModalContext";
 const links: { to: string; label: string; type: "anchor" | "route" }[] = [
   { to: "/", label: "홈", type: "route" },
   { to: "/export-agency", label: "해외영업대행", type: "route" },
+  { to: "/blog", label: "블로그", type: "route" },
   { to: "#pricing", label: "가격", type: "anchor" },
   { to: "#contact", label: "문의하기", type: "anchor" },
 ];
