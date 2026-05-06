@@ -2,6 +2,7 @@ import { Header } from "@/components/landing/Header";
 import { Hero } from "@/components/landing/Hero";
 import { Problem } from "@/components/landing/Problem";
 import { Compare } from "@/components/landing/Compare";
+import { AIWorkflow } from "@/components/landing/AIWorkflow";
 import { Together } from "@/components/landing/Together";
 import { Data } from "@/components/landing/Data";
 import { Pricing } from "@/components/landing/Pricing";
@@ -17,6 +18,7 @@ const Index = () => {
         <Hero />
         <Problem />
         <Compare />
+        <AIWorkflow />
         <Data />
         <Together />
         <Pricing variant="saas" />
