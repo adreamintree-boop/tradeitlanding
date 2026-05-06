@@ -23,7 +23,7 @@ const plans: Plan[] = [
     name: "플러스(Plus)",
     price: "49,000원",
     suffix: "/ 월(VAT 포함)",
-    note: "고빈도 수출을 하는 해외영업 담당자를 위한 플랜",
+    note: "수출을 시작하는 해외영업 담당자를 위한 플랜",
     credits: "매월 5,000 크레딧 제공",
     features: [
       "Sales Note CRM을 통한 바이어 관리",
