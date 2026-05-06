@@ -1,13 +1,126 @@
 import { Search, Sparkles, ArrowRight, ChevronDown } from "lucide-react";
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { Button } from "@/components/ui/button";
 
-const sample = [
-  { co: "Bellevue Cosmetics", country: "🇺🇸 USA", product: "Vitamin C Serum", history: "12 shipments / 2024" },
-  { co: "Aurora Beauty Ltd.", country: "🇬🇧 UK", product: "Niacinamide Serum", history: "8 shipments / 2024" },
-  { co: "Lumière Paris", country: "🇫🇷 France", product: "Skincare Set", history: "21 shipments / 2024" },
-  { co: "Sakura Trading", country: "🇯🇵 Japan", product: "Facial Serum", history: "15 shipments / 2024" },
+type Row = { co: string; country: string; history: string };
+
+const defaultRows: Row[] = [
+  { co: "Bellevue Cosmetics", country: "🇺🇸 USA", history: "12 shipments / 2024" },
+  { co: "Aurora Beauty Ltd.", country: "🇬🇧 UK", history: "8 shipments / 2024" },
+  { co: "Lumière Paris", country: "🇫🇷 France", history: "21 shipments / 2024" },
+  { co: "Sakura Trading", country: "🇯🇵 Japan", history: "15 shipments / 2024" },
 ];
+
+const datasets: Record<string, Row[]> = {
+  "hydraulic excavator": [
+    { co: "HeavyMach USA", country: "🇺🇸 USA", history: "18 shipments / 2024" },
+    { co: "Gulf Equipment LLC", country: "🇦🇪 UAE", history: "14 shipments / 2024" },
+    { co: "Andes Mining Co.", country: "🇨🇱 Chile", history: "9 shipments / 2024" },
+    { co: "Sahara Build Group", country: "🇸🇦 KSA", history: "11 shipments / 2024" },
+  ],
+  "electric vehicle": [
+    { co: "EV Motion GmbH", country: "🇩🇪 Germany", history: "32 shipments / 2024" },
+    { co: "Neo Battery Inc", country: "🇺🇸 USA", history: "27 shipments / 2024" },
+    { co: "Volt Mobility", country: "🇳🇱 Netherlands", history: "19 shipments / 2024" },
+    { co: "GreenDrive Co.", country: "🇳🇴 Norway", history: "22 shipments / 2024" },
+  ],
+  "steel pipe": [
+    { co: "Pacific Steelworks", country: "🇺🇸 USA", history: "24 shipments / 2024" },
+    { co: "Orient Pipe Co.", country: "🇯🇵 Japan", history: "17 shipments / 2024" },
+    { co: "Eurotube SRL", country: "🇮🇹 Italy", history: "13 shipments / 2024" },
+    { co: "Gulf Steel LLC", country: "🇦🇪 UAE", history: "10 shipments / 2024" },
+  ],
+  "energy storage system": [
+    { co: "GridCore Energy", country: "🇺🇸 USA", history: "26 shipments / 2024" },
+    { co: "Helios Storage", country: "🇪🇸 Spain", history: "14 shipments / 2024" },
+    { co: "PowerCell AG", country: "🇩🇪 Germany", history: "20 shipments / 2024" },
+    { co: "BlueWatt Ltd.", country: "🇬🇧 UK", history: "11 shipments / 2024" },
+  ],
+  "tableware set": [
+    { co: "Maison Table", country: "🇫🇷 France", history: "16 shipments / 2024" },
+    { co: "HomeStyle Inc.", country: "🇺🇸 USA", history: "12 shipments / 2024" },
+    { co: "Casa Bella SRL", country: "🇮🇹 Italy", history: "9 shipments / 2024" },
+    { co: "NordicWare", country: "🇸🇪 Sweden", history: "8 shipments / 2024" },
+  ],
+  "soybean": [
+    { co: "Agro Foods Vietnam", country: "🇻🇳 Vietnam", history: "21 shipments / 2024" },
+    { co: "Grainex Trading", country: "🇸🇬 Singapore", history: "18 shipments / 2024" },
+    { co: "Pampas Agro", country: "🇦🇷 Argentina", history: "25 shipments / 2024" },
+    { co: "Asia Feed Co.", country: "🇨🇳 China", history: "30 shipments / 2024" },
+  ],
+  "pork belly": [
+    { co: "Iberico Foods", country: "🇪🇸 Spain", history: "14 shipments / 2024" },
+    { co: "MeatMaster Co.", country: "🇺🇸 USA", history: "19 shipments / 2024" },
+    { co: "Tokyo Foods Ltd.", country: "🇯🇵 Japan", history: "11 shipments / 2024" },
+    { co: "EuroMeat GmbH", country: "🇩🇪 Germany", history: "16 shipments / 2024" },
+  ],
+  "polyester yarn": [
+    { co: "Textile Lanka", country: "🇱🇰 Sri Lanka", history: "22 shipments / 2024" },
+    { co: "Istanbul Tekstil", country: "🇹🇷 Türkiye", history: "17 shipments / 2024" },
+    { co: "FabricPro Inc.", country: "🇺🇸 USA", history: "13 shipments / 2024" },
+    { co: "Asia Yarn Co.", country: "🇻🇳 Vietnam", history: "20 shipments / 2024" },
+  ],
+  "wind turbine": [
+    { co: "NordWind A/S", country: "🇩🇰 Denmark", history: "15 shipments / 2024" },
+    { co: "GreenPower Co.", country: "🇺🇸 USA", history: "12 shipments / 2024" },
+    { co: "AeroEnergy GmbH", country: "🇩🇪 Germany", history: "18 shipments / 2024" },
+    { co: "EolicaIberica", country: "🇪🇸 Spain", history: "10 shipments / 2024" },
+  ],
+  "patient monitor": [
+    { co: "MedCare Systems", country: "🇺🇸 USA", history: "20 shipments / 2024" },
+    { co: "EuroMedic AG", country: "🇩🇪 Germany", history: "15 shipments / 2024" },
+    { co: "Tokyo Medical Co.", country: "🇯🇵 Japan", history: "13 shipments / 2024" },
+    { co: "Health Plus Ltd.", country: "🇬🇧 UK", history: "11 shipments / 2024" },
+  ],
+  "sofa set": [
+    { co: "Casa Living SRL", country: "🇮🇹 Italy", history: "14 shipments / 2024" },
+    { co: "HomePlus Inc.", country: "🇺🇸 USA", history: "18 shipments / 2024" },
+    { co: "Maison Décor", country: "🇫🇷 France", history: "10 shipments / 2024" },
+    { co: "Nordic Home AB", country: "🇸🇪 Sweden", history: "12 shipments / 2024" },
+  ],
+  "lipstick": [
+    { co: "Belle Cosmetics", country: "🇫🇷 France", history: "15 shipments / 2024" },
+    { co: "Aurora Beauty Ltd.", country: "🇬🇧 UK", history: "12 shipments / 2024" },
+    { co: "Glow Beauty Inc.", country: "🇺🇸 USA", history: "20 shipments / 2024" },
+    { co: "Sakura Cosmetic", country: "🇯🇵 Japan", history: "14 shipments / 2024" },
+  ],
+  "kitchen cabinet": [
+    { co: "KitchenPro USA", country: "🇺🇸 USA", history: "17 shipments / 2024" },
+    { co: "Cucina Moderna", country: "🇮🇹 Italy", history: "11 shipments / 2024" },
+    { co: "HomeBuild AU", country: "🇦🇺 Australia", history: "9 shipments / 2024" },
+    { co: "EuroKitchen GmbH", country: "🇩🇪 Germany", history: "13 shipments / 2024" },
+  ],
+  "sheet mask": [
+    { co: "GlowSkin Co.", country: "🇺🇸 USA", history: "26 shipments / 2024" },
+    { co: "Beauté Paris", country: "🇫🇷 France", history: "18 shipments / 2024" },
+    { co: "Tokyo Skin Lab", country: "🇯🇵 Japan", history: "22 shipments / 2024" },
+    { co: "Aurora Beauty Ltd.", country: "🇬🇧 UK", history: "14 shipments / 2024" },
+  ],
+  "polyethylene resin": [
+    { co: "PolyChem USA", country: "🇺🇸 USA", history: "28 shipments / 2024" },
+    { co: "Asia Polymers", country: "🇨🇳 China", history: "34 shipments / 2024" },
+    { co: "EuroPlast GmbH", country: "🇩🇪 Germany", history: "19 shipments / 2024" },
+    { co: "Gulf Petrochem", country: "🇸🇦 KSA", history: "23 shipments / 2024" },
+  ],
+  "body lotion": [
+    { co: "Pure Skin Co.", country: "🇺🇸 USA", history: "19 shipments / 2024" },
+    { co: "Beauté Paris", country: "🇫🇷 France", history: "13 shipments / 2024" },
+    { co: "Aurora Beauty Ltd.", country: "🇬🇧 UK", history: "11 shipments / 2024" },
+    { co: "Sakura Trading", country: "🇯🇵 Japan", history: "15 shipments / 2024" },
+  ],
+  "stainless pipe": [
+    { co: "InoxPro USA", country: "🇺🇸 USA", history: "16 shipments / 2024" },
+    { co: "Eurotube SRL", country: "🇮🇹 Italy", history: "12 shipments / 2024" },
+    { co: "Orient Pipe Co.", country: "🇯🇵 Japan", history: "14 shipments / 2024" },
+    { co: "Gulf Steel LLC", country: "🇦🇪 UAE", history: "10 shipments / 2024" },
+  ],
+  "shampoo": [
+    { co: "HairCare Inc.", country: "🇺🇸 USA", history: "21 shipments / 2024" },
+    { co: "Beauté Paris", country: "🇫🇷 France", history: "16 shipments / 2024" },
+    { co: "Aurora Beauty Ltd.", country: "🇬🇧 UK", history: "13 shipments / 2024" },
+    { co: "Sakura Trading", country: "🇯🇵 Japan", history: "17 shipments / 2024" },
+  ],
+};
 
 const keywordsTop = [
   "hydraulic excavator", "electric vehicle", "Steel Pipe", "energy storage system",
@@ -20,6 +133,15 @@ const keywordsBottom = [
 
 export const Hero = () => {
   const [query, setQuery] = useState("vitamin c serum");
+  const [tableKey, setTableKey] = useState(0);
+  const handlePick = (k: string) => {
+    setQuery(k);
+    setTableKey((n) => n + 1);
+  };
+  const rows = useMemo(
+    () => datasets[query.trim().toLowerCase()] ?? defaultRows,
+    [query]
+  );
   return (
     <section id="top" className="relative pt-28 md:pt-36 pb-20 md:pb-28 overflow-hidden bg-gradient-hero">
       <div className="absolute -top-32 -right-32 w-[480px] h-[480px] rounded-full bg-primary/10 blur-3xl animate-float-slow" />
@@ -82,8 +204,8 @@ export const Hero = () => {
                 "linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent)",
             }}
           >
-            <KeywordRow keywords={keywordsTop} direction="left" onPick={setQuery} />
-            <KeywordRow keywords={keywordsBottom} direction="right" onPick={setQuery} />
+            <KeywordRow keywords={keywordsTop} direction="left" onPick={handlePick} active={query} />
+            <KeywordRow keywords={keywordsBottom} direction="right" onPick={handlePick} active={query} />
           </div>
         </div>
 
@@ -93,22 +215,20 @@ export const Hero = () => {
               "{query}" 검색 결과 — 실제 수입 이력 기반
             </p>
             <div className="overflow-hidden rounded-2xl border border-border/60">
-              <table className="w-full text-sm">
+              <table className="w-full text-sm table-fixed">
                 <thead className="bg-muted/60 text-muted-foreground">
                   <tr>
-                    <th className="text-left font-medium px-4 py-3">회사명</th>
-                    <th className="text-left font-medium px-4 py-3">국가</th>
-                    <th className="text-left font-medium px-4 py-3 hidden md:table-cell">제품</th>
-                    <th className="text-left font-medium px-4 py-3 hidden md:table-cell">수입 이력</th>
+                    <th className="text-left font-medium px-4 py-3 w-[50%]">회사명</th>
+                    <th className="text-left font-medium px-4 py-3 w-[20%]">국가</th>
+                    <th className="text-left font-medium px-4 py-3 w-[30%]">수입 이력</th>
                   </tr>
                 </thead>
-                <tbody>
-                  {sample.map((r, i) => (
+                <tbody key={tableKey} className="animate-fade-in">
+                  {rows.map((r, i) => (
                     <tr key={i} className="border-t border-border/60 hover:bg-accent/40 transition-smooth">
-                      <td className="px-4 py-3 font-medium">{r.co}</td>
+                      <td className="px-4 py-3 font-medium truncate">{r.co}</td>
                       <td className="px-4 py-3 text-muted-foreground">{r.country}</td>
-                      <td className="px-4 py-3 text-muted-foreground hidden md:table-cell">{r.product}</td>
-                      <td className="px-4 py-3 hidden md:table-cell">
+                      <td className="px-4 py-3">
                         <span className="inline-flex items-center px-2 py-0.5 rounded-full bg-accent text-accent-foreground text-xs font-medium">
                           {r.history}
                         </span>
@@ -133,10 +253,12 @@ const KeywordRow = ({
   keywords,
   direction,
   onPick,
+  active,
 }: {
   keywords: string[];
   direction: "left" | "right";
   onPick: (k: string) => void;
+  active: string;
 }) => {
   const items = [...keywords, ...keywords];
   return (
@@ -146,15 +268,22 @@ const KeywordRow = ({
           direction === "left" ? "animate-marquee-left" : "animate-marquee-right"
         } group-hover:[animation-play-state:paused]`}
       >
-        {items.map((k, i) => (
-          <button
-            key={`${k}-${i}`}
-            onClick={() => onPick(k)}
-            className="shrink-0 px-4 py-2 rounded-full bg-card border border-border/70 text-sm text-foreground/80 hover:bg-accent hover:text-accent-foreground hover:border-primary/30 shadow-soft transition-smooth"
-          >
-            {k}
-          </button>
-        ))}
+        {items.map((k, i) => {
+          const isActive = active.trim().toLowerCase() === k.trim().toLowerCase();
+          return (
+            <button
+              key={`${k}-${i}`}
+              onClick={() => onPick(k)}
+              className={`shrink-0 px-4 py-2 rounded-full border text-sm shadow-soft transition-smooth ${
+                isActive
+                  ? "bg-primary text-primary-foreground border-primary"
+                  : "bg-card border-border/70 text-foreground/80 hover:bg-accent hover:text-accent-foreground hover:border-primary/30"
+              }`}
+            >
+              {k}
+            </button>
+          );
+        })}
       </div>
     </div>
   );
