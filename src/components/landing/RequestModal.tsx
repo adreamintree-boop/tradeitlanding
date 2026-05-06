@@ -28,7 +28,7 @@ export const RequestModal = ({ open, onOpenChange, title = "무료 바이어 요
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="max-w-lg rounded-3xl bg-white border border-primary/20 shadow-glow p-8 md:p-10 backdrop-blur-none">
+      <DialogContent className="w-[calc(100%-2rem)] max-w-lg max-h-[90vh] overflow-y-auto rounded-3xl bg-white border border-primary/20 shadow-glow p-6 sm:p-8 md:p-10 backdrop-blur-none">
         <DialogHeader>
           <DialogTitle className="text-2xl md:text-3xl font-extrabold text-center text-foreground tracking-tight">{title}</DialogTitle>
         </DialogHeader>

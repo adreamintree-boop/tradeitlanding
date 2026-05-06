@@ -51,7 +51,8 @@ export const CostCompare = () => (
       </div>
 
       <div className="mt-14 max-w-5xl mx-auto reveal">
-        <div className="rounded-3xl border border-border/70 bg-card shadow-card overflow-hidden">
+        {/* Desktop / Tablet table */}
+        <div className="hidden md:block rounded-3xl border border-border/70 bg-card shadow-card overflow-hidden">
           {/* Header row */}
           <div className="grid grid-cols-12 bg-muted/40 border-b border-border/70">
             <div className="col-span-4 md:col-span-3 p-5 md:p-6 text-sm font-semibold text-muted-foreground">
@@ -88,6 +89,33 @@ export const CostCompare = () => (
                   <p className="text-base md:text-xl font-bold">{r.tradeit.head}</p>
                 </div>
                 <p className="text-xs md:text-sm text-foreground/70">{r.tradeit.sub}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Mobile cards */}
+        <div className="md:hidden space-y-4">
+          {rows.map((r) => (
+            <div key={r.label} className="rounded-2xl border border-border/70 bg-card shadow-soft overflow-hidden">
+              <div className="px-5 py-3 bg-muted/40 border-b border-border/70">
+                <p className="text-sm font-bold">{r.label}</p>
+              </div>
+              <div className="p-5 border-b border-border/70">
+                <p className="text-xs font-semibold text-muted-foreground mb-2">직접 수행</p>
+                <div className="flex items-start gap-2 text-muted-foreground">
+                  <X className="w-4 h-4 mt-0.5 shrink-0" />
+                  <p className="text-base font-semibold">{r.self.head}</p>
+                </div>
+                <p className="mt-1 text-xs text-muted-foreground/80 pl-6">{r.self.sub}</p>
+              </div>
+              <div className="p-5 bg-primary/5">
+                <p className="text-xs font-semibold text-primary mb-2">TradeIt 이용 시</p>
+                <div className="flex items-start gap-2 text-primary">
+                  <Check className="w-4 h-4 mt-0.5 shrink-0" />
+                  <p className="text-base font-bold">{r.tradeit.head}</p>
+                </div>
+                <p className="mt-1 text-xs text-foreground/70 pl-6">{r.tradeit.sub}</p>
               </div>
             </div>
           ))}
