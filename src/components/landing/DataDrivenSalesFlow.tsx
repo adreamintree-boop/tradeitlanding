@@ -1,33 +1,38 @@
-import { Globe2, UserSearch, ClipboardList, BarChart3, Layers, MessageSquare, CheckCircle2, TrendingUp } from "lucide-react";
+import { Layers, MessageSquare } from "lucide-react";
+import blTrackingMain from "@/assets/bl-tracking-main.png";
+import buyerMappingProfile from "@/assets/buyer-mapping-profile.png";
+import featureActivityLog from "@/assets/feature-activity-log.jpg";
+import featureSalesAnalytics from "@/assets/feature-sales-analytics.jpg";
 
 const features = [
   {
-    icon: Globe2,
     title: "글로벌 바이어 맵핑",
-    desc: "B/L 데이터를 기반으로 실제 구매 가능성이 높은 바이어를 추적합니다.",
+    desc: "B/L 데이터를 활용해 추출된 글로벌 바이어의 위치를 한눈에 파악",
+    image: buyerMappingProfile,
+    objectPosition: "top right",
+    spanClass: "lg:col-span-7 lg:mt-0",
   },
   {
-    icon: UserSearch,
     title: "바이어 프로필 분석",
-    desc: "실제 기업 정보를 기반으로 구매 가능성을 분석합니다.",
+    desc: "정확한 바이어 프로파일링으로 구매 트렌드를 파악",
+    image: buyerMappingProfile,
+    objectPosition: "bottom left",
+    spanClass: "lg:col-span-5 lg:mt-12",
   },
   {
-    icon: ClipboardList,
     title: "영업활동 기록",
-    desc: "바이어별 소통 내역과 진행 현황을 체계적으로 관리합니다.",
+    desc: "바이어별 이메일·미팅·문의 내역을 체계적으로 기록 및 관리",
+    image: featureActivityLog,
+    objectPosition: "center",
+    spanClass: "lg:col-span-5 lg:-mt-8",
   },
   {
-    icon: BarChart3,
     title: "영업흐름 분석",
-    desc: "국가·산업·단계별로 해외영업 진행 현황을 분석합니다.",
+    desc: "국가·산업·단계별 해외영업 진행 흐름 분석",
+    image: featureSalesAnalytics,
+    objectPosition: "center",
+    spanClass: "lg:col-span-7 lg:mt-4",
   },
-];
-
-const funnelStages = [
-  { label: "Lead", value: 16, pct: "53.33%", color: "bg-primary" },
-  { label: "Target", value: 9, pct: "30.00%", color: "bg-primary/70" },
-  { label: "Client", value: 3, pct: "10.00%", color: "bg-primary/45" },
-  { label: "Lost", value: 2, pct: "6.66%", color: "bg-primary/25" },
 ];
 
 const pipeline = [
@@ -81,130 +86,49 @@ export const DataDrivenSalesFlow = () => (
           </h2>
         </div>
 
-        {/* Dashboard mockup */}
+        {/* Main hero visual — B/L Tracking screenshot */}
         <div className="mt-14 md:mt-20 max-w-6xl mx-auto reveal">
-          <div className="rounded-3xl bg-card border border-[hsl(220_60%_94%)] shadow-elevated overflow-hidden">
-            {/* Top bar */}
-            <div className="flex items-center gap-2 px-5 py-3.5 border-b border-border/60 bg-[hsl(220_40%_98.5%)]">
-              <span className="w-2.5 h-2.5 rounded-full bg-[hsl(0_84%_62%)]/70" />
-              <span className="w-2.5 h-2.5 rounded-full bg-[hsl(40_95%_55%)]/70" />
-              <span className="w-2.5 h-2.5 rounded-full bg-[hsl(140_60%_50%)]/70" />
-              <div className="ml-4 text-xs font-semibold text-muted-foreground">tradeit · Dashboard</div>
-            </div>
-
-            <div className="p-5 md:p-8 grid lg:grid-cols-12 gap-5">
-              {/* KPI cards */}
-              <div className="lg:col-span-12 grid grid-cols-2 md:grid-cols-4 gap-3">
-                {[
-                  { label: "Total Buyer", v: "1,284", sub: "+128 this week", icon: UserSearch },
-                  { label: "Active Deals", v: "37", sub: "12 advancing", icon: TrendingUp },
-                  { label: "Response Rate", v: "24.6%", sub: "+3.2%", icon: MessageSquare },
-                  { label: "Closed", v: "9", sub: "MTD", icon: CheckCircle2 },
-                ].map((k) => (
-                  <div key={k.label} className="rounded-2xl border border-border/70 bg-background p-4">
-                    <div className="flex items-center justify-between text-muted-foreground">
-                      <span className="text-[11px] font-semibold uppercase tracking-wider">{k.label}</span>
-                      <k.icon className="w-3.5 h-3.5" />
-                    </div>
-                    <div className="mt-1.5 text-xl md:text-2xl font-bold text-foreground">{k.v}</div>
-                    <div className="mt-0.5 text-[11px] text-primary font-medium">{k.sub}</div>
-                  </div>
-                ))}
-              </div>
-
-              {/* Funnel */}
-              <div className="lg:col-span-5 rounded-2xl border border-border/70 bg-background p-5">
-                <div className="flex items-center justify-between mb-4">
-                  <h4 className="text-sm font-bold text-foreground">Funnel Analysis</h4>
-                  <span className="text-[11px] text-muted-foreground">2025 · YTD</span>
-                </div>
-                <div className="space-y-2.5">
-                  {funnelStages.map((s, i) => (
-                    <div key={s.label} className="flex items-center gap-3" style={{ paddingLeft: `${i * 8}px`, paddingRight: `${i * 8}px` }}>
-                      <div className={`flex-1 h-9 rounded-md ${s.color} flex items-center justify-between px-3 text-[11px] font-semibold text-primary-foreground`}>
-                        <span>{s.label}</span>
-                        <span>{s.value}</span>
-                      </div>
-                      <span className="text-[11px] text-muted-foreground w-12 text-right tabular-nums">{s.pct}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* World map placeholder */}
-              <div className="lg:col-span-7 rounded-2xl border border-border/70 bg-gradient-to-br from-[hsl(214_100%_98%)] to-background p-5 relative overflow-hidden">
-                <div className="flex items-center justify-between mb-4">
-                  <h4 className="text-sm font-bold text-foreground">Global Buyer Map</h4>
-                  <span className="text-[11px] text-muted-foreground">42 countries</span>
-                </div>
-                <div className="relative h-[180px] md:h-[210px]">
-                  {/* Dotted world style */}
-                  <div
-                    className="absolute inset-0 opacity-60"
-                    style={{
-                      backgroundImage:
-                        "radial-gradient(circle, hsl(222 89% 56% / 0.18) 1px, transparent 1.2px)",
-                      backgroundSize: "12px 12px",
-                      maskImage:
-                        "radial-gradient(ellipse 70% 60% at 50% 50%, black 60%, transparent 100%)",
-                    }}
-                  />
-                  {/* Pins */}
-                  {[
-                    { t: "22%", l: "20%" },
-                    { t: "30%", l: "48%" },
-                    { t: "55%", l: "55%" },
-                    { t: "40%", l: "78%" },
-                    { t: "65%", l: "30%" },
-                    { t: "48%", l: "12%" },
-                  ].map((p, i) => (
-                    <span
-                      key={i}
-                      className="absolute w-2.5 h-2.5 rounded-full bg-primary shadow-glow"
-                      style={{ top: p.t, left: p.l }}
-                    >
-                      <span className="absolute inset-0 rounded-full bg-primary animate-ping opacity-60" />
-                    </span>
-                  ))}
-                </div>
-              </div>
-
-              {/* Activity bar */}
-              <div className="lg:col-span-12 rounded-2xl border border-border/70 bg-background p-5">
-                <div className="flex items-center justify-between mb-4">
-                  <h4 className="text-sm font-bold text-foreground">Monthly Activity</h4>
-                  <div className="flex items-center gap-3 text-[11px] text-muted-foreground">
-                    <span className="flex items-center gap-1.5"><span className="w-2 h-2 rounded-sm bg-primary" /> Outreach</span>
-                    <span className="flex items-center gap-1.5"><span className="w-2 h-2 rounded-sm bg-primary/40" /> Reply</span>
-                  </div>
-                </div>
-                <div className="flex items-end gap-2 md:gap-3 h-28">
-                  {[40, 65, 35, 78, 90, 55, 70, 85, 50, 95, 72, 88].map((h, i) => (
-                    <div key={i} className="flex-1 flex flex-col items-center gap-1">
-                      <div className="w-full rounded-t-md bg-primary/30" style={{ height: `${h * 0.4}%` }} />
-                      <div className="w-full rounded-t-md bg-primary" style={{ height: `${h}%` }} />
-                    </div>
-                  ))}
-                </div>
-              </div>
+          <div className="relative group">
+            {/* background glow */}
+            <div
+              aria-hidden
+              className="absolute -inset-x-10 -inset-y-8 -z-10 rounded-[40px] bg-gradient-to-br from-primary/10 via-primary/5 to-transparent blur-3xl opacity-70"
+            />
+            <div className="rounded-2xl md:rounded-[28px] bg-card border border-white/80 ring-1 ring-[hsl(220_60%_94%)] shadow-elevated overflow-hidden transition-smooth group-hover:scale-[1.01] group-hover:shadow-glow">
+              <img
+                src={blTrackingMain}
+                alt="TradeIt B/L Tracking — 글로벌 바이어 무역 데이터 화면"
+                loading="lazy"
+                className="w-full h-auto block"
+              />
             </div>
           </div>
         </div>
 
-        {/* Feature 2x2 grid */}
-        <div className="mt-14 md:mt-20 max-w-6xl mx-auto grid sm:grid-cols-2 gap-5 md:gap-6">
+        {/* Feature image-dominant staggered grid */}
+        <div className="mt-16 md:mt-24 max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-5 md:gap-6">
           {features.map((f, i) => (
-            <div
-              key={f.title}
-              className="reveal group rounded-3xl bg-card border border-[hsl(220_60%_94%)] shadow-soft hover:-translate-y-1 hover:shadow-elevated transition-smooth p-7 md:p-8"
-              style={{ transitionDelay: `${i * 60}ms` }}
+            <article
+              key={f.title + i}
+              className={`reveal group rounded-2xl md:rounded-[28px] bg-card border border-[hsl(220_60%_94%)] shadow-soft hover:-translate-y-1 hover:shadow-elevated transition-smooth overflow-hidden flex flex-col ${f.spanClass}`}
+              style={{ transitionDelay: `${i * 70}ms` }}
             >
-              <div className="w-12 h-12 rounded-2xl bg-accent text-primary flex items-center justify-center group-hover:scale-105 transition-smooth">
-                <f.icon className="w-5 h-5" />
+              <div className="relative aspect-[16/10] overflow-hidden bg-[hsl(220_40%_98.5%)]">
+                <img
+                  src={f.image}
+                  alt={f.title}
+                  loading="lazy"
+                  className="absolute inset-0 w-full h-full object-cover transition-smooth group-hover:scale-[1.03]"
+                  style={{ objectPosition: f.objectPosition }}
+                />
               </div>
-              <h3 className="mt-5 text-lg md:text-xl font-bold text-foreground">{f.title}</h3>
-              <p className="mt-2.5 text-sm md:text-base text-muted-foreground leading-relaxed">{f.desc}</p>
-            </div>
+              <div className="p-6 md:p-8">
+                <h3 className="text-lg md:text-xl font-bold text-foreground">{f.title}</h3>
+                <p className="mt-2 text-sm md:text-[15px] text-muted-foreground leading-relaxed">
+                  {f.desc}
+                </p>
+              </div>
+            </article>
           ))}
         </div>
       </div>
