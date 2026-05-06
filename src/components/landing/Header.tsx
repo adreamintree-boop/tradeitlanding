@@ -59,8 +59,8 @@ export const Header = () => {
           <Button asChild variant="outline" size="default" className="bg-background text-foreground/80 hover:bg-muted">
             <Link to="/login">로그인</Link>
           </Button>
-          <Button variant="hero" size="default" onClick={() => open("무료 바이어 요청")}>
-            무료 바이어 요청
+          <Button variant="hero" size="default" onClick={() => open("무료상담")}>
+            무료상담
           </Button>
         </div>
         <div className="md:hidden">
@@ -103,10 +103,10 @@ export const Header = () => {
                   className="w-full"
                   onClick={() => {
                     setMenuOpen(false);
-                    open("무료 바이어 요청");
+                    open("무료상담");
                   }}
                 >
-                  무료 바이어 요청
+                  무료상담
                 </Button>
               </div>
             </SheetContent>
