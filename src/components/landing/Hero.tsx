@@ -32,9 +32,9 @@ export const Hero = () => {
             B/L 데이터 × AI 바이어 발굴 서비스
           </div>
           <h1 className="text-[2rem] sm:text-4xl md:text-6xl font-bold tracking-tight leading-[1.2] reveal">
-            해외 바이어,
+            <span>해외 바이어,</span>
             <br />
-            전시회에서 찾지 마세요.
+            <span>전시회에서 찾지 마세요.</span>
             <br />
             <span className="text-gradient-primary">무역데이터로 찾아보세요.</span>
           </h1>
