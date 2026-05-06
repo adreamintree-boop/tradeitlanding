@@ -40,7 +40,7 @@ export const Solution = () => (
               <it.icon className="w-7 h-7 text-primary" />
             </div>
             <h3 className="text-xl font-semibold mb-3">{it.title}</h3>
-            <p className="text-muted-foreground leading-relaxed">{it.desc}</p>
+            <p className="text-muted-foreground leading-relaxed whitespace-pre-line">{it.desc}</p>
           </div>
         ))}
       </div>
