@@ -6,7 +6,7 @@ import featureActivityLog from "@/assets/feature-activity-log.jpg";
 import featureSalesAnalytics from "@/assets/feature-sales-analytics.jpg";
 import salesNoteShowcase from "@/assets/sales-note-showcase.png";
 
-const features = [
+const outboundFeatures = [
   {
     icon: MapPin,
     title: "글로벌 바이어 맵핑",
@@ -21,6 +21,9 @@ const features = [
     image: buyerProfileSalesnote,
     objectPosition: "top left",
   },
+];
+
+const crmFeatures = [
   {
     icon: ClipboardList,
     title: "영업활동 기록",
@@ -36,6 +39,47 @@ const features = [
     objectPosition: "center",
   },
 ];
+
+type FeatureItem = (typeof outboundFeatures)[number];
+
+const FeatureRows = ({ items }: { items: FeatureItem[] }) => (
+  <div className="mt-20 md:mt-28 max-w-6xl mx-auto space-y-16 md:space-y-24">
+    {items.map((f, i) => {
+      const imageRight = i % 2 === 0;
+      return (
+        <div
+          key={f.title}
+          className="reveal grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-10 items-stretch"
+        >
+          <div
+            className={`order-1 ${imageRight ? "lg:order-1" : "lg:order-2"} rounded-2xl md:rounded-[28px] bg-card border border-[hsl(220_60%_94%)] shadow-soft p-8 md:p-12 flex flex-col justify-center`}
+          >
+            <div className="w-12 h-12 rounded-2xl bg-accent text-primary flex items-center justify-center">
+              <f.icon className="w-5 h-5" />
+            </div>
+            <h3 className="mt-6 text-2xl md:text-3xl font-bold text-foreground tracking-tight">
+              {f.title}
+            </h3>
+            <p className="mt-4 text-base md:text-lg text-muted-foreground leading-relaxed">
+              {f.desc}
+            </p>
+          </div>
+          <div
+            className={`order-2 ${imageRight ? "lg:order-2" : "lg:order-1"} group relative rounded-2xl md:rounded-[28px] overflow-hidden shadow-soft border border-[hsl(220_60%_94%)] bg-[hsl(220_40%_98.5%)] min-h-[280px] md:min-h-[360px]`}
+          >
+            <img
+              src={f.image}
+              alt={f.title}
+              loading="lazy"
+              className="absolute inset-0 w-full h-full object-cover transition-smooth group-hover:scale-[1.03]"
+              style={{ objectPosition: f.objectPosition }}
+            />
+          </div>
+        </div>
+      );
+    })}
+  </div>
+);
 
 export const DataDrivenSalesFlow = () => (
   <section className="bg-background">
@@ -77,46 +121,7 @@ export const DataDrivenSalesFlow = () => (
           </div>
         </div>
 
-        {/* Editorial alternating split layout */}
-        <div className="mt-20 md:mt-28 max-w-6xl mx-auto space-y-16 md:space-y-24">
-          {features.map((f, i) => {
-            const imageRight = i % 2 === 0;
-            return (
-              <div
-                key={f.title}
-                className="reveal grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-10 items-stretch"
-              >
-                {/* Text panel */}
-                <div
-                  className={`order-1 ${imageRight ? "lg:order-1" : "lg:order-2"} rounded-2xl md:rounded-[28px] bg-card border border-[hsl(220_60%_94%)] shadow-soft p-8 md:p-12 flex flex-col justify-center`}
-                >
-                  <div className="w-12 h-12 rounded-2xl bg-accent text-primary flex items-center justify-center">
-                    <f.icon className="w-5 h-5" />
-                  </div>
-                  <h3 className="mt-6 text-2xl md:text-3xl font-bold text-foreground tracking-tight">
-                    {f.title}
-                  </h3>
-                  <p className="mt-4 text-base md:text-lg text-muted-foreground leading-relaxed">
-                    {f.desc}
-                  </p>
-                </div>
-
-                {/* Image panel */}
-                <div
-                  className={`order-2 ${imageRight ? "lg:order-2" : "lg:order-1"} group relative rounded-2xl md:rounded-[28px] overflow-hidden shadow-soft border border-[hsl(220_60%_94%)] bg-[hsl(220_40%_98.5%)] min-h-[280px] md:min-h-[360px]`}
-                >
-                  <img
-                    src={f.image}
-                    alt={f.title}
-                    loading="lazy"
-                    className="absolute inset-0 w-full h-full object-cover transition-smooth group-hover:scale-[1.03]"
-                    style={{ objectPosition: f.objectPosition }}
-                  />
-                </div>
-              </div>
-            );
-          })}
-        </div>
+        <FeatureRows items={outboundFeatures} />
       </div>
     </div>
 
@@ -148,6 +153,8 @@ export const DataDrivenSalesFlow = () => (
             />
           </div>
         </div>
+
+        <FeatureRows items={crmFeatures} />
       </div>
     </div>
   </section>
