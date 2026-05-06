@@ -13,7 +13,7 @@ export const FinalCta = () => {
         <div className="absolute -bottom-24 -left-24 w-72 h-72 rounded-full bg-primary-glow/20 blur-3xl" />
         <div className="relative">
           <h2 className="text-3xl md:text-5xl font-bold tracking-tight leading-tight">
-            지금, 우리 제품으로
+            지금 우리 제품을 구매하고 있는
             <br />
             <span className="text-gradient-primary">실제 바이어를 확인</span>해보세요
           </h2>
