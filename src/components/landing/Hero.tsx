@@ -37,7 +37,7 @@ export const Hero = () => {
             <span className="text-gradient-primary">대신 찾아드립니다.</span>
           </h1>
           <p className="mt-6 text-base md:text-lg text-muted-foreground leading-relaxed reveal">
-            글로벌 B/L 수출입 데이터와 AI 분석을 기반으로
+            글로벌 수출입 무역데이터와 AI 분석을 기반으로
             <br className="hidden md:block" />
             실제 구매 이력이 있는 해외 바이어를 발굴하고, 담당자 컨택까지 연결해드립니다.
           </p>
