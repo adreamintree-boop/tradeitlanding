@@ -56,8 +56,8 @@ export const AIWorkflow = () => {
           <div className="inline-flex items-center px-4 py-1.5 rounded-full bg-white/80 backdrop-blur border border-primary/30 text-primary text-xs font-semibold mb-6">
             Future Ready
           </div>
-          <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-foreground whitespace-pre-line">
-            AI를 통해 <span className="text-primary">해외영업 흐름</span>을{"\n"}연결합니다.
+          <h2 className="text-3xl md:text-5xl font-bold tracking-tight text-foreground">
+            AI를 통해 <span className="text-primary">해외영업 흐름</span>을 연결합니다.
           </h2>
           <p className="mt-5 text-base md:text-lg text-muted-foreground">
             글로벌 시장 조사부터 바이어별 분석까지
