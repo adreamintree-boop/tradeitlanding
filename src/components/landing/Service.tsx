@@ -33,7 +33,7 @@ export const Service = () => (
             <h3 className="mt-5 text-2xl md:text-4xl font-bold leading-tight">
               우리가 대신 진행해드립니다
             </h3>
-            <ul className="mt-8 space-y-3">
+            <ul className="mt-8 mb-8 space-y-3">
               {main.map((m) => (
                 <li key={m} className="flex items-center gap-3 text-base md:text-lg">
                   <span className="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center">
@@ -54,7 +54,7 @@ export const Service = () => (
             셀프 활용
           </div>
           <h3 className="mt-5 text-2xl font-bold leading-tight">직접 활용도 가능합니다</h3>
-          <ul className="mt-8 space-y-3">
+          <ul className="mt-8 mb-8 space-y-3">
             {self.map((m) => (
               <li key={m} className="flex items-center gap-3 text-base md:text-lg text-muted-foreground">
                 <span className="w-6 h-6 rounded-full bg-accent flex items-center justify-center shrink-0">
