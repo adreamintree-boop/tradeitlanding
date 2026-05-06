@@ -23,8 +23,8 @@ export const Service = () => (
         </h2>
       </div>
 
-      <div className="mt-14 grid lg:grid-cols-5 gap-6 items-stretch">
-        <div className="lg:col-span-3 reveal relative rounded-3xl p-8 md:p-12 bg-gradient-cta text-primary-foreground shadow-elevated overflow-hidden flex">
+      <div className="mt-14 max-w-6xl mx-auto grid lg:grid-cols-5 gap-6 items-stretch">
+        <div className="lg:col-span-3 reveal relative rounded-3xl p-8 md:p-10 bg-gradient-cta text-primary-foreground shadow-elevated overflow-hidden flex">
           <div className="absolute -top-20 -right-20 w-72 h-72 rounded-full bg-white/10 blur-3xl" />
           <div className="relative flex flex-col w-full">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/15 text-xs font-semibold backdrop-blur">
@@ -49,11 +49,11 @@ export const Service = () => (
           </div>
         </div>
 
-        <div className="lg:col-span-2 reveal rounded-3xl p-8 md:p-12 bg-card border border-border/70 shadow-card flex flex-col">
+        <div className="lg:col-span-2 reveal rounded-3xl p-8 md:p-10 bg-card border border-border/70 shadow-card flex flex-col">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent text-accent-foreground text-xs font-semibold">
             셀프 활용
           </div>
-          <h3 className="mt-5 text-2xl md:text-4xl font-bold leading-tight">직접 활용도 가능합니다</h3>
+          <h3 className="mt-5 text-2xl font-bold leading-tight">직접 활용도 가능합니다</h3>
           <ul className="mt-8 space-y-3">
             {self.map((m) => (
               <li key={m} className="flex items-center gap-3 text-base md:text-lg text-muted-foreground">
