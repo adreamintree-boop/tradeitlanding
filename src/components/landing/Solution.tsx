@@ -4,7 +4,7 @@ const items = [
   {
     icon: Target,
     title: "실제 구매하는 바이어만 찾습니다",
-    desc: "B/L 데이터 기반으로 실제 수입 이력이 있는 기업만 선별합니다.",
+    desc: "B/L 데이터 기반으로 실제 수입 이력이 있는\n기업만 선별합니다.",
   },
   {
     icon: Contact,
@@ -40,7 +40,7 @@ export const Solution = () => (
               <it.icon className="w-7 h-7 text-primary" />
             </div>
             <h3 className="text-xl font-semibold mb-3">{it.title}</h3>
-            <p className="text-muted-foreground leading-relaxed">{it.desc}</p>
+            <p className="text-muted-foreground leading-relaxed whitespace-pre-line">{it.desc}</p>
           </div>
         ))}
       </div>
