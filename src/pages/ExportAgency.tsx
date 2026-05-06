@@ -65,6 +65,7 @@ const ExportAgency = () => {
           </div>
         </section>
 
+        <Together />
         <SuccessCases />
         <Process />
 
@@ -95,7 +96,6 @@ const ExportAgency = () => {
         </section>
 
         <CostCompare />
-        <Together />
         <Pricing variant="agency" />
         <FinalCta />
       </main>
