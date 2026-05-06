@@ -5,6 +5,7 @@ import { Solution } from "@/components/landing/Solution";
 import { Compare } from "@/components/landing/Compare";
 import { Service } from "@/components/landing/Service";
 import { SuccessCases } from "@/components/landing/SuccessCases";
+import { Together } from "@/components/landing/Together";
 import { Results } from "@/components/landing/Results";
 import { Process } from "@/components/landing/Process";
 import { Data } from "@/components/landing/Data";
@@ -29,6 +30,7 @@ const Index = () => {
         <Data />
         <CostCompare />
         <SuccessCases />
+        <Together />
         <Pricing />
         <FinalCta />
       </main>
