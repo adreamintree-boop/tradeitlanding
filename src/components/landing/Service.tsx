@@ -57,6 +57,9 @@ export const Service = () => (
               </li>
             ))}
           </ul>
+          <p className="mt-8 text-sm md:text-base text-muted-foreground border-t border-border/70 pt-5">
+            해외영업부서가 있는 조직에서 활용 가능합니다.
+          </p>
         </div>
       </div>
     </div>
