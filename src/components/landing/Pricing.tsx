@@ -141,7 +141,7 @@ export const Pricing = ({ variant = "all" }: PricingProps) => {
 
           <div className="mt-14 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start max-w-6xl mx-auto">
             {/* Left: Hybrid card */}
-            <div className="lg:col-span-[35%] lg:col-span-4 reveal">
+            <div className="lg:col-span-4 reveal">
               <div className="relative rounded-3xl bg-card border border-border/70 shadow-elevated p-8 flex flex-col h-full">
                 <div className="inline-flex self-start items-center px-3 py-1 rounded-full bg-primary/10 text-primary text-[11px] font-semibold tracking-wide mb-5">
                   HYBRID PLAN
@@ -187,7 +187,7 @@ export const Pricing = ({ variant = "all" }: PricingProps) => {
 
             {/* Right: Services */}
             <div className="lg:col-span-8 reveal">
-              <p className="text-sm font-semibold text-foreground mb-5 pl-1 border-l-2 border-primary pl-3">
+              <p className="text-sm font-semibold text-foreground mb-5 border-l-2 border-primary pl-3">
                 파트너스가 전담하는 핵심 서비스
               </p>
               <div className="space-y-4">
