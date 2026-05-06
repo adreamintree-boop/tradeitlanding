@@ -8,10 +8,10 @@ const plans = [
     name: "플러스(Plus)",
     price: "49,000원",
     suffix: "/ 월(VAT 포함)",
-    note: "활동량이 늘어나는 실무자를 위한 성장형 플랜",
+    note: "고빈도 수출을 하는 해외영업 담당자를 위한 플랜",
     credits: "매월 5,000 크레딧 제공",
     features: [
-      "이메일 계정 1개 연동",
+      "Sales Note CRM을 통한 바이어 관리",
       "바이어 검색 'B/L 데이터'",
       "해외시장 분석 'AI Core'",
       "바이어 정보 보강 'Enrichment'",
@@ -29,7 +29,7 @@ const plans = [
     note: "고빈도 수출 담당자를 위한 고급 플랜",
     credits: "매월 10,000 크레딧 제공",
     features: [
-      "이메일 계정 1개 연동",
+      "Sales Note CRM을 통한 바이어 관리",
       "바이어 검색 'B/L 데이터'",
       "해외시장 분석 'AI Core'",
       "바이어 정보 보강 'Enrichment'",
@@ -42,13 +42,13 @@ const plans = [
     kind: "saas" as const,
   },
   {
-    name: "엔터프라이즈(Enterprise)",
+    name: "프리미엄(Premium)",
     price: "490,000원",
     suffix: "/ 월(VAT 포함)",
     note: "팀 단위 운영 및 대량 활용을 위한 기업형 플랜",
     credits: "매월 50,000 크레딧 제공",
     features: [
-      "이메일 계정 다중 연동",
+      "Sales Note CRM을 통한 바이어 관리",
       "바이어 검색 'B/L 데이터'",
       "해외시장 분석 'AI Core'",
       "바이어 정보 보강 'Enrichment'",
