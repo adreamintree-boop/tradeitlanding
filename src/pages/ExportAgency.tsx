@@ -27,12 +27,15 @@ const ExportAgency = () => {
               <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-accent text-accent-foreground text-xs font-semibold mb-6 reveal">
                 EXPORT AGENCY · 해외영업 대행 서비스
               </div>
-              <h1 className="text-[2rem] sm:text-4xl md:text-6xl font-bold tracking-tight leading-[1.2] reveal whitespace-pre-line">
-                {"저희가 대신\n"}
+              <h1 className="text-[2rem] sm:text-4xl md:text-6xl font-bold tracking-tight leading-[1.2] reveal">
+                저희가 대신
+                <br />
                 <span className="text-gradient-primary">해외 바이어를 발굴해드립니다</span>
               </h1>
-              <p className="mt-6 text-base md:text-lg text-muted-foreground leading-relaxed reveal whitespace-pre-line">
-                {"글로벌 무역데이터와 해외수출 전담 인력을 결합하여 \n실제 바이어 컨택부터 계약까지 해외영업의 모든 과정을 대신 수행합니다."}
+              <p className="mt-6 text-base md:text-lg text-muted-foreground leading-relaxed reveal">
+                글로벌 무역데이터와 해외수출 전담 인력을 결합하여
+                <br className="hidden md:block" />
+                실제 바이어 컨택부터 계약까지 해외영업의 모든 과정을 대신 수행합니다.
               </p>
               <div className="mt-9 flex flex-col sm:flex-row gap-3 justify-center reveal">
                 <Button variant="hero" size="xl" className="w-full sm:w-auto" onClick={() => open("해외영업 대행 상담 신청")}>
