@@ -12,7 +12,7 @@ const cases = [
   {
     category: "알루미늄 스크랩",
     company: "(주)제이****소재",
-    desc: "수출입 데이터를 분석하고 시장 조사를 면밀히 하며 시장 가격 변동을 주의 깊게 살핀 후, 적절한 가격으로 바이어에게 제안하여 수출을 성사시켰습니다.",
+    desc: "수출입 데이터를 분석하고 시장 조사를 면밀히\n하며 시장 가격 변동을 주의 깊게 살핀 후, 적절한\n가격으로 바이어에게 제안하여 수출을 성사시켰습니다.",
     image: aluminumImg,
   },
   {
@@ -55,7 +55,7 @@ export const SuccessCases = () => (
                 {c.category}
               </div>
               <h3 className="mt-3 text-xl font-bold tracking-tight">{c.company}</h3>
-              <p className="mt-4 text-sm md:text-base text-muted-foreground leading-relaxed">
+              <p className="mt-4 text-sm md:text-base text-muted-foreground leading-relaxed whitespace-pre-line">
                 {c.desc}
               </p>
             </div>
