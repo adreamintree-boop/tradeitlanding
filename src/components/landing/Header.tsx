@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import logo from "@/assets/tradeit-logo.png";
 import { useRequestModal } from "./RequestModalContext";
@@ -43,8 +44,8 @@ export const Header = () => {
           ))}
         </nav>
         <div className="flex items-center gap-2">
-          <Button variant="outline" size="default" className="bg-background text-foreground/80 hover:bg-muted">
-            로그인
+          <Button asChild variant="outline" size="default" className="bg-background text-foreground/80 hover:bg-muted">
+            <Link to="/login">로그인</Link>
           </Button>
           <Button variant="hero" size="default" onClick={open}>
             무료 바이어 요청

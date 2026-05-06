@@ -1,5 +1,7 @@
 import { Check, Star } from "lucide-react";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import { useRequestModal } from "./RequestModalContext";
 
 const plans = [
   {
@@ -59,7 +61,9 @@ const plans = [
   },
 ];
 
-export const Pricing = () => (
+export const Pricing = () => {
+  const { open } = useRequestModal();
+  return (
   <section id="pricing" className="py-24 md:py-32 bg-background">
     <div className="container">
       <div className="max-w-2xl mx-auto text-center reveal">
@@ -106,16 +110,27 @@ export const Pricing = () => (
                 ✓ {p.guarantee}
               </div>
             )}
-            <Button
-              variant={p.highlight ? "secondary" : "default"}
-              className={`mt-8 w-full inline-flex items-center justify-center text-center leading-none ${p.highlight ? "bg-white text-primary hover:bg-white/90" : ""}`}
-              asChild
-            >
-              <a href="#contact">{p.cta}</a>
-            </Button>
+            {p.cta === "상담 신청" ? (
+              <Button
+                variant={p.highlight ? "secondary" : "default"}
+                className={`mt-8 w-full inline-flex items-center justify-center text-center leading-none ${p.highlight ? "bg-white text-primary hover:bg-white/90" : ""}`}
+                onClick={open}
+              >
+                {p.cta}
+              </Button>
+            ) : (
+              <Button
+                asChild
+                variant={p.highlight ? "secondary" : "default"}
+                className={`mt-8 w-full inline-flex items-center justify-center text-center leading-none ${p.highlight ? "bg-white text-primary hover:bg-white/90" : ""}`}
+              >
+                <Link to="/login">{p.cta}</Link>
+              </Button>
+            )}
           </div>
         ))}
       </div>
     </div>
   </section>
-);
+  );
+};
