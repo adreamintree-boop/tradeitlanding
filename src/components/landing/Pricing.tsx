@@ -188,7 +188,7 @@ export const Pricing = ({ variant = "all" }: PricingProps) => {
             {/* Right: Services */}
             <div className="lg:col-span-8 reveal">
               <p className="text-sm font-semibold text-foreground mb-5 border-l-2 border-primary pl-3">
-                파트너스가 전담하는 핵심 서비스
+                전담 핵심 서비스
               </p>
               <div className="space-y-4">
                 {services.map((s) => (
