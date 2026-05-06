@@ -35,13 +35,6 @@ const features = [
   },
 ];
 
-const funnelStages = [
-  { label: "Lead", value: 16, pct: "53.33%", color: "bg-primary" },
-  { label: "Target", value: 9, pct: "30.00%", color: "bg-primary/70" },
-  { label: "Client", value: 3, pct: "10.00%", color: "bg-primary/45" },
-  { label: "Lost", value: 2, pct: "6.66%", color: "bg-primary/25" },
-];
-
 const pipeline = [
   {
     stage: "Lead",
