@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import logo from "@/assets/tradeit-logo.png";
-import { RequestModal } from "./RequestModal";
+import { useRequestModal } from "./RequestModalContext";
 
 const links = [
   { href: "#service", label: "서비스 소개" },
@@ -12,7 +12,7 @@ const links = [
 
 export const Header = () => {
   const [scrolled, setScrolled] = useState(false);
-  const [modalOpen, setModalOpen] = useState(false);
+  const { open } = useRequestModal();
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
     onScroll();
@@ -46,12 +46,11 @@ export const Header = () => {
           <Button variant="outline" size="default" className="bg-background text-foreground/80 hover:bg-muted">
             로그인
           </Button>
-          <Button variant="hero" size="default" onClick={() => setModalOpen(true)}>
+          <Button variant="hero" size="default" onClick={open}>
             무료 바이어 요청
           </Button>
         </div>
       </div>
-      <RequestModal open={modalOpen} onOpenChange={setModalOpen} />
     </header>
   );
 };
