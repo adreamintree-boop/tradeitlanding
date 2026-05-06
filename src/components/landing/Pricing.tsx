@@ -69,11 +69,18 @@ export const Pricing = () => {
       <div className="max-w-2xl mx-auto text-center reveal">
         <p className="text-sm font-semibold text-primary mb-3">PRICING</p>
         <h2 className="text-3xl md:text-5xl font-bold tracking-tight">
-          우리 상황에 맞게 선택하세요
+          SaaS로 시작하고, 필요할 때 실행까지
         </h2>
+        <p className="mt-5 text-muted-foreground text-base md:text-lg">
+          데이터 플랫폼은 직접 사용하고, 대행 서비스는 필요한 만큼만 추가하세요.
+        </p>
       </div>
-      <div className="mt-14 grid md:grid-cols-2 xl:grid-cols-4 gap-6 items-stretch">
-        {plans.map((p) => (
+      <div className="mt-14">
+        <p className="text-xs font-semibold tracking-wider text-muted-foreground mb-4 reveal">
+          SAAS PLANS
+        </p>
+        <div className="grid md:grid-cols-2 gap-6 items-stretch">
+          {plans.filter((p) => !p.name.includes("대행")).map((p) => (
           <div
             key={p.name}
             className={`reveal relative rounded-3xl p-8 flex flex-col h-full transition-smooth hover:-translate-y-2 ${
@@ -128,7 +135,59 @@ export const Pricing = () => {
               </Button>
             )}
           </div>
-        ))}
+          ))}
+        </div>
+
+        <div className="mt-16 reveal">
+          <div className="flex items-center justify-between mb-4">
+            <p className="text-xs font-semibold tracking-wider text-muted-foreground">
+              NEED EXECUTION SUPPORT?
+            </p>
+            <span className="text-xs text-muted-foreground/80 hidden md:block">
+              해외영업 인력이 부족하다면 추가하세요
+            </span>
+          </div>
+          <div className="grid md:grid-cols-2 gap-6 items-stretch">
+            {plans.filter((p) => p.name.includes("대행")).map((p) => (
+              <div
+                key={p.name}
+                className="reveal relative rounded-2xl p-6 md:p-7 flex flex-col h-full bg-muted/40 border border-border/60 hover:bg-card hover:shadow-soft transition-smooth"
+              >
+                <div className="flex items-start justify-between gap-3">
+                  <div>
+                    <p className="text-[11px] font-semibold tracking-wider text-muted-foreground">SERVICE</p>
+                    <h3 className="mt-1 text-base md:text-lg font-semibold">{p.name}</h3>
+                  </div>
+                  <div className="text-right">
+                    <div className="text-xl md:text-2xl font-bold leading-none">{p.price}</div>
+                    <div className="text-xs text-muted-foreground mt-1">{p.suffix}</div>
+                  </div>
+                </div>
+                <p className="mt-2 text-xs text-muted-foreground">{p.note}</p>
+                <ul className="mt-5 space-y-2 text-sm flex-1">
+                  {p.features.map((f) => (
+                    <li key={f} className="flex items-start gap-2 text-muted-foreground">
+                      <Check className="w-4 h-4 mt-0.5 text-primary/70 shrink-0" />
+                      <span>{f}</span>
+                    </li>
+                  ))}
+                </ul>
+                {p.guarantee && (
+                  <div className="mt-4 px-3 py-2 rounded-lg text-xs font-semibold text-center bg-accent text-accent-foreground">
+                    ✓ {p.guarantee}
+                  </div>
+                )}
+                <Button
+                  variant="outline"
+                  className="mt-6 w-full"
+                  onClick={() => open(`${p.name} 상담 신청`, p.name)}
+                >
+                  {p.cta}
+                </Button>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   </section>
