@@ -27,7 +27,7 @@ export const SuccessCases = () => (
   <section className="py-24 md:py-32 bg-background">
     <div className="container">
       <div className="max-w-3xl mx-auto text-center reveal">
-        <p className="text-sm font-semibold text-primary mb-3">수출성공사례</p>
+        <p className="text-sm font-semibold text-primary mb-3">SUCCESS</p>
         <h2 className="text-3xl md:text-5xl font-bold tracking-tight leading-snug md:leading-tight">
           <span className="text-gradient-primary">트레이드잇</span>과 함께하여 다수의
           <br />
