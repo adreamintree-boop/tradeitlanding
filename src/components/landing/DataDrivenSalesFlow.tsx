@@ -10,14 +10,14 @@ const outboundFeatures = [
   {
     icon: MapPin,
     title: "글로벌 바이어 맵핑",
-    desc: "B/L 데이터를 활용해 추출된 글로벌 바이어의 위치를 한눈에 파악",
+    desc: "발굴된 해외 바이어들이 어느 국가와 지역에 분포되어 있는지 확인하고\n실제 바이어의 위치와 시장 분포를 한눈에 파악할 수 있습니다.",
     image: buyerStreetView,
     objectPosition: "center",
   },
   {
     icon: UserSearch,
     title: "바이어 프로필 분석",
-    desc: "정확한 바이어 프로파일링으로 구매 트렌드를 파악",
+    desc: "바이어의 기업 정보와 실제 거래 데이터를 기반으로\n우리 제품과의 접점 및 구매 가능성을 분석합니다.",
     image: buyerProfileSalesnote,
     objectPosition: "top left",
   },
@@ -60,7 +60,7 @@ const FeatureRows = ({ items }: { items: FeatureItem[] }) => (
             <h3 className="mt-6 text-2xl md:text-3xl font-bold text-foreground tracking-tight">
               {f.title}
             </h3>
-            <p className="mt-4 text-base md:text-lg text-muted-foreground leading-relaxed">
+            <p className="mt-4 text-base md:text-lg text-muted-foreground leading-relaxed whitespace-pre-line">
               {f.desc}
             </p>
           </div>
