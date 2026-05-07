@@ -8,7 +8,8 @@ import { AgencyProblem } from "@/components/landing/AgencyProblem";
 import { DataDrivenSalesFlow } from "@/components/landing/DataDrivenSalesFlow";
 import { Pricing } from "@/components/landing/Pricing";
 import { Faq } from "@/components/landing/Faq";
-import { FinalCta, Footer } from "@/components/landing/FinalCta";
+import { Footer } from "@/components/landing/FinalCta";
+import { AgencyCta } from "@/components/landing/AgencyCta";
 import { Button } from "@/components/ui/button";
 import { useRequestModal } from "@/components/landing/RequestModalContext";
 import { useReveal } from "@/hooks/use-reveal";
@@ -58,7 +59,7 @@ const ExportAgency = () => {
         <CostCompare />
         <Pricing variant="agency" />
         <Faq />
-        <FinalCta />
+        <AgencyCta />
       </main>
       <Footer />
     </div>
