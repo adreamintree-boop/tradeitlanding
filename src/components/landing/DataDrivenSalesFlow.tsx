@@ -27,14 +27,14 @@ const crmFeatures = [
   {
     icon: ClipboardList,
     title: "영업활동 기록",
-    desc: "바이어별 이메일·미팅·문의 내역을 체계적으로 기록 및 관리",
+    desc: "바이어별 이메일, 미팅, 문의, 견적 진행 내역 등을 기록하여\n실제 해외영업 진행 상황을 투명하게 관리합니다.",
     image: featureActivityLog,
     objectPosition: "top left",
   },
   {
     icon: BarChart3,
     title: "영업흐름 분석",
-    desc: "국가·산업·단계별 해외영업 진행 흐름 분석",
+    desc: "발굴된 바이어의 국가·산업·진행 단계 등을 분석하여\n바이어 분포와 영업 진행 현황을 직관적으로 파악할 수 있습니다.",
     image: featureSalesAnalytics,
     objectPosition: "top left",
   },
