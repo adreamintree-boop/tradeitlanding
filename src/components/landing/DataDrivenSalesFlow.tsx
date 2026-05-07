@@ -10,7 +10,7 @@ const outboundFeatures = [
   {
     icon: MapPin,
     title: "글로벌 바이어 맵핑",
-    desc: "발굴된 해외 바이어들이 어느 국가와 지역에 분포되어 있는지 확인하고\n실제 바이어의 위치와 시장 분포를 한눈에 파악할 수 있습니다.",
+    desc: "발굴된 해외 바이어들이 어느 국가와 지역에 분포되어 있는지\n확인하고 실제 바이어의 위치와 시장 분포를 한눈에\n파악할 수 있습니다.",
     image: buyerStreetView,
     objectPosition: "center",
   },
