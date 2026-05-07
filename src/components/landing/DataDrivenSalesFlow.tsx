@@ -60,7 +60,7 @@ const FeatureRows = ({ items }: { items: FeatureItem[] }) => (
             <h3 className="mt-6 text-2xl md:text-3xl font-bold text-foreground tracking-tight">
               {f.title}
             </h3>
-            <p className="mt-4 text-base md:text-lg text-muted-foreground leading-relaxed">
+            <p className="mt-4 text-base md:text-lg text-muted-foreground leading-relaxed whitespace-pre-line">
               {f.desc}
             </p>
           </div>
