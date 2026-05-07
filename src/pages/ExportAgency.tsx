@@ -39,12 +39,9 @@ const ExportAgency = () => {
                 <br className="hidden md:block" />
                 실제 바이어 컨택부터 계약까지 해외영업의 모든 과정을 대신 수행합니다.
               </p>
-              <div className="mt-9 flex flex-col sm:flex-row gap-3 justify-center reveal">
+              <div className="mt-9 flex justify-center reveal">
                 <Button variant="hero" size="xl" className="w-full sm:w-auto" onClick={() => open("해외영업 대행 상담 신청")}>
                   상담 신청하기 <ArrowRight />
-                </Button>
-                <Button variant="soft" size="xl" className="w-full sm:w-auto" asChild>
-                  <a href="#pricing">대행 상품 보기</a>
                 </Button>
               </div>
             </div>
