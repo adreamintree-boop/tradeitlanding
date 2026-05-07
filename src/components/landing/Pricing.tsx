@@ -58,7 +58,7 @@ const plans: Plan[] = [
   },
   {
     name: "프리미엄(Premium)",
-    price: "490,000원",
+    price: "499,000원",
     suffix: "/ 월(VAT 포함)",
     note: "팀 단위 운영 및 대량 활용을 위한 기업형 플랜",
     credits: "매월 50,000 크레딧 제공",
