@@ -7,6 +7,7 @@ import { Together } from "@/components/landing/Together";
 import { AgencyProblem } from "@/components/landing/AgencyProblem";
 import { DataDrivenSalesFlow } from "@/components/landing/DataDrivenSalesFlow";
 import { Pricing } from "@/components/landing/Pricing";
+import { Faq } from "@/components/landing/Faq";
 import { FinalCta, Footer } from "@/components/landing/FinalCta";
 import { Button } from "@/components/ui/button";
 import { useRequestModal } from "@/components/landing/RequestModalContext";
@@ -56,6 +57,7 @@ const ExportAgency = () => {
         <DataDrivenSalesFlow />
         <CostCompare />
         <Pricing variant="agency" />
+        <Faq />
         <FinalCta />
       </main>
       <Footer />
