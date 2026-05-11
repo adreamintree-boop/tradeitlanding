@@ -88,7 +88,7 @@ TradeIt의 한국 수출 데이터 기반 SEO 페이지는 첫 번째 질문(국
                 </button>
                 <div className={`grid transition-all duration-300 ease-out ${isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"}`}>
                   <div className="overflow-hidden">
-                    <div className="px-6 md:px-7 pb-6 md:pb-7 pt-1 text-sm md:text-[15px] leading-7 text-muted-foreground">
+                    <div className="px-6 md:px-7 pb-6 md:pb-7 pt-1 text-sm md:text-[15px] leading-7 text-muted-foreground whitespace-pre-line">
                       {item.a}
                     </div>
                   </div>
