@@ -14,7 +14,60 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      seo_pages: {
+        Row: {
+          country_label: string | null
+          country_slug: string | null
+          created_at: string
+          dataset: Json
+          hero_headline: string | null
+          id: string
+          meta_description: string
+          meta_title: string
+          og_image_url: string | null
+          page_type: string
+          product_label: string
+          product_slug: string
+          published: boolean
+          summary: Json
+          updated_at: string
+        }
+        Insert: {
+          country_label?: string | null
+          country_slug?: string | null
+          created_at?: string
+          dataset?: Json
+          hero_headline?: string | null
+          id?: string
+          meta_description: string
+          meta_title: string
+          og_image_url?: string | null
+          page_type: string
+          product_label: string
+          product_slug: string
+          published?: boolean
+          summary?: Json
+          updated_at?: string
+        }
+        Update: {
+          country_label?: string | null
+          country_slug?: string | null
+          created_at?: string
+          dataset?: Json
+          hero_headline?: string | null
+          id?: string
+          meta_description?: string
+          meta_title?: string
+          og_image_url?: string | null
+          page_type?: string
+          product_label?: string
+          product_slug?: string
+          published?: boolean
+          summary?: Json
+          updated_at?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
