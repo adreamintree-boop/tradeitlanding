@@ -1,7 +1,7 @@
 import { ArrowRight, Sparkles, ShieldCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { formatNum, formatUSD, blurName } from "@/lib/seo-helpers";
+import { formatNum, formatUSD } from "@/lib/seo-helpers";
 import type { SeoPage } from "@/lib/seo-types";
 
 export const SeoHero = ({ page }: { page: SeoPage }) => {
@@ -71,7 +71,7 @@ export const SeoHero = ({ page }: { page: SeoPage }) => {
                 {preview.map((r, i) => (
                   <div key={i} className="flex items-center justify-between p-3 rounded-xl bg-[hsl(214_50%_98%)] border border-border/50">
                     <div className="min-w-0 flex-1">
-                      <div className="text-sm font-semibold text-foreground truncate">{blurName(r.importer_name)}</div>
+                      <div className="text-sm font-semibold text-foreground truncate">{r.importer_name}</div>
                       <div className="text-[11px] text-muted-foreground mt-0.5">{r.country} · {formatNum(r.shipment_count)} shipments</div>
                     </div>
                     <div className="text-sm font-bold text-primary tabular-nums shrink-0 ml-3">{formatUSD(r.trade_value_usd)}</div>
