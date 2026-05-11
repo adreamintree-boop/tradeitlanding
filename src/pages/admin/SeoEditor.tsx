@@ -93,12 +93,23 @@ function Inner() {
         const buf = await file.arrayBuffer();
         const wb = XLSX.read(buf, { type: "array" });
         const ws = wb.Sheets[wb.SheetNames[0]];
-        parsed = XLSX.utils.sheet_to_json(ws);
+        parsed = XLSX.utils.sheet_to_json(ws, { defval: "", raw: false });
       }
+      console.log("[SEO] parsed rows:", parsed.length, "sample:", parsed[0]);
       const norm = parsed.map(normalizeRow).filter((r) => r.importer_name);
+      console.log("[SEO] normalized rows:", norm.length, "sample:", norm[0]);
+      if (norm.length === 0) {
+        toast({
+          title: "인식된 데이터 없음",
+          description: `파싱된 ${parsed.length}개 행 중 'importer_name/회사이름' 컬럼을 찾지 못했습니다. 헤더를 확인해주세요.`,
+          variant: "destructive",
+        });
+        return;
+      }
       setRows(norm);
       toast({ title: "Dataset 업로드 완료", description: `${norm.length}개 row 처리됨` });
     } catch (e) {
+      console.error("[SEO] upload error", e);
       toast({ title: "업로드 실패", description: String(e), variant: "destructive" });
     } finally {
       setBusy(false);
@@ -212,7 +223,11 @@ function Inner() {
                   type="file"
                   accept=".csv,.xlsx,.xls"
                   className="hidden"
-                  onChange={(e) => e.target.files && e.target.files[0] && handleFile(e.target.files[0])}
+                  onChange={(e) => {
+                    const f = e.target.files?.[0];
+                    if (f) handleFile(f);
+                    e.target.value = "";
+                  }}
                 />
               </div>
             </label>
