@@ -6,7 +6,6 @@ import { Header } from "@/components/landing/Header";
 import { Footer } from "@/components/landing/FinalCta";
 import { SeoHero } from "@/components/seo/SeoHero";
 import { SummaryCards } from "@/components/seo/SummaryCards";
-import { ShipmentsTable } from "@/components/seo/ShipmentsTable";
 import { BuyerGrid } from "@/components/seo/BuyerGrid";
 import { CountryAnalytics } from "@/components/seo/CountryAnalytics";
 import { SeoFaq } from "@/components/seo/SeoFaq";
@@ -120,7 +119,6 @@ export default function BuyersPage() {
       <main>
         <SeoHero page={page} />
         <SummaryCards summary={page.summary} />
-        <ShipmentsTable rows={page.summary.top30} />
         <BuyerGrid
           rows={page.summary.top30}
           title={`글로벌 상위 ${page.product_label} 바이어`}
