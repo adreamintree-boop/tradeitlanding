@@ -11,19 +11,28 @@ export const SeoCta = () => {
           <div className="absolute -bottom-24 -left-24 w-[360px] h-[360px] rounded-full bg-white/5 blur-3xl" />
           <div className="relative grid lg:grid-cols-2 gap-10 items-center">
             <div>
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/15 border border-white/20 text-[11px] font-semibold tracking-wider uppercase mb-5">
+                <Lock className="w-3.5 h-3.5" /> Locked Data · 30 / Full Dataset
+              </div>
               <h2 className="text-3xl md:text-4xl lg:text-[2.6rem] font-bold tracking-tight leading-tight">
-                더 많은 해외 바이어
+                숨겨진 해외 바이어
                 <br />
-                정보를 확인해보세요.
+                데이터를 확인해보세요.
               </h2>
               <p className="mt-5 text-base md:text-lg text-white/85 leading-relaxed">
-                회원가입 후 더 많은 해외 바이어 기업과
+                현재 페이지에서는 <strong className="text-white">상위 해외 바이어 30개 기업 기준</strong> 데이터만
+                제한적으로 공개하고 있습니다.
                 <br className="hidden sm:block" />
-                국가별 수요 데이터를 확인할 수 있습니다.
+                회원가입 후 더 많은 해외 바이어 기업, 반복 수입 이력, 국가별 수요 데이터를 모두 확인할 수 있습니다.
               </p>
+              <ul className="mt-5 space-y-1.5 text-sm text-white/80">
+                <li>· 전체 해외 바이어 기업명 및 국가 정보</li>
+                <li>· 반복 수입 기업 우선 정렬 및 신규 진입 바이어 추적</li>
+                <li>· 국가별 수요 분석 및 평균 거래 규모 비교</li>
+              </ul>
               <div className="mt-8 flex flex-col sm:flex-row gap-3">
                 <Button asChild size="xl" className="bg-white text-primary hover:bg-white/90 hover:-translate-y-0.5 transition-smooth">
-                  <Link to="/login">해외 바이어 확인하기 <ArrowRight /></Link>
+                  <Link to="/login">전체 해외 바이어 확인하기 <ArrowRight /></Link>
                 </Button>
               </div>
             </div>

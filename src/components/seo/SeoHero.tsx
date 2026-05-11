@@ -1,4 +1,4 @@
-import { ArrowRight, Sparkles } from "lucide-react";
+import { ArrowRight, Sparkles, ShieldCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { formatNum, formatUSD, blurName } from "@/lib/seo-helpers";
@@ -34,17 +34,23 @@ export const SeoHero = ({ page }: { page: SeoPage }) => {
                 </>
               )}
             </h1>
-            <p className="mt-6 text-base md:text-lg text-muted-foreground leading-relaxed max-w-xl">
-              2025년 한국발 실제 수출 데이터를 기반으로
-              <br className="hidden sm:block" />
-              검증된 해외 바이어 및 수출내역을 확인하세요.
+            <p className="mt-6 text-base md:text-lg text-muted-foreground leading-relaxed max-w-2xl">
+              2025년 <strong className="text-foreground font-semibold">한국 수출 데이터</strong>를 기반으로,
+              {page.country_label ? ` ${page.country_label} 시장에서 ` : " 글로벌 시장에서 "}
+              <strong className="text-foreground font-semibold">{page.product_label}</strong>을(를) 실제로 수입한
+              상위 <strong className="text-foreground font-semibold">해외 바이어 30개 기업</strong>의
+              실제 거래 데이터를 분석하여 국가별 수입 수요, 반복 수입 기업, 거래 흐름을 제공합니다.
             </p>
-            <div className="mt-8 flex flex-col sm:flex-row gap-3">
+            <p className="mt-4 text-sm md:text-base text-muted-foreground/90 leading-relaxed max-w-2xl">
+              본 페이지의 데이터는 공개된 상위 해외 바이어 30개 기업 기준으로 집계된 실제 선적 이력에 기반하며,
+              전체 글로벌 거래 데이터 대비 일부 차이가 있을 수 있습니다.
+            </p>
+            <div className="mt-6 inline-flex items-center gap-2 text-xs font-medium text-muted-foreground bg-background/60 border border-border/60 rounded-full px-3 py-1.5">
+              <ShieldCheck className="w-3.5 h-3.5 text-primary" /> 실제 한국발 수출(B/L) 데이터 기반 · 상위 30개 바이어 표본
+            </div>
+            <div className="mt-7 flex flex-col sm:flex-row gap-3">
               <Button asChild variant="hero" size="xl">
-                <Link to="/login">해외 바이어 확인하기 <ArrowRight /></Link>
-              </Button>
-              <Button asChild variant="soft" size="xl">
-                <a href="#shipments">실제 선적 데이터 보기</a>
+                <Link to="/login">전체 해외 바이어 확인하기 <ArrowRight /></Link>
               </Button>
             </div>
             <p className="sr-only">{headline}</p>
