@@ -56,13 +56,21 @@ export const normalizeRow = (raw: Record<string, unknown>): ShipmentRow => {
     return undefined;
   };
   return {
-    importer_name: String(get(["importer_name", "importer", "buyer", "company"]) ?? "").trim(),
-    country: String(get(["country", "country_name", "destination"]) ?? "").trim(),
-    shipment_count: toNumber(get(["shipment_count", "shipments", "count"])),
-    trade_value_usd: toNumber(get(["trade_value_usd", "trade_value", "value", "amount"])),
-    weight_kg: toNumber(get(["weight_kg", "weight"])),
-    quantity: toNumber(get(["quantity", "qty"])),
-    hs_code: get(["hs_code", "hs"]) ? String(get(["hs_code", "hs"])) : undefined,
+    importer_name: String(
+      get(["importer_name", "importer", "buyer", "company", "회사이름", "회사명", "수입자", "바이어", "업체명"]) ?? ""
+    ).trim(),
+    country: String(
+      get(["country", "country_name", "destination", "국가", "수입국", "도착국"]) ?? ""
+    ).trim(),
+    shipment_count: toNumber(
+      get(["shipment_count", "shipments", "count", "배송", "선적", "선적건수", "건수"])
+    ),
+    trade_value_usd: toNumber(
+      get(["trade_value_usd", "trade_value", "value", "amount", "가치", "가치(US$)", "거래금액", "금액"])
+    ),
+    weight_kg: toNumber(get(["weight_kg", "weight", "무게", "무게(kg)", "중량"])),
+    quantity: toNumber(get(["quantity", "qty", "수량"])),
+    hs_code: get(["hs_code", "hs", "HS코드", "HS"]) ? String(get(["hs_code", "hs", "HS코드", "HS"])) : undefined,
     first_shipment: get(["first_shipment", "first_shipment_date", "first_date"]) ? String(get(["first_shipment", "first_shipment_date"])) : undefined,
     last_shipment: get(["last_shipment", "last_shipment_date", "last_date"]) ? String(get(["last_shipment", "last_shipment_date"])) : undefined,
   };
