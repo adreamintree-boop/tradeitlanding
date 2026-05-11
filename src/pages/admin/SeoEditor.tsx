@@ -202,7 +202,7 @@ function Inner() {
             </div>
           </Card>
 
-          <Card title="Dataset Upload" subtitle="CSV / XLSX. 컬럼: importer_name, country, shipment_count, trade_value_usd, weight_kg, quantity, hs_code">
+          <Card title="Dataset Upload" subtitle="CSV / XLSX. 한글/영문 헤더 모두 인식 — 회사이름·국가·배송·가치(US$)·무게(kg)·수량 또는 importer_name·country·shipment_count·trade_value_usd·weight_kg·quantity">
             <label className="block">
               <div className="rounded-2xl border-2 border-dashed border-border bg-[hsl(220_30%_98%)] p-10 text-center cursor-pointer hover:border-primary transition-smooth">
                 <Upload className="w-8 h-8 mx-auto text-muted-foreground mb-3" />
