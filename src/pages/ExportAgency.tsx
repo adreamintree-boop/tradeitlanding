@@ -30,10 +30,10 @@ const ExportAgency = () => {
               <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-accent text-accent-foreground text-xs font-semibold mb-6 reveal">
                 해외영업실행 서비스
               </div>
-              <h1 className="text-[2rem] sm:text-4xl md:text-6xl font-bold tracking-tight leading-[1.2] reveal">
-                저희가 대신
+              <h1 className="text-[2rem] sm:text-4xl md:text-6xl font-bold tracking-tight leading-[1.2] reveal whitespace-pre-line">
+                해외 영업,
                 <br />
-                <span className="text-gradient-primary">해외 바이어를 발굴해드립니다</span>
+                <span className="text-gradient-primary">트레이드잇과 함께하세요</span>
               </h1>
               <p className="mt-6 text-base md:text-lg text-muted-foreground leading-relaxed reveal">
                 글로벌 무역데이터와 해외수출 전담 인력을 결합하여
