@@ -2,7 +2,7 @@ import { Package, Scale, DollarSign, Globe2, Calendar, Info, TrendingUp, Layers,
 import { formatNum, formatUSD } from "@/lib/seo-helpers";
 import type { SeoSummary } from "@/lib/seo-types";
 
-export const SummaryCards = ({ summary, hasCountry = false }: { summary: SeoSummary; hasCountry?: boolean }) => {
+export const SummaryCards = ({ summary, hasCountry = false, countryLabel }: { summary: SeoSummary; hasCountry?: boolean; countryLabel?: string | null }) => {
   const avgTrade = summary.totalBuyers > 0 ? summary.totalTradeValue / summary.totalBuyers : 0;
   const avgShipments = summary.totalBuyers > 0 ? summary.totalShipments / summary.totalBuyers : 0;
   const repeatRatio = summary.totalBuyers > 0 ? Math.round((summary.repeatBuyers / summary.totalBuyers) * 100) : 0;
@@ -83,7 +83,7 @@ export const SummaryCards = ({ summary, hasCountry = false }: { summary: SeoSumm
     {
       icon: Globe2,
       label: "주요 거래 국가",
-      value: topCountries.length > 0 ? topCountries.slice(0, 3).join(" · ") : "—",
+      value: hasCountry ? (countryLabel || topCountries[0] || "—") : (topCountries.length > 0 ? topCountries.slice(0, 3).join(" · ") : "—"),
     },
   ];
 
@@ -131,7 +131,7 @@ export const SummaryCards = ({ summary, hasCountry = false }: { summary: SeoSumm
           <div className="flex items-end justify-between flex-wrap gap-3 mb-6 md:mb-8">
             <div>
               <div className="text-[11px] font-semibold text-primary tracking-[0.18em] uppercase mb-2">
-                02 · Insights
+                Insights
               </div>
               <h3 className="text-xl md:text-2xl font-bold tracking-tight">시장 인사이트</h3>
             </div>
