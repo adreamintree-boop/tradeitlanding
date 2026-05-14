@@ -5,12 +5,11 @@ import { formatNum, formatUSD } from "@/lib/seo-helpers";
 import type { SeoPage } from "@/lib/seo-types";
 
 export const SeoHero = ({ page }: { page: SeoPage }) => {
-  const hasCountry = !!(page.country_label && page.country_label.trim());
   const headline =
     page.hero_headline ||
-    (hasCountry
-      ? `${page.country_label} ${page.product_label} 해외 바이어 리스트`
-      : `${page.product_label} 글로벌 해외 바이어 리스트`);
+    (page.page_type === "country"
+      ? `한국에서 수출된 ${page.product_label} ${page.country_label} 바이어 리스트`
+      : `한국에서 수출된 ${page.product_label} 해외 바이어 리스트`);
   const preview = page.summary.top30.slice(0, 4);
   return (
     <section className="relative pt-28 md:pt-36 pb-16 md:pb-24 overflow-hidden bg-gradient-soft">
@@ -22,32 +21,25 @@ export const SeoHero = ({ page }: { page: SeoPage }) => {
               <Sparkles className="w-3.5 h-3.5" /> TRADE INTELLIGENCE · {page.product_label.toUpperCase()}
             </div>
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[3.4rem] font-bold tracking-tight leading-[1.18]">
-              {hasCountry ? (
+              {page.page_type === "country" ? (
                 <>
-                  {page.country_label}{" "}
-                  <span className="text-gradient-primary">{page.product_label}</span>
-                  <br className="hidden sm:block" /> 해외 바이어 리스트
+                  한국에서 수출된 <span className="text-gradient-primary">{page.product_label}</span>
+                  <br className="hidden sm:block" />
+                  {" "}{page.country_label} 바이어 리스트
                 </>
               ) : (
                 <>
-                  <span className="text-gradient-primary">{page.product_label}</span> 글로벌
+                  한국에서 수출된 <span className="text-gradient-primary">{page.product_label}</span>
                   <br className="hidden sm:block" /> 해외 바이어 리스트
                 </>
               )}
             </h1>
             <p className="mt-6 text-base md:text-lg text-muted-foreground leading-relaxed max-w-2xl">
-              {hasCountry ? (
-                <>
-                  <strong className="text-foreground font-semibold">{page.country_label} 수출 데이터</strong>를 기반으로,{" "}
-                  <strong className="text-foreground font-semibold">{page.product_label}</strong> 제품을 실제 수입한
-                  해외 바이어 기업의 거래 흐름을 분석합니다.
-                </>
-              ) : (
-                <>
-                  <strong className="text-foreground font-semibold">{page.product_label}</strong> 제품을 실제로 수입한
-                  글로벌 해외 바이어 데이터를 기반으로 국가별 수입 흐름과 반복 거래 기업을 분석합니다.
-                </>
-              )}
+              2025년 <strong className="text-foreground font-semibold">한국 수출 데이터</strong>를 기반으로,
+              {page.country_label ? ` ${page.country_label} 시장에서 ` : " 글로벌 시장에서 "}
+              <strong className="text-foreground font-semibold">{page.product_label}</strong>을(를) 실제로 수입한
+              상위 <strong className="text-foreground font-semibold">해외 바이어 30개 기업</strong>의
+              실제 거래 데이터를 분석하여 국가별 수입 수요, 반복 수입 기업, 거래 흐름을 제공합니다.
             </p>
             <p className="mt-4 text-sm md:text-base text-muted-foreground/90 leading-relaxed max-w-2xl">
               본 페이지의 데이터는 공개된 상위 해외 바이어 30개 기업 기준으로 집계된 실제 선적 이력에 기반하며,
