@@ -105,23 +105,23 @@ export const Pricing = ({ variant = "all" }: PricingProps) => {
     const services = [
       {
         icon: Briefcase,
-        title: "데이터 기반의 정교한 진출 전략 수립",
-        desc: "제품 및 타겟 국가의 시장성을 분석하고, 실행 가능한 글로벌 진출 전략을 설계합니다.",
+        title: "산업·제품 맞춤 글로벌 진출 전략 수립",
+        desc: "전담 해외영업 담당자가 제품과 타겟 국가의 시장성을 직접 분석하고, 실행 가능한 진출 전략을 설계합니다.",
       },
       {
         icon: Users,
-        title: "AI와 전문가가 검증한 진성 바이어 발굴",
-        desc: "실제 수입 데이터를 기반으로 구매 가능성이 높은 바이어를 선별합니다.",
+        title: "실수입 데이터 기반 진성 바이어 발굴",
+        desc: "글로벌 무역 데이터와 산업별 전문 인력의 검증을 거쳐, 실제 구매 가능성이 높은 바이어만 선별합니다.",
       },
       {
         icon: MessageSquare,
-        title: "바이어 커뮤니케이션 및 미팅 어레인지",
-        desc: "초기 소통부터 이메일 Follow-up, 미팅 일정 조율까지 직접 지원합니다.",
+        title: "바이어 컨택 및 미팅 어레인지 직접 수행",
+        desc: "초기 소개 메일부터 Follow-up, 미팅 일정 조율과 화상 상담 세팅까지 전담 인력이 직접 운영합니다.",
       },
       {
         icon: BarChart3,
-        title: "CRM 기반 진행 현황 관리 및 리포트 제공",
-        desc: "컨택 이력과 진행 상태를 기록하고 주간 단위로 리포트를 제공합니다.",
+        title: "전 과정 운영 관리 및 정기 리포트 제공",
+        desc: "바이어별 컨택 이력과 영업 진행 상황을 체계적으로 관리하고, 주간 리포트로 진행 현황을 투명하게 공유합니다.",
       },
     ];
     const industries = ["뷰티·화장품", "산업재", "식품", "헬스케어", "IT·SaaS"];
@@ -130,30 +130,37 @@ export const Pricing = ({ variant = "all" }: PricingProps) => {
       <section id="pricing" className="py-24 md:py-32 bg-background">
         <div className="container">
           <div className="max-w-2xl mx-auto text-center reveal">
-            <p className="text-sm font-semibold text-primary mb-3">PRICING</p>
+            <p className="text-sm font-semibold text-primary mb-3 tracking-wider">CUSTOM EXPORT SUPPORT</p>
             <h2 className="text-3xl md:text-5xl font-bold tracking-tight">
-              해외영업 대행 상품
+              산업별 전문 인력이
+              <br />
+              글로벌 시장 진출을 지원합니다
             </h2>
-            <p className="mt-4 text-muted-foreground">
-              전담 해외영업 매니저가 발굴부터 컨택, 리포트까지 직접 수행합니다.
+            <p className="mt-4 text-muted-foreground leading-relaxed">
+              산업과 제품 특성에 맞는 글로벌 진출 전략부터
+              <br className="hidden md:block" />
+              {" "}바이어 발굴, 컨택, 후속관리까지 전문 인력이 직접 지원합니다.
             </p>
           </div>
 
           <div className="mt-14 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start max-w-6xl mx-auto">
             {/* Left: Hybrid card */}
             <div className="lg:col-span-4 reveal">
-              <div className="relative rounded-3xl bg-card border border-border/70 shadow-elevated p-8 flex flex-col h-full">
+              <div className="relative rounded-3xl bg-card border border-border/70 shadow-elevated p-8 md:p-9 flex flex-col h-full">
                 <div className="inline-flex self-start items-center px-3 py-1 rounded-full bg-primary/10 text-primary text-[11px] font-semibold tracking-wide mb-5">
-                  HYBRID PLAN
+                  HYBRID PROGRAM
                 </div>
-                <h3 className="text-2xl font-bold tracking-tight">{hybrid.name}</h3>
-                <div className="mt-4 flex items-end gap-1.5 flex-wrap">
-                  <span className="text-4xl font-bold leading-none tracking-tight">
-                    {hybrid.price}
+                <h3 className="text-2xl font-bold tracking-tight">하이브리드 해외영업 지원</h3>
+                <div className="mt-5">
+                  <span className="text-3xl md:text-4xl font-bold leading-none tracking-tight text-gradient-primary">
+                    맞춤 견적
                   </span>
-                  <span className="text-xs pb-1 text-muted-foreground">{hybrid.suffix}</span>
                 </div>
-                <p className="mt-2 text-sm text-muted-foreground">{hybrid.note}</p>
+                <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
+                  기업 규모 및 산업에 따라
+                  <br />
+                  맞춤형 운영안을 제안합니다.
+                </p>
 
                 <div className="my-6 h-px bg-border/70" />
 
@@ -172,15 +179,17 @@ export const Pricing = ({ variant = "all" }: PricingProps) => {
                   </div>
                 )}
 
-                <div className="mt-4 px-4 py-3 rounded-xl bg-muted/50 border border-border/60 text-center text-xs text-muted-foreground">
-                  전담 해외영업 매니저 배정
+                <div className="mt-4 px-4 py-3 rounded-xl bg-muted/50 border border-border/60 text-center text-xs text-muted-foreground space-y-1">
+                  <p>전담 해외영업 담당자 배정</p>
+                  <p>산업별 맞춤 운영 지원</p>
                 </div>
 
                 <Button
-                  className="mt-8 w-full"
-                  onClick={() => open(`${hybrid.name} 상담 신청`, hybrid.name)}
+                  size="lg"
+                  className="mt-8 w-full h-12 rounded-xl text-[15px] font-semibold shadow-elevated hover:shadow-glow hover:-translate-y-0.5 transition-smooth tracking-wide"
+                  onClick={() => open(`하이브리드 해외영업 지원 상담 신청`, "하이브리드 해외영업 지원")}
                 >
-                  상담 신청
+                  상담 신청하기
                 </Button>
               </div>
             </div>
@@ -188,7 +197,7 @@ export const Pricing = ({ variant = "all" }: PricingProps) => {
             {/* Right: Services */}
             <div className="lg:col-span-8 reveal">
               <p className="text-sm font-semibold text-foreground mb-5 border-l-2 border-primary pl-3">
-                전담 핵심 서비스
+                전문 해외영업 운영 서비스
               </p>
               <div className="space-y-4">
                 {services.map((s) => (
