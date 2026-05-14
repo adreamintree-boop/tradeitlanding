@@ -31,7 +31,7 @@ const ExportAgency = () => {
                 해외영업실행 서비스
               </div>
               <h1 className="text-[2rem] sm:text-4xl md:text-6xl font-bold tracking-tight leading-[1.2] reveal whitespace-pre-line break-keep">
-                막막했던 해외영업,
+                수출로 이어지지 않던 해외영업,
                 <br />
                 <span className="text-gradient-primary">트레이드잇과 함께하세요</span>
               </h1>
