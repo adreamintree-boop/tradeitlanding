@@ -23,7 +23,7 @@ export const Process = () => (
   <section id="process" className="py-24 md:py-32 bg-background">
     <div className="container">
       <div className="max-w-3xl mx-auto text-center reveal">
-        <p className="text-sm font-semibold tracking-[0.2em] text-primary mb-4">HOW IT WORKS</p>
+        <p className="text-sm font-semibold tracking-[0.2em] text-primary mb-4 uppercase">HOW</p>
         <h2 className="text-3xl md:text-5xl font-bold tracking-tight leading-[1.25]">
           바이어 발굴부터 수출까지
           <br />
