@@ -130,18 +130,19 @@ export default function BuyersPage() {
         <SeoHero page={page} />
         <SummaryCards summary={page.summary} hasCountry={hasCountry} />
         <BuyerGrid
-          rows={page.summary.top30}
-          title={`글로벌 상위 ${page.product_label} 바이어`}
-          subtitle="2025년 한국발 수출 데이터 기준, 거래 활동이 활발한 상위 해외 바이어 기업 정보를 제공합니다."
+          rows={hasCountry ? countryRows : page.summary.top30}
+          title={
+            hasCountry
+              ? `${page.country_label} 상위 ${page.product_label} 바이어`
+              : `글로벌 상위 ${page.product_label} 바이어`
+          }
+          subtitle={
+            hasCountry
+              ? `2025년 한국 수출 데이터를 기준으로, ${page.country_label} 시장 내 거래 활동이 활발한 상위 바이어 기업 정보를 제공합니다.`
+              : "2025년 한국 수출 데이터를 기준으로, 거래 활동이 활발한 상위 해외 바이어 기업 정보를 제공합니다."
+          }
         />
         {!hasCountry && <CountryAnalytics ranking={page.summary.countryRanking} />}
-        {page.page_type === "country" && countryRows.length > 0 && (
-          <BuyerGrid
-            rows={countryRows}
-            title={`${page.country_label} 상위 바이어`}
-            subtitle={`${page.country_label} 시장에서 ${page.product_label}을(를) 가장 활발히 수입한 바이어 기업 정보입니다.`}
-          />
-        )}
         <SeoFaq product={page.product_label} country={page.country_label} />
         <SeoCta />
         <FooterInternalLinks related={related} />

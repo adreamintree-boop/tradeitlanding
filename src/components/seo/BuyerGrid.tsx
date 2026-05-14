@@ -109,11 +109,19 @@ export const BuyerGrid = ({ rows, title, subtitle }: { rows: ShipmentRow[]; titl
                 </div>
                 <div>
                   <div className="text-[10px] uppercase tracking-wider text-muted-foreground font-semibold">Trade Value</div>
-                  <div className="text-sm font-bold text-primary mt-1 tabular-nums">{formatUSD(r.trade_value_usd)}</div>
+                  {r.trade_value_usd && r.trade_value_usd > 0 ? (
+                    <div className="text-sm font-bold text-primary mt-1 tabular-nums">{formatUSD(r.trade_value_usd)}</div>
+                  ) : (
+                    <div className="text-xs font-medium text-muted-foreground mt-1.5">집계 불가</div>
+                  )}
                 </div>
                 <div>
                   <div className="text-[10px] uppercase tracking-wider text-muted-foreground font-semibold">Weight</div>
-                  <div className="text-sm font-bold text-foreground mt-1 tabular-nums">{weight ?? "—"}</div>
+                  {weight ? (
+                    <div className="text-sm font-bold text-foreground mt-1 tabular-nums">{weight}</div>
+                  ) : (
+                    <div className="text-xs font-medium text-muted-foreground mt-1.5">집계 불가</div>
+                  )}
                 </div>
               </div>
               {!unmasked && (
