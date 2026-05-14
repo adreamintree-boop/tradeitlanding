@@ -128,7 +128,7 @@ export default function BuyersPage() {
       <Header />
       <main>
         <SeoHero page={page} />
-        <SummaryCards summary={page.summary} />
+        <SummaryCards summary={page.summary} hasCountry={hasCountry} />
         <BuyerGrid
           rows={page.summary.top30}
           title={`글로벌 상위 ${page.product_label} 바이어`}

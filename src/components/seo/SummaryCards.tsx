@@ -2,15 +2,15 @@ import { Package, Scale, DollarSign, Globe2, Calendar, Info, TrendingUp, Layers,
 import { formatNum, formatUSD } from "@/lib/seo-helpers";
 import type { SeoSummary } from "@/lib/seo-types";
 
-export const SummaryCards = ({ summary }: { summary: SeoSummary }) => {
+export const SummaryCards = ({ summary, hasCountry = false }: { summary: SeoSummary; hasCountry?: boolean }) => {
   const avgTrade = summary.totalBuyers > 0 ? summary.totalTradeValue / summary.totalBuyers : 0;
   const avgShipments = summary.totalBuyers > 0 ? summary.totalShipments / summary.totalBuyers : 0;
   const repeatRatio = summary.totalBuyers > 0 ? Math.round((summary.repeatBuyers / summary.totalBuyers) * 100) : 0;
   const topCountries = summary.countryRanking.slice(0, 3).map((c) => c.country).filter(Boolean);
 
   const totalWeightKg = (summary.top30 || []).reduce((s, r) => s + (r.weight_kg || 0), 0);
+  const weightUnavailable = !totalWeightKg || isNaN(totalWeightKg);
   const formatWeight = (kg: number) => {
-    if (!kg || isNaN(kg)) return "0 KG";
     if (kg >= 1000) {
       const t = kg / 1000;
       return `${t.toLocaleString("en-US", { maximumFractionDigits: 1 })} TON`;
@@ -28,8 +28,8 @@ export const SummaryCards = ({ summary }: { summary: SeoSummary }) => {
     {
       icon: Scale,
       label: "총 거래 중량",
-      value: formatWeight(totalWeightKg),
-      hint: "상위 30개 바이어 누적 중량 기준",
+      value: weightUnavailable ? "집계 불가" : formatWeight(totalWeightKg),
+      hint: weightUnavailable ? "중량 데이터 미제공 또는 집계 불가" : "상위 30개 바이어 누적 중량 기준",
     },
     {
       icon: DollarSign,
@@ -39,8 +39,8 @@ export const SummaryCards = ({ summary }: { summary: SeoSummary }) => {
     },
   ];
 
-  const insights = [
-    {
+  const allInsights = [
+    !hasCountry && {
       tag: "Market Insight",
       icon: Globe2,
       title: summary.topImportCountry || "—",
@@ -67,6 +67,7 @@ export const SummaryCards = ({ summary }: { summary: SeoSummary }) => {
         "시장 단가 수준과 평균 거래 체급을 가늠할 수 있는 지표로, 가격 포지셔닝 및 최소주문수량(MOQ) 설계에 활용할 수 있습니다.",
     },
   ];
+  const insights = allInsights.filter(Boolean) as Array<{ tag: string; icon: typeof Globe2; title: string; headline: string; body: string }>;
 
   const secondary = [
     {
@@ -138,7 +139,7 @@ export const SummaryCards = ({ summary }: { summary: SeoSummary }) => {
               데이터에서 도출된 핵심 시장 신호를 분석가 관점에서 정리했습니다.
             </p>
           </div>
-          <div className="grid md:grid-cols-3 gap-5 md:gap-6">
+          <div className={`grid gap-5 md:gap-6 ${insights.length === 2 ? "md:grid-cols-2 max-w-4xl mx-auto" : "md:grid-cols-3"}`}>
             {insights.map((it, i) => (
               <article
                 key={i}
