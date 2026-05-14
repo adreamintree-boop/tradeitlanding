@@ -57,6 +57,19 @@ function Inner() {
 
   const summary: SeoSummary = useMemo(() => computeSummary(rows), [rows]);
 
+  const totalWeightKg = useMemo(
+    () => summary.top30.reduce((s, r) => s + (r.weight_kg || 0), 0),
+    [summary]
+  );
+  const formatWeight = (kg: number) => {
+    if (!kg || isNaN(kg)) return "0 KG";
+    if (kg >= 1000) {
+      const t = kg / 1000;
+      return `${t.toLocaleString(undefined, { maximumFractionDigits: 1 })} TON`;
+    }
+    return `${Math.round(kg).toLocaleString()} KG`;
+  };
+
   // Auto suggestions
   useEffect(() => {
     if (!isEdit && productLabel && !productSlug) setProductSlug(slugify(productLabel));
@@ -293,6 +306,7 @@ function Inner() {
                 ["{product}", productLabel || "—"],
                 ["{country}", countryLabel || "—"],
                 ["{top_30_total_shipments}", formatNum(summary.totalShipments)],
+                ["{top_30_total_weight}", formatWeight(totalWeightKg)],
                 ["{top_30_total_trade_value}", formatUSD(summary.totalTradeValue)],
                 ["{top_import_country}", summary.topImportCountry],
                 ["{top_30_buyers}", formatNum(summary.totalBuyers)],
