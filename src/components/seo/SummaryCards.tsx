@@ -1,4 +1,4 @@
-import { Package, Users, DollarSign, Globe2, Calendar, Info, TrendingUp, Layers, RefreshCw } from "lucide-react";
+import { Package, Scale, DollarSign, Globe2, Calendar, Info, TrendingUp, Layers, RefreshCw } from "lucide-react";
 import { formatNum, formatUSD } from "@/lib/seo-helpers";
 import type { SeoSummary } from "@/lib/seo-types";
 
@@ -8,6 +8,16 @@ export const SummaryCards = ({ summary }: { summary: SeoSummary }) => {
   const repeatRatio = summary.totalBuyers > 0 ? Math.round((summary.repeatBuyers / summary.totalBuyers) * 100) : 0;
   const topCountries = summary.countryRanking.slice(0, 3).map((c) => c.country).filter(Boolean);
 
+  const totalWeightKg = (summary.top30 || []).reduce((s, r) => s + (r.weight_kg || 0), 0);
+  const formatWeight = (kg: number) => {
+    if (!kg || isNaN(kg)) return "0 KG";
+    if (kg >= 1000) {
+      const t = kg / 1000;
+      return `${t.toLocaleString("en-US", { maximumFractionDigits: 1 })} TON`;
+    }
+    return `${kg.toLocaleString("en-US", { maximumFractionDigits: 1 })} KG`;
+  };
+
   const heroKpis = [
     {
       icon: Package,
@@ -16,10 +26,10 @@ export const SummaryCards = ({ summary }: { summary: SeoSummary }) => {
       hint: "상위 30개 바이어 합산 기준",
     },
     {
-      icon: Users,
-      label: "총 바이어 수",
-      value: formatNum(summary.totalBuyers),
-      hint: "공개된 상위 해외 바이어 표본",
+      icon: Scale,
+      label: "총 거래 중량",
+      value: formatWeight(totalWeightKg),
+      hint: "상위 30개 바이어 누적 중량 기준",
     },
     {
       icon: DollarSign,
