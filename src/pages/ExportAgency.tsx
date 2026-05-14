@@ -35,9 +35,9 @@ const ExportAgency = () => {
                 <br />
                 <span className="text-gradient-primary">트레이드잇과 함께하세요</span>
               </h1>
-              <p className="mt-6 text-base md:text-lg text-muted-foreground leading-relaxed reveal">
-                글로벌 무역데이터와 해외수출 전담 인력을 결합하여
-                <br className="hidden md:block" />
+              <p className="mt-6 text-base md:text-lg text-muted-foreground leading-relaxed reveal whitespace-pre-line">
+                글로벌 무역데이터와 해외영업 전담 인력을 결합하여
+                {"\n"}
                 실제 바이어 컨택부터 계약까지 해외영업의 모든 과정을 대신 수행합니다.
               </p>
               <div className="mt-9 flex justify-center reveal">
