@@ -134,7 +134,7 @@ export default function BuyersPage() {
           title={`글로벌 상위 ${page.product_label} 바이어`}
           subtitle="2025년 한국발 수출 데이터 기준, 거래 활동이 활발한 상위 해외 바이어 기업 정보를 제공합니다."
         />
-        <CountryAnalytics ranking={page.summary.countryRanking} />
+        {!hasCountry && <CountryAnalytics ranking={page.summary.countryRanking} />}
         {page.page_type === "country" && countryRows.length > 0 && (
           <BuyerGrid
             rows={countryRows}
