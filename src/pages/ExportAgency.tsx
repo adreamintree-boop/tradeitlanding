@@ -30,8 +30,8 @@ const ExportAgency = () => {
               <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-accent text-accent-foreground text-xs font-semibold mb-6 reveal">
                 해외영업실행 서비스
               </div>
-              <h1 className="text-[2rem] sm:text-4xl md:text-6xl font-bold tracking-tight leading-[1.2] reveal whitespace-pre-line">
-                해외 영업,
+              <h1 className="text-[2rem] sm:text-4xl md:text-6xl font-bold tracking-tight leading-[1.2] reveal whitespace-pre-line break-keep">
+                막막했던 해외영업,
                 <br />
                 <span className="text-gradient-primary">트레이드잇과 함께하세요</span>
               </h1>
