@@ -130,7 +130,7 @@ export const Pricing = ({ variant = "all" }: PricingProps) => {
       <section id="pricing" className="py-24 md:py-32 bg-background">
         <div className="container">
           <div className="max-w-2xl mx-auto text-center reveal">
-            <p className="text-sm font-semibold text-primary mb-3 tracking-wider">CUSTOM EXPORT SUPPORT</p>
+            <p className="text-sm font-semibold text-primary mb-3 tracking-wider">PRICING</p>
             <h2 className="text-3xl md:text-5xl font-bold tracking-tight">
               산업별 전문 인력이
               <br />
