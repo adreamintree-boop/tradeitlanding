@@ -98,20 +98,30 @@ export default function BuyersPage() {
     ? page.summary.top30.filter((r) => r.country?.toLowerCase() === page.country_label?.toLowerCase())
     : [];
 
+  const hasCountry = !!page.country_label;
+  const dynamicTitle = hasCountry
+    ? `한국에서 수출된 ${page.product_label} ${page.country_label} 바이어 리스트`
+    : `한국에서 수출된 ${page.product_label} 글로벌 해외 바이어 리스트`;
+  const dynamicDescription = hasCountry
+    ? `2025년 한국 수출 데이터를 기반으로 ${page.country_label} 시장에서 ${page.product_label}을(를) 실제 수입한 상위 바이어 30개 기업의 실제 거래 데이터를 분석하여 ${page.country_label} 내 수입 수요, 반복 수입 기업, 거래 흐름을 제공합니다.`
+    : `2025년 한국 수출 데이터를 기반으로 글로벌 시장에서 ${page.product_label}을(를) 실제 수입한 상위 해외 바이어 30개 기업의 실제 거래 데이터를 분석하여 국가별 수입 수요, 반복 수입 기업, 거래 흐름을 제공합니다.`;
+  const metaTitle = page.meta_title || dynamicTitle;
+  const metaDescription = page.meta_description || dynamicDescription;
+
   return (
     <div className="min-h-screen bg-background animate-fade-in">
       <Helmet>
-        <title>{page.meta_title}</title>
-        <meta name="description" content={page.meta_description} />
+        <title>{metaTitle}</title>
+        <meta name="description" content={metaDescription} />
         <link rel="canonical" href={canonical} />
-        <meta property="og:title" content={page.meta_title} />
-        <meta property="og:description" content={page.meta_description} />
+        <meta property="og:title" content={metaTitle} />
+        <meta property="og:description" content={metaDescription} />
         <meta property="og:type" content="website" />
         <meta property="og:url" content={canonical} />
         {page.og_image_url && <meta property="og:image" content={page.og_image_url} />}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={page.meta_title} />
-        <meta name="twitter:description" content={page.meta_description} />
+        <meta name="twitter:title" content={metaTitle} />
+        <meta name="twitter:description" content={metaDescription} />
         {jsonLd && <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>}
       </Helmet>
 
