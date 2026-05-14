@@ -57,14 +57,9 @@ export const AgencySolution = () => (
                 src={c.image}
                 alt={c.alt}
                 loading="lazy"
-                className="w-full h-full object-cover grayscale contrast-[1.05] transition-transform duration-700 group-hover:scale-[1.04]"
+                className="w-full h-full object-cover saturate-[0.9] transition-transform duration-700 group-hover:scale-[1.04]"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-foreground/55 via-foreground/10 to-transparent" />
-              <div className="absolute top-5 left-5">
-                <span className="inline-flex items-center px-3 py-1.5 rounded-full bg-background/95 backdrop-blur text-[11px] font-bold tracking-[0.15em] text-primary">
-                  {c.eyebrow}
-                </span>
-              </div>
+              <div className="absolute inset-0 bg-gradient-to-t from-foreground/25 via-transparent to-transparent" />
             </div>
 
             <div className="flex flex-col flex-1 px-7 md:px-8 pt-7 pb-7">
