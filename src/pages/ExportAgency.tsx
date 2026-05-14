@@ -27,7 +27,7 @@ const ExportAgency = () => {
           <div className="container relative">
             <div className="max-w-3xl mx-auto text-center">
               <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-accent text-accent-foreground text-xs font-semibold mb-6 reveal">
-                EXPORT AGENCY · 해외영업 대행 서비스
+                해외영업실행 서비스
               </div>
               <h1 className="text-[2rem] sm:text-4xl md:text-6xl font-bold tracking-tight leading-[1.2] reveal">
                 저희가 대신
