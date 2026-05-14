@@ -2,7 +2,7 @@ import { Package, Scale, DollarSign, Globe2, Calendar, Info, TrendingUp, Layers,
 import { formatNum, formatUSD } from "@/lib/seo-helpers";
 import type { SeoSummary } from "@/lib/seo-types";
 
-export const SummaryCards = ({ summary, hasCountry = false }: { summary: SeoSummary; hasCountry?: boolean }) => {
+export const SummaryCards = ({ summary, hasCountry = false, countryLabel }: { summary: SeoSummary; hasCountry?: boolean; countryLabel?: string | null }) => {
   const avgTrade = summary.totalBuyers > 0 ? summary.totalTradeValue / summary.totalBuyers : 0;
   const avgShipments = summary.totalBuyers > 0 ? summary.totalShipments / summary.totalBuyers : 0;
   const repeatRatio = summary.totalBuyers > 0 ? Math.round((summary.repeatBuyers / summary.totalBuyers) * 100) : 0;
