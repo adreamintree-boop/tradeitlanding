@@ -146,7 +146,7 @@ export default function BuyersPage() {
       <Header />
       <main>
         <SeoHero page={page} />
-        <SummaryCards summary={page.summary} hasCountry={hasCountry} />
+        <SummaryCards summary={page.summary} hasCountry={hasCountry} countryLabel={page.country_label} />
         <BuyerGrid
           rows={buyerRows}
           title={
