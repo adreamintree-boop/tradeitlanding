@@ -12,6 +12,7 @@ import { SeoFaq } from "@/components/seo/SeoFaq";
 import { SeoCta } from "@/components/seo/SeoCta";
 import { FooterInternalLinks } from "@/components/seo/FooterInternalLinks";
 import type { SeoPage } from "@/lib/seo-types";
+import { COUNTRY_LABELS } from "@/lib/seo-helpers";
 import NotFound from "@/pages/NotFound";
 
 export default function BuyersPage() {
@@ -94,9 +95,26 @@ export default function BuyersPage() {
     );
   }
 
-  const countryRows = page.country_label
-    ? page.summary.top30.filter((r) => r.country?.toLowerCase() === page.country_label?.toLowerCase())
+  const countryAliases = page.country_slug
+    ? [
+        page.country_label?.toLowerCase(),
+        page.country_slug?.toLowerCase(),
+        COUNTRY_LABELS[page.country_slug]?.toLowerCase(),
+      ].filter(Boolean) as string[]
     : [];
+  const countryRows = page.country_label
+    ? page.summary.top30.filter((r) => {
+        const c = (r.country || "").toLowerCase().trim();
+        if (!c) return false;
+        return countryAliases.some((alias) => c === alias || c.includes(alias) || alias.includes(c));
+      })
+    : [];
+  // Fallback: if filter returns nothing (data labels mismatch), show all top30 to avoid empty state
+  const buyerRows = page.country_label
+    ? countryRows.length > 0
+      ? countryRows
+      : page.summary.top30
+    : page.summary.top30;
 
   const hasCountry = !!page.country_label;
   const dynamicTitle = hasCountry
@@ -130,7 +148,7 @@ export default function BuyersPage() {
         <SeoHero page={page} />
         <SummaryCards summary={page.summary} hasCountry={hasCountry} />
         <BuyerGrid
-          rows={hasCountry ? countryRows : page.summary.top30}
+          rows={buyerRows}
           title={
             hasCountry
               ? `${page.country_label} 상위 ${page.product_label} 바이어`
